@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.admin.vo.BnnVo" id="BnnVo">
+        <result property="img1" column="IMG_1" />
+		<result property="noAtchFileSral1" column="NO_ATCH_FILE_SRAL_1" />
+		<result property="text1" column="TEXT_1" />
+		<result property="link1" column="LNK_1" />
+		<result property="img2" column="IMG_2" />
+		<result property="noAtchFileSral2" column="NO_ATCH_FILE_SRAL_2" />
+		<result property="text2" column="TEXT_2" />
+		<result property="link2" column="LNK_2" />
+		<result property="img3" column="IMG_3" />
+		<result property="noAtchFileSral3" column="NO_ATCH_FILE_SRAL_3" />
+		<result property="text3" column="TEXT_3" />
+		<result property="link3" column="LNK_3" />
+		<result property="pthFilePhys1" column="PTH_FILE_PHYS_1" />
+		<result property="pthFilePhys2" column="PTH_FILE_PHYS_2" />
+		<result property="pthFilePhys3" column="PTH_FILE_PHYS_3" />
+		<result property="nmPhysFile1" column="NM_PHYS_FILE_1" />
+		<result property="nmPhysFile2" column="NM_PHYS_FILE_2" />
+		<result property="nmPhysFile3" column="NM_PHYS_FILE_3" />
+    </resultMap>
+
+    <!-- 메인이미지 테이블 ROW 여부 확인 -->
+    <select id="selectMainImgCnt" resultClass="Integer">
+	   SELECT COUNT(*) AS CNT FROM HABT_ADMN_MAIN
+    </select>
+
+    <!-- 메인이미지 정보 상세 -->
+    <select id="selectMainImg" resultClass="java.util.HashMap">
+	     SELECT IMG_1
+			  , TEXT_1
+			  , LNK_1
+			  , IMG_2                   /* 이미지2 */
+			  , TEXT_2                  /* 이미지 대체 텍스트2 */
+			  , LNK_2                   /* URL 링크2 */
+			  , IMG_3                   /* 이미지3 */
+			  , TEXT_3                  /* 이미지 대체 텍스트3 */
+			  , LNK_3                   /* URL 링크3 */
+		   FROM HABT_ADMN_MAIN
+<!-- 	SELECT -->
+<!--     IMG_1, -->
+<!--     TEXT_1, -->
+<!--     LNK_1, -->
+<!--     (SELECT PTH_FILE_LOGI FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_1 = B.NO_ATCH_FILE_SRAL AND A.IMG_1 = B.NM_LOGI_FILE)) AS PTH_FILE_PHYS_1, -->
+<!--     (SELECT NM_PHYS_FILE FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_1 = B.NO_ATCH_FILE_SRAL AND A.IMG_1 = B.NM_LOGI_FILE)) AS NM_PHYS_FILE_1, -->
+<!--     NO_ATCH_FILE_SRAL_1, -->
+<!--     IMG_2, -->
+<!--     TEXT_2, -->
+<!--     LNK_2, -->
+<!--     (SELECT PTH_FILE_LOGI FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_2 = B.NO_ATCH_FILE_SRAL AND A.IMG_2 = B.NM_LOGI_FILE)) AS PTH_FILE_PHYS_2, -->
+<!--     (SELECT NM_PHYS_FILE FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_2 = B.NO_ATCH_FILE_SRAL AND A.IMG_2 = B.NM_LOGI_FILE)) AS NM_PHYS_FILE_2, -->
+<!--     NO_ATCH_FILE_SRAL_2, -->
+<!--     IMG_3, -->
+<!--     TEXT_3, -->
+<!--     LNK_3, -->
+<!--     (SELECT PTH_FILE_LOGI FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_3 = B.NO_ATCH_FILE_SRAL AND A.IMG_3 = B.NM_LOGI_FILE)) AS PTH_FILE_PHYS_3, -->
+<!--     (SELECT NM_PHYS_FILE FROM HABT_ADMN_MAIN A INNER JOIN HABT_FILE_LST_INFO B ON (A.NO_ATCH_FILE_SRAL_3 = B.NO_ATCH_FILE_SRAL AND A.IMG_3 = B.NM_LOGI_FILE)) AS NM_PHYS_FILE_3, -->
+<!--     NO_ATCH_FILE_SRAL_3 -->
+<!--     FROM HABT_ADMN_MAIN -->
+    </select>
+
+    <delete id="deleteMainImg">
+        DELETE FROM HABT_ADMN_MAIN
+    </delete>
+    <!-- 메인이미지 정보 등록 -->
+    <insert id="insertMainImg">
+	 	INSERT INTO HABT_ADMN_MAIN
+	 	 	 (
+	 	 	   IMG_1                   /* 이미지1 */
+			 , NO_ATCH_FILE_SRAL_1     /* 파일 정보1 */
+			 , TEXT_1                  /* 이미지 대체 텍스트1 */
+			 , LNK_1                   /* URL 링크1 */
+			 , IMG_2                   /* 이미지2 */
+			 , NO_ATCH_FILE_SRAL_2     /* 파일 정보2 */
+			 , TEXT_2                  /* 이미지 대체 텍스트2 */
+			 , LNK_2                   /* URL 링크2 */
+			 , IMG_3                   /* 이미지3 */
+			 , NO_ATCH_FILE_SRAL_3     /* 파일 정보3 */
+			 , TEXT_3                  /* 이미지 대체 텍스트3 */
+			 , LNK_3                   /* URL 링크3 */
+		     ) VALUES (
+		   	   #img1#			       /* 이미지1 */
+			 , #noAtchFileSral1#	   /* 파일 정보1 */
+			 , #text1#			       /* 이미지 대체 텍스트1 */
+			 , #link1#		           /* URL 링크1 */
+			 , #img2#			       /* 이미지2 */
+			 , #noAtchFileSral2#	   /* 파일 정보2 */
+			 , #text2#			       /* 이미지 대체 텍스트2 */
+			 , #link2#		           /* URL 링크2 */
+			 , #img3#			       /* 이미지3 */
+			 , #noAtchFileSral3#	   /* 파일 정보3 */
+			 , #text3#			       /* 이미지 대체 텍스트3 */
+			 , #link3#		           /* URL 링크3 */
+		     )
+	 </insert>
+
+	 <update id="updateMainImg">
+    	UPDATE HABT_ADMN_MAIN
+		   SET TEXT_1 = #text1#
+		     , LNK_1  = #link1#
+             , TEXT_2 = #text2#
+             , LNK_2  = #link2#
+             , TEXT_3 = #text3#
+             , LNK_3  = #link3#
+         <isNotNull property="img1">, IMG_1 = #img1#</isNotNull>
+         <isNotNull property="img2">, IMG_2 = #img2#</isNotNull>
+         <isNotNull property="img3">, IMG_3 = #img3#</isNotNull>
+    </update>
+
+
+</sqlMap>

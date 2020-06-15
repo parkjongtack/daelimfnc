@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.admin.vo.AdmVo" id="admVo">
+        <result property="idAdmnPrsn" column="ID_ADMN_PRSN" />
+		<result property="noAdmnScrt" column="NO_ADMN_SCRT" />
+		<result property="nmAdmnPrsn" column="NM_ADMN_PRSN" />
+		<result property="emailAdmnPrsn" column="EMAIL_ADMN_PRSN" />
+		<result property="nmDeptAdmnprsn" column="NM_DEPT_ADMNPRSN" />
+		<result property="noMphn" column="NO_MPHN" />
+		<result property="ynUse" column="YN_USE" />
+		<result property="ynLinAble" column="YN_LIN_ABLE" />
+		<result property="dtBegnAtrt" column="DT_BEGN_ATRT" />
+		<result property="dtEndAtrt" column="DT_END_ATRT" />
+		<result property="clAdmnPrsn" column="CL_ADMN_PRSN" />
+		<result property="notmEror" column="NOTM_EROR" />
+		<result property="dtChgPwd" column="DT_CHG_PWD" />
+		<result property="dtPlanChgPwd" column="DT_PLAN_CHG_PWD" />
+		<result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+   	 
+    <select id="selectAdmListCnt" resultClass="Integer">
+        /* adm.selectAdmListCnt : 목록 개수 */
+        SELECT COUNT(ID_ADMN_PRSN) AS CNT
+		  FROM HABT_ADMN_PRSN_INFO
+ 		 WHERE 1=1
+	  <isEqual property="searchType" compareValue="1">
+           AND ID_ADMN_PRSN LIKE '%' || #searchData# || '%'
+   	  </isEqual>
+      <isEqual property="searchType" compareValue="2">
+           AND NM_DEPT_ADMNPRSN LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="3">
+           AND NM_ADMN_PRSN LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="4">
+           AND EMAIL_ADMN_PRSN LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="5">
+           AND NO_MPHN LIKE '%' || #searchData# || '%'
+       </isEqual>
+    </select>
+    
+    <select id="selectAdmList" resultMap="admVo">
+        /* adm.selectAdmList 목록 */
+        SELECT ID_ADMN_PRSN
+			 , NO_ADMN_SCRT
+			 , NM_ADMN_PRSN
+			 , EMAIL_ADMN_PRSN
+			 , NM_DEPT_ADMNPRSN
+			 , NO_MPHN
+			 , YN_USE
+			 , YN_LIN_ABLE
+			 , DT_BEGN_ATRT
+			 , DT_END_ATRT
+			 , CL_ADMN_PRSN
+			 , NOTM_EROR
+			 , DT_CHG_PWD
+			 , DT_PLAN_CHG_PWD
+			 , NO_ATCH_FILE_SRAL
+			 , ID_CRTN_PRSN
+			 , DNT_CRTN
+			 , ID_REV_PRSN
+			 , DNT_REV
+			 , IP_ADMN_PRSN
+		FROM (SELECT ROW_NUMBER() OVER(ORDER BY ID_ADMN_PRSN DESC) AS NUM
+				   , ID_ADMN_PRSN
+				   , NO_ADMN_SCRT
+				   , NM_ADMN_PRSN
+				   , EMAIL_ADMN_PRSN
+				   , NM_DEPT_ADMNPRSN
+				   , NO_MPHN
+				   , YN_USE
+				   , YN_LIN_ABLE
+				   , DT_BEGN_ATRT
+				   , DT_END_ATRT
+				   , CL_ADMN_PRSN
+				   , NOTM_EROR
+				   , DT_CHG_PWD
+				   , DT_PLAN_CHG_PWD
+				   , NO_ATCH_FILE_SRAL
+				   , ID_CRTN_PRSN
+				   , DNT_CRTN
+				   , ID_REV_PRSN
+				   , DNT_REV
+				   , IP_ADMN_PRSN
+	 		    FROM HABT_ADMN_PRSN_INFO
+ 		 	   WHERE 1=1
+			<isEqual property="searchType" compareValue="1">
+	             AND ID_ADMN_PRSN LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="2">
+	             AND NM_DEPT_ADMNPRSN LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="3">
+	             AND NM_ADMN_PRSN LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="4">
+	             AND EMAIL_ADMN_PRSN LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="5">
+	             AND NO_MPHN LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	         ) A
+       	 WHERE NUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+    <select id="selectAdmInfo" resultMap="admVo">
+        /* adm.selectAdmInfo 정보 */
+        SELECT ID_ADMN_PRSN
+			 , NO_ADMN_SCRT
+			 , NM_ADMN_PRSN
+			 , EMAIL_ADMN_PRSN
+			 , NM_DEPT_ADMNPRSN
+			 , NO_MPHN
+			 , YN_USE
+			 , YN_LIN_ABLE
+			 , TO_CHAR(TO_DATE(DT_BEGN_ATRT, 'YYYYMMDD'), 'YYYY-MM-DD') AS DT_BEGN_ATRT
+			 , TO_CHAR(TO_DATE(DT_END_ATRT, 'YYYYMMDD'), 'YYYY-MM-DD') AS DT_END_ATRT
+			 , CL_ADMN_PRSN
+			 , NOTM_EROR
+			 , DT_CHG_PWD
+			 , DT_PLAN_CHG_PWD
+			 , NO_ATCH_FILE_SRAL
+			 , ID_CRTN_PRSN
+			 , DNT_CRTN
+			 , ID_REV_PRSN
+			 , DNT_REV
+			 , IP_ADMN_PRSN
+		FROM HABT_ADMN_PRSN_INFO
+ 	   WHERE ID_ADMN_PRSN = #idAdmnPrsn#
+    </select>
+    
+    <select id="selectAdmIdExist" resultClass="Integer">
+		/* adm.selectAdmIdExist : ID 존재 확인 */
+        SELECT COUNT(ID_ADMN_PRSN) AS CNT
+		  FROM HABT_ADMN_PRSN_INFO
+		 WHERE ID_ADMN_PRSN = #idAdmnPrsn#
+	</select>
+	
+	<insert id="insertAdm">
+	 	/* adm.insertAdm : 등록 */
+	 	INSERT INTO HABT_ADMN_PRSN_INFO
+	 	 	 ( 
+	 	 	   ID_ADMN_PRSN            /* 관리자 아이디 */                    
+			 , NO_ADMN_SCRT            /* 비밀번호 */                       
+			 , NM_ADMN_PRSN            /* 이름 */                         
+			 , EMAIL_ADMN_PRSN         /* 이메일 */                         
+			 , NM_DEPT_ADMNPRSN        /* 부서명 */                        
+			 , NO_MPHN                 /* 휴대폰번호 */                      
+			 , YN_USE                  /* 사용 여부 */                      
+			 , YN_LIN_ABLE             /* 로그인 가능 여부 */                  
+			 , DT_BEGN_ATRT            /* 적용 시작 기간 */                   
+			 , DT_END_ATRT             /* 적용 종료 기간 */                   
+			 , CL_ADMN_PRSN            /* 관리자 여부 */                
+			 , DT_CHG_PWD              /* 비밀번호 변경 일자 */                 
+			 , DT_PLAN_CHG_PWD         /* 비밀번호 변경 예정 일자 */              
+			 , NO_ATCH_FILE_SRAL       /* 첨부파일 일련번호 사용시퀀스 */            
+			 , ID_CRTN_PRSN            /* 생성자 */                        
+			 , DNT_CRTN                /* 일시생성 */                       
+			 , ID_REV_PRSN             /* 수정자 */                        
+			 , DNT_REV                 /* 일시수정 */                       
+			 , IP_ADMN_PRSN            /* 아이피 */                        
+		     ) VALUES (                
+		   	   #idAdmnPrsn#			   /* 관리자 아이디 */
+			 , #noAdmnScrt#			   /* 비밀번호 */
+			 , #nmAdmnPrsn#			   /* 이름 */
+			 , #emailAdmnPrsn#		   /* 이메일 */
+			 , #nmDeptAdmnprsn#		   /* 부서명 */
+			 , #noMphn#				   /* 휴대폰번호 */
+			 , 'Y'					   /* 사용 여부 */
+			 , 'Y'					   /* 로그인 가능 여부 */
+			 , #dtBegnAtrt#			   /* 적용 시작 기간 */
+			 , #dtEndAtrt#			   /* 적용 종료 기간 */
+			 , #clAdmnPrsn#			   /* 관리자 여부 */
+			 , #dtChgPwd#			   /* 비밀번호 변경 일자 */
+			 , #dtPlanChgPwd#		   /* 비밀번호 변경 예정 일자 */
+			 , #noAtchFileSral#		   /* 첨부파일 일련번호 사용시퀀스 */ 
+			 , #idCrtnPrsn#			   /* 생성자 */
+			 , SYSDATE				   /* 일시생성 */
+			 , #idRevPrsn#			   /* 수정자 */
+			 , SYSDATE				   /* 일시수정 */
+			 , #ipAdmnPrsn#			   /* 아이피 */
+		     )
+	 </insert>
+	 
+	 <update id="updateAdm">
+	 	/* adm.updateAdm : 수정 */
+	 	UPDATE HABT_ADMN_PRSN_INFO
+	 	  SET  NM_ADMN_PRSN        = #nmAdmnPrsn#			   /* 이름 */                          
+			 , EMAIL_ADMN_PRSN     = #emailAdmnPrsn#		   /* 이메일 */                         
+			 , NM_DEPT_ADMNPRSN    = #nmDeptAdmnprsn#		   /* 부서명 */                         
+			 , NO_MPHN             = #noMphn#				   /* 휴대폰번호 */                  
+			 , DT_BEGN_ATRT        = #dtBegnAtrt#			   /* 적용 시작 기간 */                    
+			 , DT_END_ATRT         = #dtEndAtrt#			   /* 적용 종료 기간 */                    
+			 , CL_ADMN_PRSN        = #clAdmnPrsn#			   /* 관리자 여부 */  
+		   <isNotEmpty property="noAdmnScrt">
+		   		, NO_ADMN_SCRT        = #noAdmnScrt#			   /* 비밀번호 */
+		   		, DT_CHG_PWD          = #dtChgPwd#			   	   /* 비밀번호 변경 일자 */                   
+			 	, DT_PLAN_CHG_PWD     = #dtPlanChgPwd#		   	   /* 비밀번호 변경 예정 일자 */ 
+		   </isNotEmpty>                              
+			 , ID_REV_PRSN         = #idRevPrsn#			   /* 수정자 */                         
+			 , DNT_REV             = SYSDATE				   /* 일시수정 */                        
+			 , IP_ADMN_PRSN        = #ipAdmnPrsn#			   /* 아이피 */    
+		 WHERE ID_ADMN_PRSN = #idAdmnPrsn#	
+	 </update>
+	 
+	 <update id="updateAdmBynoteEror">
+	 	/* adm.updateAdmBynoteEror : 사용제한 복구 */
+	 	UPDATE HABT_ADMN_PRSN_INFO
+	 	  SET  NOTM_EROR           = 0		   				   /* 로그인 오류 횟수 */ 
+	 	     , YN_LIN_ABLE 		   = 'Y'                     
+			 , ID_REV_PRSN         = #idRevPrsn#			   /* 수정자 */                         
+			 , DNT_REV             = SYSDATE				   /* 일시수정 */                        
+			 , IP_ADMN_PRSN        = #ipAdmnPrsn#			   /* 아이피 */    
+		 WHERE ID_ADMN_PRSN = #idAdmnPrsn#	
+	 </update>
+	 
+	 <delete id="deleteAdm">
+	 	/* adm.deleteAdm : 삭제 */
+	 	DELETE HABT_ADMN_PRSN_INFO 
+	 	 WHERE ID_ADMN_PRSN = #idAdmnPrsn#
+	 </delete>
+</sqlMap>

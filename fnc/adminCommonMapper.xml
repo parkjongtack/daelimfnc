@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="adminCommonMapper">
+    
+    <typeAlias alias="hmap"     type="java.util.HashMap"    />
+    <typeAlias alias="int"      type="java.lang.Integer"    />
+    <typeAlias alias="str"      type="java.lang.String"     />
+    
+    <insert id="sendSMS" parameterClass="hmap">
+        insert into em_smt_tran 
+        (mt_pr, MT_REFKEY, date_client_req, content, callback, service_type, broadcast_yn, msg_status, recipient_num) 
+        values(
+            sq_em_smt_tran_01.nextval
+            , '1000'
+            , sysdate
+            , #SMS_MSG#
+            , #SEND_NO#
+            , '0'
+            , 'N'
+            , '1'
+            , #NO_MPHN#)
+    </insert>
+    
+    
+    <select id="selectUperCtgrList" parameterClass="hmap" resultClass="hmap">
+		SELECT
+			AC.CD_CTGR
+			, AC.CD_UPER_CTGR
+			, AC.CL_CTGR
+			, AC.NM_CTGR
+			, AC.LVL_CTGR
+			, AC.ODER_MKAR
+			, AC.YN_USE
+			, AC.ID_CRTN_PRSN
+			, AC.DNT_CRTN
+			, AC.ID_REV_PRSN
+			, AC.DNT_REV
+			, AC.IP_ADMN_PRSN
+		FROM HABT_ADMN_CTGR AC
+		WHERE 1 = 1
+		AND AC.CL_CTGR = #CL_CTGR#
+		AND AC.CD_UPER_CTGR = #CD_UPER_CTGR#
+		AND AC.YN_USE = 'Y'
+		ORDER BY AC.ODER_MKAR ASC
+	</select>
+	
+	<select id="selectCdList" parameterClass="hmap" resultClass="hmap">
+		SELECT
+			AC.CD_ADMN
+			, AC.CD_ADMN_DTIL
+			, AC.NM_CD
+			, AC.DS_CD
+			, AC.ODER_MKAR
+		FROM HABT_ADMN_CD AC
+		WHERE 1 = 1
+		AND AC.CD_ADMN = #CD_ADMN#
+		ORDER BY AC.ODER_MKAR ASC
+	</select>
+	
+	<select id="getFileInfoSeq" resultClass="int">
+        SELECT HABSQ_FILE_INFO.NEXTVAL FROM DUAL
+    </select>
+    
+    <insert id="insertFileInfo" parameterClass="hmap">
+    	INSERT INTO HABT_FILE_INFO (NO_ATCH_FILE_SRAL) VALUES (#NO_ATCH_FILE_SRAL#)
+    </insert>
+    
+    <select id="getFileLstInfoSeq" resultClass="int">
+        SELECT HABSQ_FILE_LST_INFO.NEXTVAL FROM DUAL
+    </select>
+    
+    <delete id="deleteFileLstInfo" parameterClass="str">
+        DELETE FROM HABT_FILE_LST_INFO
+        WHERE NO_ATCH_FILE_DTIL_SRAL = #NO_ATCH_FILE_DTIL_SRAL#
+    </delete>
+    
+    <delete id="deleteFileLstInfoByUpper" parameterClass="str">
+        DELETE FROM HABT_FILE_LST_INFO
+        WHERE NO_ATCH_FILE_SRAL = #NO_ATCH_FILE_SRAL#
+    </delete>
+    
+    <!-- 글 번호 조회 -->
+    <select id="setNO_NTC_PLTE_SRAL" resultClass="str">
+        SELECT HABSQ_NTC_PLTE.NEXTVAL FROM DUAL
+    </select>
+    
+    <!-- 첨부파일 등록 -->
+    <insert id="insertFile" parameterClass="hmap">
+        INSERT INTO habt_file_lst_info (
+            no_atch_file_dtil_sral,
+            no_atch_file_sral,
+            pth_file_phys,
+            pth_file_logi,
+            ty_file,
+            size_file,
+            nm_phys_file,
+            nm_logi_file,
+            cnts_file_dtil,
+            cl_file,
+            oder_mkar,
+            id_crtn_prsn,
+            dnt_crtn,
+            ip_admn_prsn
+        ) VALUES (
+             HABSQ_FILE_LST_INFO.NEXTVAL
+            ,#NO_ATCH_FILE_SRAL#
+            ,#PTH_FILE_PHYS#
+            ,#PTH_FILE_LOGI#
+            ,#TY_FILE#
+            ,#SIZE_FILE#
+            ,#NM_PHYS_FILE#
+            ,#NM_LOGI_FILE#
+            ,#CNTS_FILE_DTIL#
+            ,#CL_FILE#
+            ,#ODER_MKAR#
+            ,#ID_CRTN_PRSN#
+            ,SYSDATE
+            ,#IP_ADMN_PRSN#
+        )
+    </insert>
+    
+    <update id="deleteBBS" parameterClass="hmap">
+        UPDATE  HABT_NTC_PLTE
+        SET     YN_ELMN             = 'Y'
+                ,ID_REV_PRSN        = #ID_REV_PRSN#
+                ,DNT_REV            = SYSDATE
+                ,IP_ADMN_PRSN       = #IP_ADMN_PRSN#        
+        WHERE   NO_NTC_PLTE_SRAL    = #NO_NTC_PLTE_SRAL#      
+    </update>
+    
+    <select id="selectFiles"    parameterClass="str" resultClass="hmap">
+        SELECT  NO_ATCH_FILE_DTIL_SRAL,
+                NO_ATCH_FILE_SRAL,
+                PTH_FILE_PHYS,
+                PTH_FILE_LOGI,
+                TY_FILE,
+                SIZE_FILE,
+                NM_PHYS_FILE,
+                NM_LOGI_FILE,
+                CNTS_FILE_DTIL,
+                CL_FILE,
+                ODER_MKAR,
+                ID_CRTN_PRSN,
+                DNT_CRTN,
+                ID_REV_PRSN,
+                DNT_REV,
+                IP_ADMN_PRSN
+        FROM    HABT_FILE_LST_INFO
+        WHERE   NO_ATCH_FILE_SRAL = #NO_ATCH_FILE_SRAL#
+        ORDER BY ODER_MKAR ASC
+    </select>
+    
+    <select id="selectFileByPk"    parameterClass="hmap" resultClass="hmap">
+        SELECT  NO_ATCH_FILE_DTIL_SRAL,
+                NO_ATCH_FILE_SRAL,
+                PTH_FILE_PHYS,
+                PTH_FILE_LOGI,
+                TY_FILE,
+                SIZE_FILE,
+                NM_PHYS_FILE,
+                NM_LOGI_FILE,
+                CNTS_FILE_DTIL,
+                CL_FILE,
+                ODER_MKAR,
+                ID_CRTN_PRSN,
+                DNT_CRTN,
+                ID_REV_PRSN,
+                DNT_REV,
+                IP_ADMN_PRSN
+        FROM    HABT_FILE_LST_INFO
+        WHERE   NO_ATCH_FILE_SRAL = #NO_ATCH_FILE_SRAL#
+          AND 	NM_PHYS_FILE = #NM_PHYS_FILE#
+    </select>
+    
+    <select id="selectFilesByOder"    parameterClass="hmap" resultClass="hmap">
+        SELECT  NO_ATCH_FILE_DTIL_SRAL,
+                NO_ATCH_FILE_SRAL,
+                PTH_FILE_PHYS,
+                PTH_FILE_LOGI,
+                TY_FILE,
+                SIZE_FILE,
+                NM_PHYS_FILE,
+                NM_LOGI_FILE,
+                CNTS_FILE_DTIL,
+                CL_FILE,
+                ODER_MKAR,
+                ID_CRTN_PRSN,
+                DNT_CRTN,
+                ID_REV_PRSN,
+                DNT_REV,
+                IP_ADMN_PRSN
+        FROM    HABT_FILE_LST_INFO
+        WHERE   NO_ATCH_FILE_SRAL = #NO_ATCH_FILE_SRAL#
+        AND		ODER_MKAR <![CDATA[ > ]]> #ODER_MKAR#
+        AND		SIZE_FILE <![CDATA[ > ]]> 0
+        ORDER BY ODER_MKAR ASC
+    </select>
+    
+    <!-- 접근이유 등록 -->
+    <insert id="insertAprhResn" parameterClass="hmap">
+    	
+        INSERT INTO HABT_LOG_ADMN_APRH_RESN(
+            NO_APRH_RESN_SRAL
+            ,ID_ADMN_PRSN
+            ,CD_MNU
+            ,CD_APRH_RESN
+            ,NM_APRH_RESN
+            ,ID_CRTN_PRSN
+            ,DNT_CRTN
+            ,IP_ADMN_PRSN
+        ) VALUES(
+            HABSQ_LOG_ADMN_APRH_RESN.NEXTVAL
+            ,#ID_ADMN_PRSN#
+            ,#CD_MNU#
+            ,#CD_APRH_RESN#
+            ,#NM_APRH_RESN#
+            ,#ID_ADMN_PRSN#
+            ,SYSDATE
+            ,#IP_ADMN_PRSN#
+        )
+    </insert>
+    
+    <update id="updateFileLstInfo" parameterClass="hmap">
+    	UPDATE HABT_FILE_LST_INFO
+    	SET
+    		PTH_FILE_PHYS = #PTH_FILE_PHYS#
+    		, PTH_FILE_LOGI = #PTH_FILE_LOGI#
+    		, TY_FILE = #TY_FILE#
+    		, SIZE_FILE = #SIZE_FILE#
+    		, NM_PHYS_FILE = #NM_PHYS_FILE#
+    		, NM_LOGI_FILE = #NM_LOGI_FILE#
+    		, CNTS_FILE_DTIL = #CNTS_FILE_DTIL#
+    		, CL_FILE = #CL_FILE#
+    		, ID_REV_PRSN = #ID_REV_PRSN#
+    		, DNT_REV = SYSDATE
+    		, IP_ADMN_PRSN = #IP_ADMN_PRSN#
+		WHERE NO_ATCH_FILE_DTIL_SRAL = #NO_ATCH_FILE_DTIL_SRAL#
+		AND NO_ATCH_FILE_SRAL = #NO_ATCH_FILE_SRAL#
+		AND ODER_MKAR = #ODER_MKAR#
+    </update>
+	
+	<!-- 개인정보접근이력 등록 -->
+    <insert id="insertInfoIqry" parameterClass="hmap">
+        INSERT INTO HABT_LOG_ADMN_INFO_IQRY(
+            NO_INFO_IQRY_SRAL
+            ,CD_MNU
+            ,NM_MNU
+            ,ID_TGT_PRSN
+            ,NM_TGT_PRSN
+            ,CL_IQRY
+            ,ID_CRTN_PRSN
+            ,DNT_CRTN
+            ,ID_REV_PRSN
+            ,DNT_REV
+            ,IP_ADMN_PRSN
+        ) VALUES(
+            HABSQ_LOG_ADMN_APRH_RESN.NEXTVAL
+            ,#CD_MNU#
+            ,#NM_MNU#
+            ,#ID_TGT_PRSN#
+            ,#NM_TGT_PRSN#
+            ,#CL_IQRY#
+            ,#ID_CRTN_PRSN#
+            ,SYSDATE
+            ,#ID_CRTN_PRSN#
+            ,SYSDATE
+            ,#IP_ADMN_PRSN#
+           )
+    </insert>
+    
+</sqlMap>  

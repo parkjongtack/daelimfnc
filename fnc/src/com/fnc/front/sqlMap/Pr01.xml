@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <!-- 제품 규격 -->
+    <select id="selectPr01" resultClass="com.fnc.front.vo.Pr01Vo">
+        /* Pr01.selectPr01 */
+        SELECT
+              NO_NTC_PLTE_SRAL AS noNtcPlteSral
+            , CL_NTC_PLTE AS clNtcPlte 
+            , NO_ATCH_FILE_SRAL AS noAtchFileSral
+            , NO_ATCH_FILE_THUM_SRAL AS noAtchFileThumSral
+            , SBJT_NTC_PLTE AS sbjtNtcPlte
+            , CNTS_SMRY AS cntsSmry
+            , DT_RGST AS dtRgst
+			, CNTS_NTC_PLTE AS cntsNtcPlte
+            , CASE
+            	WHEN CL_GBN = '01' THEN '공지사항'
+            	WHEN CL_GBN = '02' THEN '프로그램/행사'
+            	WHEN CL_GBN = '03' THEN '수상'
+              ELSE CL_GBN
+              END clGbnNm
+        FROM
+            HABT_NTC_PLTE
+        WHERE 1=1
+        AND NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+        
+    </select>
+
+    <!-- List -->
+    <select id="selectPr01ListCnt" parameterClass="com.fnc.front.vo.Pr01Vo" resultClass="int">
+        /* Pr01.selectPr01ListCnt */
+        SELECT	
+        	COUNT(*) CNT
+        FROM
+            HABT_NTC_PLTE A
+        LEFT JOIN HABT_FILE_LST_INFO B ON A.NO_ATCH_FILE_THUM_SRAL = B.NO_ATCH_FILE_SRAL
+        WHERE 1=1
+        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+
+		<isNotNull property="searchCnts">
+			<isNotEmpty  property="searchCnts">
+				<isEqual property="searchCls" compareValue="1">
+					AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%' OR CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+				</isEqual>
+				<isEqual property="searchCls" compareValue="2">
+					AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%')
+				</isEqual>
+				<isEqual property="searchCls" compareValue="3">
+				AND (CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+				</isEqual>
+			</isNotEmpty>
+		</isNotNull>	
+    </select>
+
+    <!-- List -->
+    <select id="selectPr01List" parameterClass="com.fnc.front.vo.Pr01Vo" resultClass="com.fnc.front.vo.Pr01Vo">
+        /* Pr01.selectPr01List */
+		SELECT
+			A.*
+		FROM (	
+	        SELECT	
+	        	ROW_NUMBER() OVER(ORDER BY NO_NTC_PLTE_SRAL DESC) AS RNUM
+	        	, A.NO_NTC_PLTE_SRAL AS noNtcPlteSral
+	        	, A.CL_NTC_PLTE AS clNtcPlte 
+	            , A.NO_ATCH_FILE_THUM_SRAL AS noAtchFileThumSral
+	            , A.SBJT_NTC_PLTE AS sbjtNtcPlte
+	            , A.CNTS_SMRY AS cntsSmry
+	            , A.DT_RGST AS dtRgst
+	            , CASE
+	            	WHEN A.CL_GBN = '01' THEN '공지사항'
+	            	WHEN A.CL_GBN = '02' THEN '프로그램/행사'
+	            	WHEN A.CL_GBN = '03' THEN '수상'
+	              ELSE A.CL_GBN
+	              END clGbnNm
+	            , B.NM_PHYS_FILE AS nmPhysFile
+	            , B.CNTS_FILE_DTIL AS cntsFileDtil
+	        FROM
+	            HABT_NTC_PLTE A
+	        LEFT JOIN HABT_FILE_LST_INFO B ON A.NO_ATCH_FILE_THUM_SRAL = B.NO_ATCH_FILE_SRAL
+	        WHERE 1=1
+	        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+	        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+	        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+	
+			<isNotNull property="searchCnts">
+				<isNotEmpty  property="searchCnts">
+					<isEqual property="searchCls" compareValue="1">
+						AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%' OR CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+					</isEqual>
+					<isEqual property="searchCls" compareValue="2">
+						AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%')
+					</isEqual>
+					<isEqual property="searchCls" compareValue="3">
+					AND (CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+					</isEqual>
+				</isNotEmpty>
+			</isNotNull>	
+		) A
+		WHERE RNUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+    <!-- selectPrev -->
+    <select id="selectPrev" parameterClass="com.fnc.front.vo.Pr01Vo" resultClass="com.fnc.front.vo.Pr01Vo">
+        /* Pr01.selectPrev */
+
+		SELECT
+			A.*
+		FROM (	
+	        SELECT
+	        	ROWNUM AS RNUM
+	        	, A.*
+	        FROM (
+		        SELECT
+		              NO_NTC_PLTE_SRAL AS noNtcPlteSral
+		            , CL_NTC_PLTE AS clNtcPlte 
+		            , NO_ATCH_FILE_THUM_SRAL AS noAtchFileThumSral
+		            , SBJT_NTC_PLTE AS sbjtNtcPlte
+		            , CNTS_SMRY AS cntsSmry
+		            , DT_RGST AS dtRgst
+		        FROM
+		            HABT_NTC_PLTE
+		        WHERE 1=1
+		        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+		        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+		        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+				AND NO_NTC_PLTE_SRAL <![CDATA[<]]> #noNtcPlteSral#
+		        
+		        <isNotNull property="searchCnts">
+					<isNotEmpty  property="searchCnts">
+						<isEqual property="searchCls" compareValue="1">
+							AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%' OR CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+						<isEqual property="searchCls" compareValue="2">
+							AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+						<isEqual property="searchCls" compareValue="3">
+						AND (CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+					</isNotEmpty>
+				</isNotNull>
+				
+				ORDER BY NO_NTC_PLTE_SRAL DESC
+			) A
+		) A	
+		WHERE RNUM = 1
+    </select>
+    
+    <!-- selectNext -->
+    <select id="selectNext" parameterClass="com.fnc.front.vo.Pr01Vo" resultClass="com.fnc.front.vo.Pr01Vo">
+        /* Pr01.selectNext */
+
+        SELECT
+        	A.*
+        FROM (	
+	        SELECT
+	        	ROWNUM AS RNUM
+	        	, A.*
+	        FROM (
+		        SELECT
+		              NO_NTC_PLTE_SRAL AS noNtcPlteSral
+		            , CL_NTC_PLTE AS clNtcPlte 
+		            , NO_ATCH_FILE_THUM_SRAL AS noAtchFileThumSral
+		            , SBJT_NTC_PLTE AS sbjtNtcPlte
+		            , CNTS_SMRY AS cntsSmry
+		            , DT_RGST AS dtRgst
+		        FROM
+		            HABT_NTC_PLTE
+		        WHERE 1=1
+		        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+		        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+		        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+				AND NO_NTC_PLTE_SRAL <![CDATA[>]]> #noNtcPlteSral#
+		        
+		        <isNotNull property="searchCnts">
+					<isNotEmpty  property="searchCnts">
+						<isEqual property="searchCls" compareValue="1">
+							AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%' OR CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+						<isEqual property="searchCls" compareValue="2">
+							AND (SBJT_NTC_PLTE LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+						<isEqual property="searchCls" compareValue="3">
+						AND (CNTS_SMRY LIKE '%' || #searchCnts# || '%')
+						</isEqual>
+					</isNotEmpty>
+				</isNotNull>
+				
+				ORDER BY NO_NTC_PLTE_SRAL DESC
+			) A
+		) A
+		WHERE RNUM = 1
+    </select>
+
+</sqlMap>

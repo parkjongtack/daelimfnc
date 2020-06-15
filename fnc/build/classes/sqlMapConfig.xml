@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMapConfig
+PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+"http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+<sqlMapConfig>
+
+    <settings
+        cacheModelsEnabled="true"
+		enhancementEnabled="true"
+		lazyLoadingEnabled="false"
+		maxRequests="128"
+		maxSessions="10"
+		maxTransactions="10"
+		useStatementNamespaces="true"
+		defaultStatementTimeout="1000"
+		statementCachingEnabled="true"
+		classInfoCacheEnabled="true"
+        />
+
+    <transactionManager type="JDBC">
+		<dataSource type="SIMPLE">
+			<property name="JDBC.Driver" value="oracle.jdbc.driver.OracleDriver"/>
+			<property name="JDBC.ConnectionURL" value="jdbc:oracle:thin:@localhost:1521:orcl"/>
+			<property name="JDBC.Username" value="FNCWEB1"/>
+			<property name="JDBC.Password" value="adwiz1234"/>
+		</dataSource>
+	</transactionManager>
+
+    <!-- front -->
+    <sqlMap resource="com/fnc/front/sqlMap/biz01.xml" />
+    <sqlMap resource="com/fnc/front/sqlMap/biz02.xml" />
+    <sqlMap resource="com/fnc/front/sqlMap/Pr01.xml" />
+   	<sqlMap resource="com/fnc/front/sqlMap/car01.xml" />
+    <sqlMap resource="com/fnc/front/sqlMap/mailSendLog.xml" />
+   	<sqlMap resource="com/fnc/front/sqlMap/pers01.xml" />
+   	<sqlMap resource="com/fnc/front/sqlMap/main.xml" />
+
+    <!-- admin -->
+    <sqlMap resource="com/fnc/common/sqlMap/admin.xml" />
+	<sqlMap resource="com/fnc/admin/sqlMap/com.xml" />	<!-- 회사소식관리-->
+    <sqlMap resource="com/fnc/admin/sqlMap/adm.xml" />	<!-- 관리자등록 -->
+    <sqlMap resource="com/fnc/admin/sqlMap/car.xml" />	<!-- 채용정보관리 -->
+    <sqlMap resource="com/fnc/admin/sqlMap/pop.xml" />	<!-- 팝업관리 -->
+    <sqlMap resource="com/fnc/admin/sqlMap/biz.xml" />	<!-- 제품관리 -->
+    <sqlMap resource="com/fnc/admin/sqlMap/bnn.xml" />	<!-- 제품관리 -->
+    <sqlMap resource="com/fnc/admin/sqlMap/per.xml" />	<!-- 개인정보관리 -->
+
+    <!-- common -->
+    <sqlMap resource="com/fnc/common/sqlMap/file.xml" />	<!-- 파일 -->
+</sqlMapConfig>

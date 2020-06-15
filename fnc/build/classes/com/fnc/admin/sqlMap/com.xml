@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.admin.vo.ComVo" id="ComVo">
+        <result property="noNtcPlteSral" column="NO_NTC_PLTE_SRAL" />
+		<result property="clNtcPlte" column="CL_NTC_PLTE" />
+		<result property="clGbn" column="CL_GBN" />
+		<result property="sbjtNtcPlte" column="SBJT_NTC_PLTE" />
+		<result property="cntsSmry" column="CNTS_SMRY" />
+		<result property="cntsNtcPlte" column="CNTS_NTC_PLTE" />
+		<result property="dtRgst" column="DT_RGST" />
+		<result property="dtBegnc" column="DT_BEGNC" />
+		<result property="dtEnd" column="DT_END" />
+		<result property="noAtchFileThumSral" column="NO_ATCH_FILE_THUM_SRAL" />
+		<result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+		<result property="clKoEng" column="CL_KO_ENG" />
+		<result property="clBil" column="CL_MBIL" />
+		<result property="statNtc" column="STAT_NTC" />
+		<result property="ynNtc" column="YN_NTC" />
+		<result property="ynElmn" column="YN_ELMN" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+    
+    
+    <!-- 회사소식 목록 -->
+	<select id="selectComList" resultMap="ComVo">
+        /* com.selectComList */
+        SELECT
+        	NO_NTC_PLTE_SRAL
+			, CL_NTC_PLTE
+			, CL_GBN
+			, SBJT_NTC_PLTE
+			, CNTS_SMRY
+			, CNTS_NTC_PLTE
+			, DT_RGST
+			, DT_BEGNC
+			, DT_END
+			, NO_ATCH_FILE_THUM_SRAL
+			, NO_ATCH_FILE_SRAL
+			, CL_KO_ENG
+			, CL_MBIL
+			, STAT_NTC
+			, YN_NTC
+			, YN_ELMN
+			, ID_CRTN_PRSN
+			, DNT_CRTN
+			, ID_REV_PRSN
+			, DNT_REV
+			, IP_ADMN_PRSN
+          FROM (
+          	SELECT
+          		ROW_NUMBER() OVER(ORDER BY NO_NTC_PLTE_SRAL DESC) AS NUM
+	        	, NO_NTC_PLTE_SRAL
+				, CL_NTC_PLTE
+				, CL_GBN
+				, SBJT_NTC_PLTE
+				, CNTS_SMRY
+				, CNTS_NTC_PLTE
+				, DT_RGST
+				, DT_BEGNC
+				, DT_END
+				, NO_ATCH_FILE_THUM_SRAL
+				, NO_ATCH_FILE_SRAL
+				, CL_KO_ENG
+				, CL_MBIL
+				, STAT_NTC
+				, YN_NTC
+				, YN_ELMN
+				, ID_CRTN_PRSN
+				, DNT_CRTN
+				, ID_REV_PRSN
+				, DNT_REV
+				, IP_ADMN_PRSN
+			  FROM HABT_NTC_PLTE
+			 WHERE CL_NTC_PLTE = '01'
+			   AND YN_ELMN = 'N'
+			<isEqual property="searchType" compareValue="0">
+	           AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_SMRY LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+	       	</isEqual>
+			<isEqual property="searchType" compareValue="1">
+	           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="2">
+	           AND CNTS_SMRY LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="3">
+	           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	 ORDER BY DNT_CRTN DESC
+          ) A
+       	 WHERE NUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+    <select id="selectComListCnt" resultClass="Integer">
+        /* adm.selectComListCnt : 목록 개수 */
+        SELECT COUNT(NO_NTC_PLTE_SRAL) AS CNT
+		  FROM HABT_NTC_PLTE
+ 		 WHERE CL_NTC_PLTE = '01'
+		   AND YN_ELMN = 'N'
+ 		<isEqual property="searchType" compareValue="0">
+           AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_SMRY LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+       	</isEqual>
+		<isEqual property="searchType" compareValue="1">
+           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+       	</isEqual>
+       	<isEqual property="searchType" compareValue="2">
+           AND CNTS_SMRY LIKE '%' || #searchData# || '%'
+       	</isEqual>
+       	<isEqual property="searchType" compareValue="3">
+           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+       	</isEqual>
+    </select>
+    
+    <!-- 회사소식 상세 -->
+	<select id="selectCom" resultMap="ComVo">
+        /* com.selectCom */
+        SELECT
+        	NO_NTC_PLTE_SRAL
+			, CL_NTC_PLTE
+			, CL_GBN
+			, SBJT_NTC_PLTE
+			, CNTS_SMRY
+			, CNTS_NTC_PLTE
+			, DT_RGST
+			, DT_BEGNC
+			, DT_END
+			, NO_ATCH_FILE_THUM_SRAL
+			, NO_ATCH_FILE_SRAL
+			, CL_KO_ENG
+			, CL_MBIL
+			, STAT_NTC
+			, YN_NTC
+			, YN_ELMN
+			, ID_CRTN_PRSN
+			, DNT_CRTN
+			, ID_REV_PRSN
+			, DNT_REV
+			, IP_ADMN_PRSN
+		  FROM HABT_NTC_PLTE
+		 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </select>
+    
+    <update id="updateCom">
+    	UPDATE HABT_NTC_PLTE 
+		   SET CL_GBN = #clGbn#
+		       , SBJT_NTC_PLTE = #sbjtNtcPlte#
+		       , CNTS_SMRY = #cntsSmry#
+		       , CNTS_NTC_PLTE = #cntsNtcPlte#
+		       , DT_RGST = #dtRgst#
+		       , YN_NTC = #ynNtc#
+		       , NO_ATCH_FILE_SRAL = #noAtchFileSral#
+		       , ID_REV_PRSN = #idRevPrsn#
+		       , DNT_REV = SYSDATE
+		       , IP_ADMN_PRSN = #ipAdmnPrsn#
+		WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </update>
+    
+    <!-- 회사소식 등록 -->
+    <insert id="insertCom">
+        /* com.insertCom */
+		INSERT INTO HABT_NTC_PLTE (
+			NO_NTC_PLTE_SRAL
+		    , CL_NTC_PLTE
+		    , CL_GBN
+		    , SBJT_NTC_PLTE
+		    , CNTS_SMRY
+		    , CNTS_NTC_PLTE
+		    , DT_RGST
+		    , DT_BEGNC
+		    , DT_END
+		    , NO_ATCH_FILE_THUM_SRAL
+		    , NO_ATCH_FILE_SRAL
+		    , CL_KO_ENG
+		    , CL_MBIL
+		    , STAT_NTC
+		    , YN_NTC
+		    , YN_ELMN
+		    , ID_CRTN_PRSN
+		    , DNT_CRTN
+		    , ID_REV_PRSN
+		    , DNT_REV
+		    , IP_ADMN_PRSN
+		) VALUES (
+			HABSQ_NTC_PLTE.NEXTVAL,
+	        '01',
+	        #clGbn#,
+			#sbjtNtcPlte#,
+			#cntsSmry#,
+			#cntsNtcPlte#,
+			#dtRgst#,
+			#dtBegnc#,
+			#dtEnd#,
+			#noAtchFileThumSral#,
+			#noAtchFileSral#,
+			'K',
+			#clBil#,
+			#statNtc#,
+			#ynNtc#,
+			'N',
+			#idCrtnPrsn#,
+			SYSDATE,
+			#idRevPrsn#,
+			#dntRev#,
+			#ipAdmnPrsn#
+		)
+    </insert>
+    
+    <!-- 회사소식 삭제 -->
+    <update id="updateComYnElmn">
+    	UPDATE HABT_NTC_PLTE 
+    	   SET YN_ELMN = 'Y' 
+    	 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </update>
+
+</sqlMap>

@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+    <typeAlias alias="BizVo" type="com.fnc.admin.vo.BizVo" />
+    <!-- <resultMap class="BizVo" id="bizVo">
+        <result property="noPrdtSral" column="NO_PDCT_SRAL" />
+        <result property="cdCtgr" column="CD_CTGR" />
+        <result property="cdPdCtUse" column="CD_PDCT_USE" />
+        <result property="nmPdCt" column="NM_PDCT" />
+        <result property="atrb1" column="ATRB_1" />
+        <result property="atrb2" column="ATRB_2" />
+        <result property="atrb3" column="ATRB_3" />
+        <result property="atrb4" column="ATRB_4" />
+        <result property="atrb5" column="ATRB_5" />
+        <result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+        <result property="clKoEng" column="CL_KO_ENG" />
+        <result property="clMbil" column="CL_MBIL" />
+        <result property="ynNtc" column="YN_NTC" />
+        <result property="ynElmn" column="YN_ELMN" />
+        <result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+        <result property="dntCrtn" column="DNT_CRTN" />
+        <result property="idRevPrsn" column="ID_REV_PRSN" />
+        <result property="dntRev" column="DNT_REV" />
+        <result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />        
+    </resultMap> -->
+    
+    <select id="admin.selectBizListCnt" resultClass="Integer">
+        /* admin.selectAdmListCnt : 목록 개수 */
+        SELECT COUNT(NO_PDCT_SRAL) AS CNT
+		FROM
+		(
+    		SELECT
+       				A.NO_PDCT_SRAL,
+       				A.CD_CTGR,
+       				B.NM_CTGR
+      		FROM HABT_PDCT A
+           			INNER JOIN HABT_ADMN_CTGR B
+           			ON ( B.CD_CTGR = A.CD_CTGR )
+     		WHERE A.CL_KO_ENG  = 'K'
+       		  AND A.YN_ELMN = 'N'
+        	  AND A.CD_CTGR IN ('P4001','P4002')
+      <isEqual property="searchType" compareValue="0">
+	       AND (B.NM_CTGR LIKE '%' || #searchData# || '%' OR A.NM_PDCT LIKE '%' || #searchData# || '%' OR A.ATRB_1 LIKE '%' || #searchData# || '%' OR A.ATRB_2 LIKE '%' || #searchData# || '%' OR A.ATRB_3 LIKE '%' || #searchData# || '%')
+	   </isEqual>
+	  <isEqual property="searchType" compareValue="1">
+           AND B.NM_CTGR LIKE '%' || #searchData# || '%'
+   	  </isEqual>
+      <isEqual property="searchType" compareValue="2">
+           AND A.NM_PDCT LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="3">
+           AND A.ATRB_1 LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="4">
+           AND A.ATRB_2 LIKE '%' || #searchData# || '%'
+      </isEqual>
+      <isEqual property="searchType" compareValue="5">
+           AND A.ATRB_3 LIKE '%' || #searchData# || '%'
+       </isEqual>
+       )
+    </select>
+    
+    <!-- 제품 목록 -->
+    <select id="admin.selectBizList" resultClass="BizVo">
+    /* admin.selectBizList 제품 목록 */
+	SELECT
+        	cdPdCtUse,
+			ynNtc,
+			noPrdtSral,
+			nmPdCt,
+			dntCrtn,
+			cdCtgr
+    FROM(
+        SELECT 
+        ROW_NUMBER() OVER(ORDER BY NO_PDCT_SRAL DESC) AS NUM,
+        CASE CD_PDCT_USE
+		        WHEN '01' THEN '인쇄/포장'
+		        WHEN '02' THEN '테이프'
+		        WHEN '03' THEN '일반합지'
+		        WHEN '04' THEN 'Thermal용 합지'
+		        WHEN '05' THEN '기능성' 
+		        WHEN '06' THEN 'EVA'
+		        ELSE '' END cdPdCtUse,
+        CASE YN_NTC
+				WHEN 'Y' THEN '게시'
+				WHEN 'N' THEN '게시 중지'
+		        ELSE '' END ynNtc,
+       A.NO_PDCT_SRAL AS noPrdtSral,
+	   A.NM_PDCT AS nmPdCt,
+       TO_CHAR(A.DNT_CRTN, 'YYYY-MM-DD') AS dntCrtn,
+       B.NM_CTGR as cdCtgr
+       FROM HABT_PDCT A
+           INNER JOIN HABT_ADMN_CTGR B
+           ON ( B.CD_CTGR = A.CD_CTGR )
+     WHERE A.CL_KO_ENG  = 'K'
+        AND A.YN_ELMN = 'N'
+        AND A.CD_CTGR IN ('P4001','P4002')
+        <isEqual property="searchType" compareValue="0">
+	           AND (B.NM_CTGR LIKE '%' || #searchData# || '%' OR A.NM_PDCT LIKE '%' || #searchData# || '%' OR A.ATRB_1 LIKE '%' || #searchData# || '%' OR A.ATRB_2 LIKE '%' || #searchData# || '%' OR A.ATRB_3 LIKE '%' || #searchData# || '%')
+	    </isEqual>
+		<isEqual property="searchType" compareValue="1">
+           AND B.NM_CTGR LIKE '%' || #searchData# || '%'
+   	    </isEqual>
+        <isEqual property="searchType" compareValue="2">
+           AND A.NM_PDCT LIKE '%' || #searchData# || '%'
+        </isEqual>
+        <isEqual property="searchType" compareValue="3">
+           AND A.ATRB_1 LIKE '%' || #searchData# || '%'
+        </isEqual>
+        <isEqual property="searchType" compareValue="4">
+           AND A.ATRB_2 LIKE '%' || #searchData# || '%'
+        </isEqual>
+        <isEqual property="searchType" compareValue="5">
+           AND A.ATRB_3 LIKE '%' || #searchData# || '%'
+        </isEqual>
+		    ORDER BY A.NO_PDCT_SRAL DESC, A.DNT_CRTN DESC
+		) C
+       	 WHERE NUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+	<insert id="admin.insertBizFileSeq">
+		<selectKey keyProperty="fileSeq" resultClass="int">
+    		SELECT HABSQ_FILE_INFO.NEXTVAL AS fileSeq FROM DUAL
+		</selectKey>
+		INSERT INTO HABT_FILE_INFO
+		(
+		    NO_ATCH_FILE_SRAL
+		)
+		VALUES
+		(
+		    #fileSeq#
+		)
+	</insert>
+    
+    <!-- 제품 등록 -->
+	<insert id="admin.insertBiz">
+	/* admin.insertBiz 제품 등록 */
+	INSERT INTO HABT_PDCT
+	(
+		NO_PDCT_SRAL,
+		CD_CTGR,
+		CD_PDCT_USE,
+		NM_PDCT,
+		ATRB_1,
+		ATRB_2,
+		ATRB_3,
+		ATRB_4,
+		ATRB_5,
+		NO_ATCH_FILE_SRAL,
+		CL_KO_ENG,
+		CL_MBIL,
+		YN_NTC,
+		YN_ELMN,
+		ID_CRTN_PRSN,
+		DNT_CRTN,
+		ID_REV_PRSN,
+		DNT_REV,
+		IP_ADMN_PRSN
+	)
+	VALUES
+	(
+		HABSQ_PDCT.NEXTVAL,
+		#cdCtgr#,
+		#cdPdCtUse#,
+		#nmPdCt#,
+		#atrb1#,
+		#atrb2#,
+		#atrb3#,
+		#atrb4#,
+		#atrb5#,
+		#noAtchFileSral#,
+		'K',
+		'P',
+		#ynNtc#,
+		'N',
+		#idCrtnPrsn#,
+		SYSDATE,
+		#idRevPrsn#,
+		#dntRev#,
+		#ipAdmnPrsn#
+	)
+    </insert>
+    
+    <select id="admin.selectBizInfo" parameterClass="int" resultClass="BizVo">
+        /* admin.biz.selectBizInfo 정보 */
+        SELECT A.NO_PDCT_SRAL as noPrdtSral,
+		       A.CD_CTGR as cdCtgr,
+		       A.CD_PDCT_USE as cdPdCtUse,
+		       A.NM_PDCT as nmPdCt,
+		       A.ATRB_1 as atrb1,
+		       A.ATRB_2 as atrb2,
+		       A.ATRB_3 as atrb3,
+		       A.ATRB_4 as atrb4,
+		       A.ATRB_5 as atrb5,
+		       A.NO_ATCH_FILE_SRAL as noAtchFileSral,
+		       A.CL_KO_ENG as clKoEng,
+		       A.CL_MBIL as clMbil,
+		       A.YN_NTC as ynNtc,
+		       A.YN_ELMN as ynElmn,
+		       A.ID_CRTN_PRSN as idCrtnPrsn,
+		       A.DNT_CRTN as dntCrtn,
+		       A.ID_REV_PRSN as idRevPrsn,
+		       A.DNT_REV as dntRev,
+		       A.IP_ADMN_PRSN as ipAdmnPrsn,
+		       C.NO_ATCH_FILE_DTIL_SRAL as noAtchFileDtilSral1,
+		       C.NM_LOGI_FILE AS fileName1,
+		       C.CL_FILE as clFile1,
+		       D.NO_ATCH_FILE_DTIL_SRAL as noAtchFileDtilSral2,
+		       D.NM_LOGI_FILE AS fileName2,
+		       D.CL_FILE as clFile2,
+		       E.NO_ATCH_FILE_DTIL_SRAL as noAtchFileDtilSral3,
+		       E.NM_LOGI_FILE AS fileName3,
+		       E.CL_FILE as clFile3
+		  FROM HABT_PDCT A
+		  LEFT JOIN HABT_FILE_LST_INFO C ON A.NO_ATCH_FILE_SRAL = C.NO_ATCH_FILE_SRAL AND C.CL_FILE = '1'
+          LEFT JOIN HABT_FILE_LST_INFO D ON A.NO_ATCH_FILE_SRAL = D.NO_ATCH_FILE_SRAL AND D.CL_FILE = '2'
+          LEFT JOIN HABT_FILE_LST_INFO E ON A.NO_ATCH_FILE_SRAL = E.NO_ATCH_FILE_SRAL AND E.CL_FILE = '3'
+		 WHERE A.NO_PDCT_SRAL = #noPrdtSral#
+		 
+    </select>
+	
+	<!-- 제품 수정 -->
+    <update id="admin.updateBiz">
+	 	/* admin.biz.updateBiz : 수정 */
+	 	UPDATE HABT_PDCT
+	 	   SET CD_CTGR = #cdCtgr#                      
+			 , CD_PDCT_USE = #cdPdCtUse#           
+			 , NM_PDCT = #nmPdCt#       
+			 , ATRB_1 = #atrb1#         
+			 , ATRB_2 = #atrb2#                
+			 , ATRB_3 = #atrb3#
+			 , ATRB_4 = #atrb4#
+			 , NO_ATCH_FILE_SRAL = #noAtchFileSral#
+			 , YN_NTC = #ynNtc#
+			 , ID_REV_PRSN = #idRevPrsn#
+			 , DNT_REV = #dntRev#
+			 , IP_ADMN_PRSN = #ipAdmnPrsn#
+		 WHERE NO_PDCT_SRAL = #noPrdtSral#	
+	 </update>
+	 
+	 <!-- 제품 삭제 -->
+    <update id="admin.deleteBiz">
+	    /* admin.biz.deleteBiz : 삭제 */
+	    UPDATE HABT_PDCT
+	    SET YN_ELMN = 'Y'
+	    WHERE NO_PDCT_SRAL = #noPrdtSral#
+    </update>
+    <!-- 제품 등록 -->
+	<!-- <insert id="insertBiz" parameterClass="BizVo">
+	INSERT INTO HABT_PDCT
+	(
+		NO_PDCT_SRAL AS noPrdtSral,
+		CD_CTGR AS cdCtgr,
+		CD_PDCT_USE AS cdPdCtUse,
+		NM_PDCT AS nmPdCt,
+		ATRB_1 AS atrb1,
+		ATRB_2 AS atrb2,
+		ATRB_3 AS atrb3,
+		ATRB_4 AS atrb4,
+		ATRB_5 AS atrb5,
+		NO_ATCH_FILE_SRAL AS noAtchFileSral,
+		CL_KO_ENG AS clKoEng,
+		CL_MBIL AS clMbil,
+		YN_NTC AS ynNtc,
+		YN_ELMN AS ynElmn,
+		ID_CRTN_PRSN AS idCrtnPrsn,
+		DNT_CRTN AS dntCrtn,
+		IP_ADMN_PRSN AS ipAdmnPrsn
+	)
+	VALUES
+	(
+		HABT_PDCT.NEXTVAL,
+		#cdCtgr#,
+		#cdPdCtUse#,
+		#nmPdCt#,
+		#atrb1#,
+		#atrb2#,
+		#atrb3#,
+		#atrb4#,
+		#atrb5#,
+		1, /* #noAtchFileSral#, */
+		'K',
+		'P',
+		#ynNtc#,
+		'N',
+		#idCrtnPrsn#,
+		SYSDATE,
+		#ipAdmnPrsn#
+	)
+    </insert> -->
+     
+    <!-- 제품 목록 -->
+    <!--<select id="selectBizList" resultMap="Biz01Vo">
+        /* biz.selectBizList */
+		SELECT NO_PDCT_SRAL,
+		       CD_CTGR,
+		       CD_PDCT_USE,
+		       NM_PDCT,
+		       ATRB_2,
+		       ATRB_3,
+		       ATRB_4,
+		       ATRB_5,
+		       NO_ATCH_FILE_SRAL,
+		       CL_KO_ENG,
+		       CL_MBIL,
+		       YN_NTC,
+		       YN_ELMN,
+		       ID_CRTN_PRSN,
+		       DNT_CRTN,
+		       ID_REV_PRSN,
+		       DNT_REV,
+		       IP_ADMN_PRSN
+		  FROM HABT_PDCT
+		 WHERE CD_CTGR IN ('P4001','P4002')
+		 ORDER by NO_PDCT_SRAL;
+    </select> -->
+
+</sqlMap>

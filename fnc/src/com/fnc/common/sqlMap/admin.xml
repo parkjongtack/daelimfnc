@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    
+    <typeAlias alias="adminVo" type="com.fnc.common.vo.AdminVo"/>
+    
+    <!-- 관리자 계정 정보 -->
+    <select id="selectAdminInfo" parameterClass="adminVo" resultClass="adminVo">
+    <![CDATA[
+        /* admin.selectAdminInfo */
+        SELECT
+            ID_ADMN_PRSN     AS userId          /* 관리자 아이디 */
+          , NM_ADMN_PRSN     AS userNm          /* 이름 */
+          , NM_DEPT_ADMNPRSN AS deptNm          /* 관리자 부서명 */
+          , EMAIL_ADMN_PRSN  AS email           /* 이메일 */
+          , NO_MPHN          AS noMphn          /* 관리자 휴대폰 번호 */
+          , CL_ADMN_PRSN     AS clAdmnPrsn      /* 관리자 여부 (A:슈퍼관리자, Y:일반관리자) */
+          , YN_LIN_ABLE      AS ynLinAble       /* 로그인 가능 여부 */
+          , NOTM_EROR        AS notmEror        /* 로그인 오류 횟수 */
+          , DT_PLAN_CHG_PWD  AS dtPlanChgPwd    /* 비밀번호 변경 예정 일자 */
+          , CASE WHEN DT_PLAN_CHG_PWD <= TO_CHAR(SYSDATE, 'YYYYMMDD') THEN 'Y'
+                 ELSE 'N'
+            END ynExpiredPwd                    /* 비밀번호 만료 여부 */
+        FROM
+            HABT_ADMN_PRSN_INFO
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+        AND NO_ADMN_SCRT = #userPw#
+    ]]>
+    </select>
+    
+    <!-- 관리자 계정 정보 -->
+    <select id="selectAdminInfoChk" parameterClass="String" resultClass="adminVo">
+    <![CDATA[
+        /* admin.selectAdminInfoChk */
+        SELECT
+            ID_ADMN_PRSN     AS userId          /* 관리자 아이디 */
+          , NO_ADMN_SCRT     AS userPw          /* 비밀번호 */
+          , NM_ADMN_PRSN     AS userNm          /* 이름 */
+          , NM_DEPT_ADMNPRSN AS deptNm          /* 관리자 부서명 */
+          , EMAIL_ADMN_PRSN  AS email           /* 이메일 */
+          , NO_MPHN          AS noMphn          /* 관리자 휴대폰 번호 */
+          , CL_ADMN_PRSN     AS clAdmnPrsn      /* 관리자 여부 (A:슈퍼관리자, Y:일반관리자) */
+          , YN_LIN_ABLE      AS ynLinAble       /* 로그인 가능 여부 */
+          , NOTM_EROR        AS notmEror        /* 로그인 오류 횟수 */
+          , DT_PLAN_CHG_PWD  AS dtPlanChgPwd    /* 비밀번호 변경 예정 일자 */
+          , CASE WHEN DT_PLAN_CHG_PWD <= TO_CHAR(SYSDATE, 'YYYYMMDD') THEN 'Y'
+                 ELSE 'N'
+            END ynExpiredPwd                    /* 비밀번호 만료 여부 */
+        FROM
+            HABT_ADMN_PRSN_INFO
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+    ]]>
+    </select>
+    
+    <!-- 관리자 계정 실패 카운트 증가 -->
+    <update id="updateLoginFailCnt" parameterClass="String">
+        /* admin.updateLoginFailCnt */
+        UPDATE HABT_ADMN_PRSN_INFO
+        SET NOTM_EROR       = NOTM_EROR + 1
+          , ID_REV_PRSN     = #userId#
+          , DNT_REV         = SYSDATE
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+    </update>
+    
+    <!-- 관리자 계정 Lock 처리 -->
+    <update id="updateLoginLock" parameterClass="String">
+        /* admin.updateLoginLock */
+        UPDATE HABT_ADMN_PRSN_INFO
+        SET YN_LIN_ABLE     = 'N'
+          , NOTM_EROR       = NOTM_EROR + 1
+          , ID_REV_PRSN     = #userId#
+          , DNT_REV         = SYSDATE
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+    </update>
+    
+    <!-- 관리자 비밀번호 변경 -->
+    <update id="updatePwdChange" parameterClass="adminVo">
+        /* admin.updatePwdChange */
+        UPDATE HABT_ADMN_PRSN_INFO
+        SET NO_ADMN_SCRT    = #newPw#
+          , DT_CHG_PWD      = TO_CHAR(SYSDATE, 'YYYYMMDD')
+          , DT_PLAN_CHG_PWD = TO_CHAR(SYSDATE + 180, 'YYYYMMDD')
+          , ID_REV_PRSN     = #userId#
+          , DNT_REV         = SYSDATE
+          , IP_ADMN_PRSN    = #ipAdmnPrsn#
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+        AND NO_ADMN_SCRT = #userPw#
+    </update>
+    
+    <!-- 관리자 계정정보 변경 -->
+    <update id="updateAccountInfoAjax" parameterClass="adminVo">
+        /* admin.updateAccountInfoAjax */
+        UPDATE HABT_ADMN_PRSN_INFO
+        SET NM_ADMN_PRSN     = #userNm#
+          , NM_DEPT_ADMNPRSN = #deptNm#
+          , EMAIL_ADMN_PRSN  = #email#
+          , NO_MPHN          = #noMphn#
+        <isNotEmpty property="newPw">
+          , NO_ADMN_SCRT     = #newPw#
+        </isNotEmpty>
+          , ID_REV_PRSN      = #userId#
+          , DNT_REV          = SYSDATE
+          , IP_ADMN_PRSN     = #ipAdmnPrsn#
+        WHERE 1=1
+        AND YN_USE = 'Y'
+        AND ID_ADMN_PRSN = #userId#
+    </update>
+    
+</sqlMap>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+	<resultMap class="com.fnc.front.vo.Pers01Vo" id="Pers01Vo">
+        <result property="noNtcPlteSral" column="NO_NTC_PLTE_SRAL" />
+		<result property="clNtcPlte" column="CL_NTC_PLTE" />
+		<result property="sbjtNtcPlte" column="SBJT_NTC_PLTE" />
+		<result property="cntsNtcPlte" column="CNTS_NTC_PLTE" />
+		<result property="statNtc" column="STAT_NTC" />
+		<result property="ynNtc" column="YN_NTC" />
+		<result property="ynElmn" column="YN_ELMN" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+
+    
+    
+    <!-- 개인정보 목록 개수  -->
+    <select id="selectPersListCnt" resultClass="Integer">
+   		/********** selectPersListCnt : 목록 개수 *************/
+	   SELECT COUNT(NO_NTC_PLTE_SRAL) 		AS CNT
+         FROM HABT_NTC_PLTE
+        WHERE CL_NTC_PLTE = '04'
+          AND YN_ELMN = 'N'
+ 		  AND YN_NTC = 'Y'
+    </select>
+    
+    <!-- 개인정보 목록  -->
+    <select id="selectPersList" resultMap="Pers01Vo">
+	SELECT
+    				NO_NTC_PLTE_SRAL
+					, CL_NTC_PLTE
+					, SBJT_NTC_PLTE
+					, CNTS_NTC_PLTE
+					, STAT_NTC
+					, YN_NTC
+					, YN_ELMN
+					, ID_CRTN_PRSN
+					, DNT_CRTN
+					, ID_REV_PRSN
+					, DNT_REV
+					, IP_ADMN_PRSN
+                    FROM HABT_NTC_PLTE
+                   WHERE CL_NTC_PLTE='04'
+                     AND YN_ELMN ='N'
+ 					 AND YN_NTC = 'Y'
+                    ORDER by DT_RGST desc
+    </select>
+    
+    <!-- 개인정보 상세 -->
+    <select id="selectPers" resultMap="Pers01Vo">
+	     SELECT
+					, CL_NTC_PLTE
+					, SBJT_NTC_PLTE
+					, CNTS_NTC_PLTE
+					, STAT_NTC
+					, YN_NTC
+					, YN_ELMN
+					, ID_CRTN_PRSN
+					, DNT_CRTN
+					, ID_REV_PRSN
+					, DNT_REV
+					, IP_ADMN_PRSN
+             FROM HABT_NTC_PLTE
+             WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </select>
+
+</sqlMap>

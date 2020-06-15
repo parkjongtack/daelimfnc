@@ -1,0 +1,151 @@
+
+		$(document).ready(function() {
+			var search_cls = '';
+
+			var search_cnts = '';
+			$('#search_cls').val(search_cls).attr('selected', 'selected');
+			$('#search_cnts').val(search_cnts);
+			
+			if (document.location.hash) {
+				
+				var obj = document.myform;
+				var hash = document.location.hash.replace("#", "");
+				var arr = hash.split("-");
+				obj.curr_page.value = arr.length > 1 ? arr[2] : 1;
+				obj.back.value = 'B';
+
+				fn.get('back');
+				
+				var target = $('#'+arr[0]+'-'+arr[1]);
+				
+				if (target.length != 0) {
+					//$(target).focus();
+					setTimeout(function() {
+						$('html, body').animate({scrollTop:target.offset().top-50}, 200);
+					}, 200);
+				}
+			}
+		});
+		
+		var fn = {
+			view:function(no) {
+				var obj = document.myform;
+				var curr_page = obj.curr_page.value;
+				document.location.hash = "#" + "newslist-" + no + "-" + obj.curr_page.value;
+				//var h = "#" + "newslist-" + no + "-" + obj.curr_page.value;
+				//history.pushState('', '', h);
+				obj.no_ntc_plte_sral.value = no;
+				obj.method = "get";
+				obj.action = "news_view.do";
+				obj.submit();
+			},
+			get:function(action) {
+				var obj = document.myform;
+				var curr_page = obj.curr_page.value=='' ? 1 : obj.curr_page.value;
+				//var curr_page = obj.curr_page.value;
+				var next_page = action=='back' ? curr_page : parseInt(curr_page)+1;
+				
+				//console.log(':' + action + "," + next_page);
+				
+				if (obj.curr_page.value == '1') {
+					if (obj.total_page.value > 1) {
+						obj.curr_page.value = next_page;
+						if (next_page > 1)
+							fn.ajax(next_page, action);
+					} else {
+						if (obj.curr_page.value == obj.total_page.value && action != 'back')
+							alert('조회 할 게시물이 없습니다.');
+					}
+				} else if (obj.curr_page.value == obj.total_page.value && action != 'back') {
+					alert('조회 할 게시물이 없습니다.');
+				} else {
+					if (next_page > 1)
+						fn.ajax(next_page, action);
+				};
+			},
+			ajax:function(curr_page, action) {
+				$.ajax({
+					type : "POST",
+					url  : "/pr/news_list_json.do",
+					data : "curr_page=" + curr_page + "&action=" + action,
+					dataType : "json",
+					success  : this.ajaxSucceed,
+					error    : this.ajaxFailed
+				});	
+			},
+			ajaxSucceed:function(data) {
+				console.log(data);
+				fn.append(data);
+				if (data.action == 'back') {
+					var hash = document.location.hash.replace("#", "");
+					var arr = hash.split("-");
+
+					var target = $('#'+arr[0]+'-'+arr[1]);
+					if (target.length != 0) {
+						setTimeout(function() {
+							$('html, body').animate({scrollTop:target.offset().top-50}, 200);
+						}, 200);
+					}
+				}
+			},
+			ajaxFailed:function(request, status, error) {
+				alert('처리 중 문제가 발생하였습니다. 관리자에게 문의하세요.');
+				console.log(request.status);
+				console.log(request.responseText);
+				console.log(error);
+				console.log(status);
+			} ,
+			append:function(data) {
+				
+				var obj = document.myform;
+				var curr_page = obj.curr_page.value;
+				var item = [], i = 0;
+				var scroll_top_id = "";
+				
+				if (data.action == 'back') {
+					$('.thumbnailList').children().remove();
+				}
+				
+				$.each(data.list, function(idx, obj) {
+					scroll_top_id = idx == 0 ? "newslist-"+obj.NO_NTC_PLTE_SRAL : scroll_top_id;
+					item[i++] = "<li id=\"newslist-"+obj.NO_NTC_PLTE_SRAL+"\">";
+					item[i++] = "	<a href=\"javascript:;\" onclick=\"fn.view('"+obj.NO_NTC_PLTE_SRAL+"');\" class=\"thumbnail\">";
+					item[i++] = "		<img src=\"/download.do?dir=&l_file="+obj.NM_LOGI_FILE+"&p_file="+obj.NM_PHYS_FILE+"\" alt=\""+obj.CNTS_FILE_DTIL+"\" />";
+					if (obj.YN_NEW == 'Y') {
+						item[i++] = "	<em class=\"new\">NEW</em>";	
+					}
+					item[i++] = "	</a>";
+					item[i++] = "	<div class=\"highlight\">";
+					item[i++] = "		<a href=\"javascript:;\" onclick=\"fn.view('"+obj.NO_NTC_PLTE_SRAL+"');\"><span>";
+					
+					
+					if(obj.CLSF_NTC_PLTE == '01') item[i++] = "[공지사항]";
+					else if(obj.CLSF_NTC_PLTE == '02') item[i++] = "[프로그램/행사]";
+					else if(obj.CLSF_NTC_PLTE == '03') item[i++] = "[수상]";
+					else item[i++] = "";
+											
+					
+					item[i++] = "</span>" + obj.SBJT_NTC_PLTE+"</a>";
+					item[i++] = "		<p>"+obj.CNTS_SMRY+"</p>";
+					item[i++] = "		<span>등록일 : "+obj.DT_RGST+"</span>";
+					item[i++] = "	</div>";
+					item[i++] = "</li>";
+				});
+				
+				$(item.join('')).appendTo($('.thumbnailList'));
+				
+				var obj = document.myform;
+				obj.curr_page.value = data.curr_page;
+				$('#curr_page').text(data.now_total);
+				var target = $('#'+scroll_top_id);
+
+				setTimeout(function() {
+					$('html, body').animate({scrollTop:target.offset().top-50}, 200);
+				}, 200);
+			},
+			search:function(obj) {
+				if(chkXssFilter($("#search_cnts").val())) return true;
+				else return false;	
+			}
+		};
+	

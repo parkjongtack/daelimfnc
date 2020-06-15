@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <select id="selectMainPop" resultClass="com.fnc.admin.vo.PopVo">
+        /* selectMainPop : 메인 팝업 조회 */
+        SELECT P.NO_PPUP_SRAL       AS noPpupSral      /*팝업 관리 일련번호 */
+             , P.NO_ATCH_FILE_SRAL  AS noAtchFileSral /*첨부파일 일련번호 */
+             , P.CD_CLOR_BKGD       AS cdClorBkgd      /*배너 배경 컬러코드*/
+             , P.URL_ADDR_LNK       AS urlAddrLnk      /*링크 유알엘 주소*/
+             , P.DT_BEGN            AS dtBegn           /*게시 시작 일자*/
+             , P.DT_END             AS dtEnd            /*게시 종료 일자*/
+             , P.YN_NTC             AS ynNtc            /*게시여부 */
+             , P.YN_ELMN            AS ynElmn           /*삭제 여부*/
+             , P.ID_CRTN_PRSN       AS idCrtnPrsn      /*생성_자*/
+             , P.DNT_CRTN           AS dntCrtn          /*일시_생성*/
+             , P.ID_REV_PRSN        AS idRevPrsn       /*수정_자*/
+             , P.DNT_REV            AS dntRev           /*일시_수정*/
+             , F.CNTS_FILE_DTIL     AS cntsFileDtil    /*대체텍스트*/
+             , F.PTH_FILE_PHYS || F.NM_PHYS_FILE AS pthFilePhys /*파일경로*/
+          FROM HABT_ADMN_PPUP P
+             , HABT_FILE_LST_INFO F
+         WHERE P.NO_ATCH_FILE_SRAL = F.NO_ATCH_FILE_SRAL
+           AND P.YN_NTC = 'Y'
+           AND P.YN_ELMN = 'N'
+           AND TO_CHAR(SYSDATE,'YYYYMMDD') BETWEEN P.DT_BEGN AND P.DT_END
+         ORDER BY P.ODER_MKAR
+    </select>
+
+    <select id="selectMainBnnInfo" resultClass="java.util.HashMap">
+         SELECT IMG_1
+              , TEXT_1
+              , LNK_1
+              , IMG_2                   /* 이미지2 */
+              , TEXT_2                  /* 이미지 대체 텍스트2 */
+              , LNK_2                   /* URL 링크2 */
+              , IMG_3                   /* 이미지3 */
+              , TEXT_3                  /* 이미지 대체 텍스트3 */
+              , LNK_3                   /* URL 링크3 */
+           FROM HABT_ADMN_MAIN
+          WHERE ROWNUM = 1
+    </select>
+</sqlMap>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.front.vo.Biz02Vo" id="biz02Vo">
+        <result property="gubun1" column="GUBUN1" />
+        <result property="gubun2" column="GUBUN2" />
+        <result property="nmPdct" column="NM_PDCT" />
+        <result property="atrb2" column="ATRB_2" />
+        <result property="atrb3" column="ATRB_3" />
+        <result property="atrb4" column="ATRB_4" />
+        <result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+        <result property="file1" column="FILE1" />
+        <result property="file2" column="FILE2" />
+        <result property="file3" column="FILE3" />
+    </resultMap>
+
+    <!-- 제품 규격 List -->
+    <select id="front.selectBiz02List" resultMap="biz02Vo">
+        /* biz02.front.selectBiz02List */
+        SELECT
+            NM_CD AS GUBUN1,
+            CASE ATRB_1
+           		WHEN  'A00|' THEN '선택없음'
+            	WHEN  'A01|' THEN '인쇄'
+                WHEN  'A02|' THEN '포장'
+                WHEN  'A03|' THEN '내열인쇄'
+                WHEN  'B00|' THEN '선택없음'
+                WHEN  'B01|' THEN '테이프'
+                WHEN  'B02|' THEN '컬러테이프'
+                WHEN  'C00|' THEN '선택없음'
+                WHEN  'C01|' THEN '무광합지'
+                WHEN  'C02|' THEN '유광합지'
+                WHEN  'D00|' THEN '선택없음'
+                WHEN  'D01|' THEN '무광 D.T.L'
+                WHEN  'D02|' THEN '유광 D.T.L'
+                WHEN  'E00|' THEN '선택없음'
+                WHEN  'E01|' THEN '방담'
+                WHEN  'E02|' THEN '열접착'
+                WHEN  'E03|' THEN '담배'
+                WHEN  'E04|' THEN '빨대포장'
+                WHEN  'E05|' THEN 'White'
+                WHEN  'E06|' THEN '합성지'
+                WHEN  'E07|' THEN '데코시트'
+                WHEN  'E08|' THEN 'Anti-Scuff'
+                WHEN  'E09|' THEN 'SoftFeel'
+                WHEN  'E10|' THEN '내열/리딩'
+                WHEN  'E11|' THEN '세미매트'
+                WHEN  'E12|' THEN '앨범'
+                WHEN  'E13|' THEN '영구대전방지'
+                WHEN  'F00|' THEN '선택없음'
+                WHEN  'F01|' THEN '무광 EVA'
+                WHEN  'F02|' THEN '유광 EVA'
+                WHEN  'F03|' THEN 'EVA Anti Suff'
+                WHEN  'F04|' THEN 'EVA Soft Feel'
+                ELSE ATRB_1
+            END GUBUN2
+          , A.NM_PDCT
+          , A.ATRB_2
+          , A.ATRB_3
+          , A.ATRB_4
+          , A.NO_ATCH_FILE_SRAL
+          , B.NO_ATCH_FILE_DTIL_SRAL AS FILE1
+          , C.NO_ATCH_FILE_DTIL_SRAL AS FILE2
+          , D.NO_ATCH_FILE_DTIL_SRAL AS FILE3
+        FROM
+            HABT_PDCT A
+            LEFT JOIN HABT_FILE_LST_INFO B ON A.NO_ATCH_FILE_SRAL = B.NO_ATCH_FILE_SRAL AND B.CL_FILE = '1'
+            LEFT JOIN HABT_FILE_LST_INFO C ON A.NO_ATCH_FILE_SRAL = C.NO_ATCH_FILE_SRAL AND C.CL_FILE = '2'
+            LEFT JOIN HABT_FILE_LST_INFO D ON A.NO_ATCH_FILE_SRAL = D.NO_ATCH_FILE_SRAL AND D.CL_FILE = '3'
+            LEFT JOIN HABT_ADMN_CD E       ON A.CD_PDCT_USE = E.CD_ADMN_DTIL AND E.CD_ADMN = '0006'
+        WHERE 1=1
+        <isNotEqual property="searchVal" compareValue="">
+			AND
+			<iterate prepend='' property='val' open='(' close=')' conjunction="OR">
+				(ATRB_1 LIKE '%' || #val[]# || '%')
+			</iterate>
+		</isNotEqual>
+        AND CD_CTGR = 'P4002'
+        AND CL_KO_ENG = 'K' /* 국문영문 구분 ( K : 국문, E : 영문 ) */
+        AND YN_NTC = 'Y'    /* 게시여부 ( Y : 게시함, N : 게시안함 ) */
+        AND YN_ELMN = 'N'   /* 삭제여부 ( Y : 삭제함, N : 삭제안함 ) */
+        ORDER BY
+            ATRB_1
+    </select>
+
+</sqlMap>

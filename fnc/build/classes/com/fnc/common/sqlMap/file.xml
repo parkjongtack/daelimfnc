@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.common.vo.FileVo" id="FileVo">
+        <result property="noAtchFileDtilSral" column="NO_ATCH_FILE_DTIL_SRAL" />
+		<result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+		<result property="pthFilePhys" column="PTH_FILE_PHYS" />
+		<result property="pthFileLogi" column="PTH_FILE_LOGI" />
+		<result property="tyFile" column="TY_FILE" />
+		<result property="sizeFile" column="SIZE_FILE" />
+		<result property="nmPhysFile" column="NM_PHYS_FILE" />
+		<result property="nmLogiFile" column="NM_LOGI_FILE" />
+		<result property="cntsFileDtil" column="CNTS_FILE_DTIL" />
+		<result property="clFile" column="CL_FILE" />
+		<result property="oderMkar" column="ODER_MKAR" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+    
+    <select id="selectFileList" resultMap="FileVo">
+    	SELECT 
+		    NO_ATCH_FILE_DTIL_SRAL
+		    , NO_ATCH_FILE_SRAL
+		    , PTH_FILE_PHYS
+		    , PTH_FILE_LOGI
+		    , TY_FILE
+		    , SIZE_FILE
+		    , NM_PHYS_FILE
+		    , NM_LOGI_FILE
+		    , CNTS_FILE_DTIL
+		    , CL_FILE
+		    , ODER_MKAR
+		    , ID_CRTN_PRSN
+		    , DNT_CRTN
+		    , ID_REV_PRSN
+		    , DNT_REV
+		    , IP_ADMN_PRSN
+		  FROM HABT_FILE_LST_INFO
+		 WHERE NO_ATCH_FILE_SRAL = #noAtchFileSral#
+		 ORDER BY NO_ATCH_FILE_DTIL_SRAL
+    </select>
+    
+    <select id="selectFiles" resultMap="FileVo">
+        SELECT 
+		    NO_ATCH_FILE_DTIL_SRAL
+		    , NO_ATCH_FILE_SRAL
+		    , PTH_FILE_PHYS
+		    , PTH_FILE_LOGI
+		    , TY_FILE
+		    , SIZE_FILE
+		    , NM_PHYS_FILE
+		    , NM_LOGI_FILE
+		    , CNTS_FILE_DTIL
+		    , CL_FILE
+		    , ODER_MKAR
+		    , ID_CRTN_PRSN
+		    , DNT_CRTN
+		    , ID_REV_PRSN
+		    , DNT_REV
+		    , IP_ADMN_PRSN
+		  FROM HABT_FILE_LST_INFO
+		 WHERE NO_ATCH_FILE_DTIL_SRAL = #noAtchFileDtilSral#
+    </select>
+
+    <!-- 파일 키값 -->
+    <select id="selectFileKey" resultClass="int">
+    	SELECT HABSQ_FILE_INFO.NEXTVAL AS noAtchFileSral FROM DUAL
+    </select>
+    
+    <!-- 파일 등록 -->
+    <insert id="insertFileList">
+    	/* file.insertFileList */
+		INSERT INTO HABT_FILE_LST_INFO (
+			NO_ATCH_FILE_DTIL_SRAL
+			, NO_ATCH_FILE_SRAL
+			, PTH_FILE_PHYS
+			, PTH_FILE_LOGI
+			, TY_FILE
+			, SIZE_FILE
+			, NM_PHYS_FILE
+			, NM_LOGI_FILE
+			, CNTS_FILE_DTIL
+			, CL_FILE
+			, ODER_MKAR
+			, ID_CRTN_PRSN
+			, DNT_CRTN
+			, ID_REV_PRSN
+			, DNT_REV
+			, IP_ADMN_PRSN
+		) VALUES (
+			HABSQ_FILE_LST_INFO.NEXTVAL,
+			#noAtchFileSral#,
+			#pthFilePhys#,
+			#pthFileLogi#,
+			#tyFile#,
+			#sizeFile#,
+			#nmPhysFile#,
+			#nmLogiFile#,
+			#cntsFileDtil#,
+			#clFile#,
+			#oderMkar#,
+			#idCrtnPrsn#,
+			SYSDATE,
+			'',
+			#dntRev#,
+			#ipAdmnPrsn#
+		)
+    </insert>
+    
+    <!-- 파일 등록 -->
+    <insert id="insertModifyFile">
+		INSERT INTO HABT_FILE_LST_INFO (
+			NO_ATCH_FILE_DTIL_SRAL
+			, NO_ATCH_FILE_SRAL
+			, PTH_FILE_PHYS
+			, PTH_FILE_LOGI
+			, TY_FILE
+			, SIZE_FILE
+			, NM_PHYS_FILE
+			, NM_LOGI_FILE
+			, CNTS_FILE_DTIL
+			, CL_FILE
+			, ODER_MKAR
+			, ID_CRTN_PRSN
+			, DNT_CRTN
+			, ID_REV_PRSN
+			, DNT_REV
+			, IP_ADMN_PRSN
+		) VALUES (
+			HABSQ_FILE_LST_INFO.NEXTVAL,
+			#noAtchFileSral#,
+			#pthFilePhys#,
+			#pthFileLogi#,
+			#tyFile#,
+			#sizeFile#,
+			#nmPhysFile#,
+			#nmLogiFile#,
+			#cntsFileDtil#,
+			#clFile#,
+			#oderMkar#,
+			#idCrtnPrsn#,
+			SYSDATE,
+			'',
+			#dntRev#,
+			#ipAdmnPrsn#
+		)
+    </insert>
+    
+    <!-- 파일 등록 : 묶음 -->
+    <insert id="insertFile">
+		/* file.insertFile */
+		INSERT INTO HABT_FILE_INFO (
+			NO_ATCH_FILE_SRAL
+		) VALUES (
+			#noAtchFileSral#
+		)
+    </insert>
+    
+    <!-- 파일 수정 -->
+    <update id="updateFile">
+    	/* file.updateFile */
+    	UPDATE HABT_FILE_LST_INFO 
+    	   SET DNT_REV = SYSDATE
+           <isNotEmpty property="pthFileLogi">
+             , PTH_FILE_LOGI = #pthFileLogi#
+           </isNotEmpty>
+           <isNotEmpty property="pthFilePhys">
+    	     , PTH_FILE_PHYS = #pthFilePhys#
+           </isNotEmpty>
+           <isNotEmpty property="nmPhysFile">
+    	     , NM_PHYS_FILE = #nmPhysFile#
+           </isNotEmpty>
+           <isNotEmpty property="nmLogiFile">
+			 , NM_LOGI_FILE = #nmLogiFile#
+           </isNotEmpty>
+           <isNotEmpty property="sizeFile">
+    	     , SIZE_FILE = #sizeFile#
+           </isNotEmpty>
+           <isNotEmpty property="tyFile">
+    	     , TY_FILE = #tyFile#
+           </isNotEmpty>
+           <isNotEmpty property="idRevPrsn">
+    	     , ID_REV_PRSN = #idRevPrsn#
+           </isNotEmpty> 
+           <isNotEmpty property="ipAdmnPrsn">
+    	     , IP_ADMN_PRSN = #ipAdmnPrsn#
+           </isNotEmpty>
+           <isNotEmpty property="cntsFileDtil">
+    	     , CNTS_FILE_DTIL = #cntsFileDtil#
+           </isNotEmpty>
+    	 WHERE NO_ATCH_FILE_DTIL_SRAL = #noAtchFileDtilSral#
+    </update>
+    
+    <!-- 파일 삭제 -->
+    <delete id="deleteFile">
+    	DELETE FROM HABT_FILE_LST_INFO WHERE NO_ATCH_FILE_DTIL_SRAL = #noAtchFileDtilSral#
+    </delete>
+</sqlMap>

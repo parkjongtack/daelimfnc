@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN" "http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.i18n.encoding" value="UTF-8" />
+    <constant name="struts.action.extension" value="do" />
+    <constant name="struts.multipart.maxSize" value="1073741824" />
+    <constant name="struts.multipart.saveDir" value="/" />
+    <constant name="struts.custom.i18n.resources" value="messages" />
+    <constant name="struts.locale" value="ko"></constant>
+    <!-- request_locale ==> get parameter control possible -->
+    <!-- request_locale 파라미터로 다국어(ko/en) 조정 가능 -->
+    <!-- Front -->
+    <package name="default" namespace ="/" extends="struts-default, json-default">
+        <global-results>
+            <result name="redirect">/common/redirect.jsp</result>
+            <result name="adminLogin">/common/redirectAdminLogin.jsp</result>
+            <result name="noAuth">/common/noAuth.jsp</result>
+            <result name="alertMsg">/common/inc_alertMsg.jsp</result>
+        </global-results>
+        <action name="main" class="com.fnc.front.action.MainAction">
+            <result name="success">/WEB-INF/jsp/main.jsp</result>
+        </action>
+
+        <!-- company -->
+        <action name="com01" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com01.jsp</result>
+        </action>
+        <action name="com02" class="com.fnc.front.action.Com02Action">
+            <result name="success">/WEB-INF/jsp/company/com02.jsp</result>
+        </action>
+        <action name="com03" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com03.jsp</result>
+        </action>
+        <action name="com04_1" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_1.jsp</result>
+        </action>
+        <action name="com04_2" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_2.jsp</result>
+        </action>
+        <action name="com04_3" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_3.jsp</result>
+        </action>
+        <action name="com04_4" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_4.jsp</result>
+        </action>
+        <action name="com04_5" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_5.jsp</result>
+        </action>
+        <action name="com04_6" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_6.jsp</result>
+        </action>
+        <action name="com04_7" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_7.jsp</result>
+        </action>
+        <action name="com04_8" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com04_8.jsp</result>
+        </action>
+        <action name="com05" class="com.fnc.front.action.Com01Action">
+            <result name="success">/WEB-INF/jsp/company/com05.jsp</result>
+        </action>
+        
+        <!-- biz -->
+        <action name="biz01" class="com.fnc.front.action.Biz01Action">
+            <result name="success">/WEB-INF/jsp/biz/biz01.jsp</result>
+        </action>
+        <action name="sendMail01" class="com.fnc.front.action.Biz01Action" method="sendMail">
+            <result name="success">/WEB-INF/jsp/biz/biz01.jsp</result>
+        </action>
+        <!-- 제품 목록 -->
+        <action name="bizlist" class="com.fnc.front.action.Biz01Action" method="bizlist">
+            <result name="success" type="json" />
+        </action> 
+        <action name="biz02" class="com.fnc.front.action.Biz02Action">
+            <result name="success">/WEB-INF/jsp/biz/biz02.jsp</result>
+        </action>
+         <action name="biz02List" class="com.fnc.front.action.Biz02Action" method="biz02List">
+            <result name="success" type="json" />
+        </action>
+        <action name="biz03" class="com.fnc.front.action.Biz03Action">
+            <result name="success">/WEB-INF/jsp/biz/biz03.jsp</result>
+        </action>
+        
+        <!-- rnd -->
+        <action name="rnd01" class="com.fnc.front.action.Rnd01Action">
+            <result name="success">/WEB-INF/jsp/rnd/rnd01.jsp</result>
+        </action>
+        <action name="rnd02" class="com.fnc.front.action.Rnd01Action">
+            <result name="success">/WEB-INF/jsp/rnd/rnd02.jsp</result>
+        </action>   
+
+		<!--  지속가능경영 -->
+        <action name="sus01_1" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_1.jsp</result>
+        </action>
+        <action name="sus01_2" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_2.jsp</result>
+        </action>
+        <action name="sus01_3_1" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_3_1.jsp</result>
+        </action>
+        <action name="sus01_3_2" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_3_2.jsp</result>
+        </action>
+        <action name="sus01_3_3" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_3_3.jsp</result>
+        </action>
+        <action name="sus01_3_4" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_3_4.jsp</result>
+        </action>
+        <action name="sus01_4" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_4.jsp</result>
+        </action>
+        <action name="sus01_5" class="com.fnc.front.action.Sus01Action">
+            <result name="success">/WEB-INF/jsp/sustainability/sus01_5.jsp</result>
+        </action>
+
+        <!-- 사이버 신문고 -->
+        <action name="sus02_1" class="com.fnc.front.action.Sus02Action" method="sus02_1">
+            <result name="success">/WEB-INF/jsp/sustainability/sus02_1.jsp</result>
+        </action>
+        <action name="checkPlusSuccess" class="com.fnc.front.action.CheckPlusAction" method="success">
+            <result name="success">/WEB-INF/jsp/sustainability/checkPlusSuccess.jsp</result>
+        </action>
+        <action name="checkPlusFail" class="com.fnc.front.action.CheckPlusAction" method="fail">
+            <result name="success">/WEB-INF/jsp/sustainability/checkPlusFail.jsp</result>
+        </action>
+        <action name="sus02_2" class="com.fnc.front.action.Sus02Action" method="sus02_2">
+            <result name="success">/WEB-INF/jsp/sustainability/sus02_2.jsp</result>
+        </action>
+        <action name="cyberSend" class="com.fnc.front.action.Sus02Action" method="cyberSend">
+            <result name="success">/WEB-INF/jsp/sustainability/cyberSend.jsp</result>
+        </action>
+        <action name="sus02_3" class="com.fnc.front.action.Sus02Action" method="sus02_3">
+            <result name="success">/WEB-INF/jsp/sustainability/sus02_3.jsp</result>
+        </action>   
+        
+        <!-- pr -->     
+        <action name="pr01" class="com.fnc.front.action.Pr01Action">
+            <result name="success">/WEB-INF/jsp/pr/pr01.jsp</result>
+        </action>
+        <action name="pr01List" class="com.fnc.front.action.Pr01Action" method="list">
+            <result name="success" type="json" />
+        </action>
+        <action name="pr01view" class="com.fnc.front.action.Pr01ViewAction">
+            <result name="success">/WEB-INF/jsp/pr/pr01_view.jsp</result>
+        </action>
+        <action name="pr02" class="com.fnc.front.action.Pr02Action">
+            <result name="success">/WEB-INF/jsp/pr/pr02.jsp</result>
+        </action>
+        
+        
+        <!-- car -->
+        <action name="car01" class="com.fnc.front.action.Car01Action">
+            <result name="success">/WEB-INF/jsp/careers/car01.jsp</result>
+        </action>
+        <action name="car02" class="com.fnc.front.action.Car01Action">
+            <result name="success">/WEB-INF/jsp/careers/car02.jsp</result>
+        </action>
+        <action name="sendMail02" class="com.fnc.front.action.Biz01Action" method="sendMail">
+            <result name="success">/WEB-INF/jsp/biz/car03.jsp</result>
+        </action>
+    <!--    
+        <action name="car03" class="com.fnc.front.action.Car01Action">
+            <result name="success">/WEB-INF/jsp/careers/car03.jsp</result>
+        </action>
+     -->
+        <action name="car01List" class="com.fnc.front.action.Car01Action" method="list">
+            <result name="success">/WEB-INF/jsp/careers/car03.jsp</result>
+        </action>
+        <action name="car01ListAjax" class="com.fnc.front.action.Car01Action" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+        <action name="car01Detail" class="com.fnc.front.action.Car01Action" method="listOne">
+            <result name="success">/WEB-INF/jsp/careers/car03_view.jsp</result>
+        </action>
+        <action name="pers01ListAjax" class="com.fnc.front.action.Pers01Action" method="listAjax">
+            <result name="success" type="json" />
+        </action>               
+        <action name="ps01" class="com.fnc.front.action.Pers01Action">
+            <result name="success">/WEB-INF/jsp/ft/person01.jsp</result>
+        </action>
+        <action name="md01" class="com.fnc.front.action.Media01Action">
+            <result name="success">/WEB-INF/jsp/ft/media01.jsp</result>
+        </action>
+        <action name="email01" class="com.fnc.front.action.Email01Action">
+            <result name="success">/WEB-INF/jsp/ft/email01.jsp</result>
+        </action>
+        <action name="cus01" class="com.fnc.front.action.Email01Action">
+            <result name="success">/WEB-INF/jsp/ft/customer01.jsp</result>
+        </action>
+        <action name="fileDownload" class="com.fnc.common.action.FileDownloadAction">
+            <result name="success" type="stream">
+                <param name="contentType">binary/octet-stream</param>
+                <param name="inputName">inputStream</param>
+                <param name="contentDisposition">${contentDispostion}</param>
+                <param name="contentLength">${contentLength}</param>
+                <param name="bufferSize">4096</param>
+            </result>
+        </action>
+        <action name="HelloWorld" class="com.fnc.test.HelloWorld">
+            <result name="success">/WEB-INF/jsp/helloWorld.jsp</result>
+        </action>
+
+    </package>
+    
+    <!-- Admin -->
+    <package name="admin" namespace ="/admin" extends="struts-default, json-default">
+        <interceptors>
+            <interceptor name="loginInterceptor" class="com.fnc.common.interceptor.AdminInterceptor"/>
+            <interceptor-stack name="loginStack">
+                <interceptor-ref name="loginInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+        
+        <default-interceptor-ref name="loginStack"/>
+        
+        <global-results>
+            <result name="adminLogin" type="redirect">/admin/loginForm.do</result>
+            <result name="adminExpirePwd" type="redirect">/admin/expirePwd.do</result>
+            <result name="noAccess" type="redirect">/admin/bnnList.do</result>
+        </global-results>
+        
+        <!-- 로그인관련 -->
+        <action name="loginForm" class="com.fnc.common.action.LoginAction" method="loginForm">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/WEB-INF/jsp/admin/login.jsp</result>
+        </action>
+        <action name="login" class="com.fnc.common.action.LoginAction" method="login">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/WEB-INF/jsp/admin/loginAuth.jsp</result>
+        </action>
+        <action name="auth" class="com.fnc.common.action.LoginAction" method="authOtp">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success"  type="json"/>
+        </action>
+        <action name="resendOtp" class="com.fnc.common.action.LoginAction" method="reSendOtp">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="json"/>
+        </action>
+        <action name="expirePwd" class="com.fnc.common.action.LoginAction" method="expirePwd">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/WEB-INF/jsp/admin/passwdChg.jsp</result>
+        </action>
+        <action name="changePwdAjax" class="com.fnc.common.action.LoginAction" method="changePwdAjax">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success" type="json"/>
+        </action>
+        <action name="updateAccountInfoAjax" class="com.fnc.common.action.LoginAction" method="updateAccountInfoAjax">
+            <result name="success" type="json"/>
+        </action>
+        <action name="logout" class="com.fnc.common.action.LoginAction" method="logout">
+            <interceptor-ref name="defaultStack"/>
+            <result name="success">/WEB-INF/jsp/admin/login.jsp</result>
+        </action>
+           
+        <!-- 메인이미지관리 -->     
+        <!-- <action name="main" class="com.fnc.admin.action.MainAction">
+             <interceptor-ref name="defaultStack"/>
+            <result name="success">/WEB-INF/jsp/admin/main.jsp</result>
+        </action> -->
+        <!-- 채용 등록 로직 -->
+        <!-- <action name="mainRegiExcute" class="com.fnc.admin.action.MainAction" method="mainRegiExcute">
+            <result name="success" type="redirect">/admin/main.do</result>
+        </action> -->
+        
+        <!-- 관리자 목록화면 -->
+        <action name="admList" class="com.fnc.admin.action.AdmAction" method="list">
+            <result name="success">/WEB-INF/jsp/admin/adm/admList.jsp</result>
+        </action>
+        
+        <!-- 관리자 목록 -->
+        <action name="admListAjax" class="com.fnc.admin.action.AdmAction" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+        
+        <!-- 관리자 등록화면 -->
+        <action name="admRegi" class="com.fnc.admin.action.AdmAction" method="regi">
+            <result name="success">/WEB-INF/jsp/admin/adm/admRegi.jsp</result>
+        </action>
+        
+        <!-- 관리자 아이디 중복체크 -->
+        <action name="admIdOverlapCheck" class="com.fnc.admin.action.AdmAction" method="idOverlapCheck">
+            <result name="success" type="json" />
+        </action>
+        
+        <!-- 관리자 등록 -->
+        <action name="admRegiExcute" class="com.fnc.admin.action.AdmAction" method="regiExcute">
+            <result name="success" type="redirect">/admin/admList.do?resultCd=${resultCd}</result>
+        </action>
+         
+        <!-- 관리자 수정화면 -->
+        <action name="admModi" class="com.fnc.admin.action.AdmAction" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/adm/admMod.jsp</result>
+        </action> 
+        
+        <!-- 관리자 수정 -->
+        <action name="admModiExcute" class="com.fnc.admin.action.AdmAction" method="modiExcute">
+            <result name="success" type="redirect">/admin/admList.do</result>
+        </action>
+        
+        <!-- 관리자 사용제한 복구 -->
+        <action name="admUseRecoveryAjax" class="com.fnc.admin.action.AdmAction" method="useRecoveryAjax">
+            <result name="success" type="json" />
+        </action>
+        
+        <!-- 관리자 삭제 -->
+        <action name="admDelAjax" class="com.fnc.admin.action.AdmAction" method="delAjax">
+            <result name="success" type="json" />
+        </action>
+        
+        <!-- 제품 목록 화면 -->
+        <action name="bizList" class="com.fnc.admin.action.BizAction" method="list">
+            <result name="success">/WEB-INF/jsp/admin/biz/bizList.jsp</result>
+        </action>
+        <!-- 제품 목록 -->
+        <action name="bizListAjax" class="com.fnc.admin.action.BizAction" method="listAjax">
+            <result name="success" type="json" />
+        </action> 
+        <!-- 제품 등록 화면 -->
+        <action name="bizRegi" class="com.fnc.admin.action.BizAction" method="regi">
+            <result name="success">/WEB-INF/jsp/admin/biz/bizRegi.jsp</result>
+        </action>
+        <!-- 제품 등록 -->
+        <action name="bizRegiExcute" class="com.fnc.admin.action.BizAction" method="bizRegiExcute">
+            <result name="success" type="redirect">/admin/bizList.do</result>
+        </action>
+        <!-- 제품 수정 화면 -->
+        <action name="bizModi" class="com.fnc.admin.action.BizAction" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/biz/bizModi.jsp</result>
+        </action> 
+        <!-- 제품 수정 -->
+        <action name="bizModiExcute" class="com.fnc.admin.action.BizAction" method="modiExcute">
+            <result name="success" type="redirect">/admin/bizList.do</result>
+        </action>
+        <!-- 제품 삭제 -->
+        <action name="bizDelAjax" class="com.fnc.admin.action.BizAction" method="delAjax">
+            <result name="success" type="json" />
+        </action>
+        
+        <!-- 회사소식 목록 -->
+        <action name="comList" class="com.fnc.admin.action.ComAction" method="list">
+            <result name="success">/WEB-INF/jsp/admin/company/comList.jsp</result>
+        </action>
+        <!-- 회사소식 목록 -->
+        <action name="comListAjax" class="com.fnc.admin.action.ComAction" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+        <!-- 회사소식 등록 --> 
+        <action name="comRegi" class="com.fnc.admin.action.ComAction" method="regi">
+            <result name="success">/WEB-INF/jsp/admin/company/comRegi.jsp</result>
+        </action>
+        <!-- 회사소식 등록 로직--> 
+        <action name="regiExcute" class="com.fnc.admin.action.ComAction" method="comRegiExcute">
+            <result name="success" type="redirect">/admin/comList.do</result>
+        </action>
+        <!-- 회사소식 수정 --> 
+        <action name="comModi" class="com.fnc.admin.action.ComAction" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/company/comModi.jsp</result>
+        </action>
+        <action name="modiExcute" class="com.fnc.admin.action.ComAction" method="comModiExcute">
+            <result name="success" type="redirect">/admin/comList.do</result>
+        </action>
+        <!-- 회사소식 삭제 -->
+        <action name="comDele" class="com.fnc.admin.action.ComAction" method="dele">
+            <result name="success" type="redirect">/admin/comList.do</result>
+        </action>
+        <!-- 채용 목록 -->
+        <action name="carList" class="com.fnc.admin.action.CarAction" method="list">
+            <result name="success">/WEB-INF/jsp/admin/careers/carList.jsp</result>
+        </action> 
+        <!-- 채용 목록  AJAX -->
+        <action name="carListAjax" class="com.fnc.admin.action.CarAction" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+        <!-- 채용 등록 -->
+        <action name="carRegi" class="com.fnc.admin.action.CarAction" method="regi">
+            <result name="success">/WEB-INF/jsp/admin/careers/carRegi.jsp</result>
+        </action>
+        <!-- 채용 등록 로직 -->
+        <action name="carRegiExcute" class="com.fnc.admin.action.CarAction" method="carRegiExcute">
+            <result name="success" type="redirect">/admin/carList.do</result>
+        </action>
+        <!-- 채용 수정 -->
+        <action name="carModi" class="com.fnc.admin.action.CarAction" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/careers/carModi.jsp</result>
+        </action>   
+        <!-- 채용 수정 로직 -->
+        <action name="carModiExcute" class="com.fnc.admin.action.CarAction" method="carModiExcute">
+            <result name="success" type="redirect">/admin/carList.do</result>
+        </action>
+        <!-- 채용 삭제 -->
+        <action name="carDele" class="com.fnc.admin.action.CarAction" method="dele">
+            <result name="success" type="redirect">/admin/carList.do</result>
+        </action>   
+
+
+        <!-- 개인정보 목록 -->
+        <action name="perList" class="com.fnc.admin.action.PerAction" method="list">
+            <result name="success">/WEB-INF/jsp/admin/pr/perList.jsp</result>
+        </action> 
+        <!-- 개인정보 목록  AJAX -->
+        <action name="perListAjax" class="com.fnc.admin.action.PerAction" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+        <!-- 개인정보 등록 -->
+        <action name="perRegi" class="com.fnc.admin.action.PerAction" method="regi">
+            <result name="success">/WEB-INF/jsp/admin/pr/perRegi.jsp</result>
+        </action>
+        <!-- 개인정보 등록 로직 -->
+        <action name="perRegiExcute" class="com.fnc.admin.action.PerAction" method="perRegiExcute">
+            <result name="success" type="redirect">/admin/perList.do</result>
+        </action>
+        <!-- 개인정보 수정 -->
+        <action name="perModi" class="com.fnc.admin.action.PerAction" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/pr/perModi.jsp</result>
+        </action>   
+        <!-- 개인정보 수정 로직 -->
+        <action name="perModiExcute" class="com.fnc.admin.action.PerAction" method="perModiExcute">
+            <result name="success" type="redirect">/admin/perList.do</result>
+        </action>
+        <!-- 개인정보 삭제 -->
+        <action name="perDele" class="com.fnc.admin.action.PerAction" method="dele">
+            <result name="success" type="redirect">/admin/perList.do</result>
+        </action>   
+
+
+    
+        <!-- 팝업 관리 -->                      
+        <action name="popList" class="com.fnc.admin.action.PopAction" method="popList">
+            <result name="success">/WEB-INF/jsp/admin/pr/popList.jsp</result>
+        </action>
+        <!-- 팝업 목록 AJAX -->
+        <action name="getPopList" class="com.fnc.admin.action.PopAction" method="getPopList">
+            <result name="success" type="json" />
+        </action>
+        <!-- 팝업 상세 AJAX -->
+        <action name="getPopDetail" class="com.fnc.admin.action.PopAction" method="getPopDetail">
+            <result name="success" type="json" />
+        </action>
+        <!-- 팝업 등록 -->
+        <action name="popRegiExcute" class="com.fnc.admin.action.PopAction" method="popRegiExcute">
+            <result name="success" type="redirect">/admin/popList.do</result>
+        </action>
+        <!-- 팝업 수정 -->
+        <action name="popModi" class="com.fnc.admin.action.PopAction" method="popModi">
+            <result name="success" type="redirect">/admin/popList.do</result>
+        </action>
+        
+        <!-- 팝업 삭제 -->
+        <action name="popDelte" class="com.fnc.admin.action.PopAction" method="deletePop">
+            <result name="success" type="redirect">/admin/popList.do</result>
+        </action>
+        
+        <!-- 배너 목록 -->                          
+        <action name="bnnList" class="com.fnc.admin.action.BnnAction" method="mainReadExcute">
+            <result name="success">/WEB-INF/jsp/admin/pr/banner.jsp</result>
+        </action>                                                    
+        <!-- 배너 등록 -->                          
+        <action name="bnnReg" class="com.fnc.admin.action.BnnAction" method="mainRegiExcute">
+            <result name="success" type="redirect">/admin/bnnList.do</result>
+        </action>
+                                                              
+    </package>
+</struts>
+

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+
+    <!-- 메일 전송 로그 -->
+    <insert id="insertMailSendLog">
+        /* MailSendLogDao.insertMailSendLog */
+        INSERT INTO HABT_LOG_ADMN_MAIL_SDNG (
+		    NO_MAIL_SDNG_SRAL
+		    , EMAIL_SDNG
+		    , EMAIL_RCPN
+		    , CL_MAIL
+		    , DNT_SDNG
+		    , IP_SDNG
+		) VALUES (
+		    HABSQ_LOG_ADMN_MAIL_SDNG.NEXTVAL
+		    , #emailSdng#
+		    , #emailRcpn#
+		    , #clMail#
+		    , SYSDATE
+		    , #ipSdng#
+		)
+    </insert>
+
+</sqlMap>

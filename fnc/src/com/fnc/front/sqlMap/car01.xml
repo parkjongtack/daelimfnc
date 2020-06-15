@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap>
+    <resultMap class="com.fnc.front.vo.Car01Vo" id="Car01Vo">
+        <result property="noNtcPlteSral" column="NO_NTC_PLTE_SRAL" />
+		<result property="clNtcPlte" column="CL_NTC_PLTE" />
+		<result property="clGbn" column="CL_GBN" />
+		<result property="sbjtNtcPlte" column="SBJT_NTC_PLTE" />
+		<result property="cntsSmry" column="CNTS_SMRY" />
+		<result property="cntsNtcPlte" column="CNTS_NTC_PLTE" />
+		<result property="dtRgst" column="DT_RGST" />
+		<result property="dtBegnc" column="DT_BEGNC" />
+		<result property="dtEnd" column="DT_END" />
+		<result property="noAtchFileThumSral" column="NO_ATCH_FILE_THUM_SRAL" />
+		<result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+		<result property="clKoEng" column="CL_KO_ENG" />
+		<result property="clBil" column="CL_MBIL" />
+		<result property="statNtc" column="STAT_NTC" />
+		<result property="ynNtc" column="YN_NTC" />
+		<result property="ynElmn" column="YN_ELMN" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+    
+    
+    <!-- 회사소식 목록 -->
+	<select id="selectCar01List" resultMap="Car01Vo">
+        /* com.selectComList */
+        SELECT
+        	NO_NTC_PLTE_SRAL
+			, CL_NTC_PLTE
+			, CL_GBN
+			, SBJT_NTC_PLTE
+			, CNTS_SMRY
+			, CNTS_NTC_PLTE
+			, DT_RGST
+			, DT_BEGNC
+			, DT_END
+			, NO_ATCH_FILE_THUM_SRAL
+			, NO_ATCH_FILE_SRAL
+			, CL_KO_ENG
+			, CL_MBIL
+			, STAT_NTC
+			, YN_NTC
+			, YN_ELMN
+			, ID_CRTN_PRSN
+			, DNT_CRTN
+			, ID_REV_PRSN
+			, DNT_REV
+			, IP_ADMN_PRSN
+          FROM (
+          	SELECT
+          		ROW_NUMBER() OVER(ORDER BY NO_NTC_PLTE_SRAL DESC) AS NUM
+	        	, NO_NTC_PLTE_SRAL
+				, CL_NTC_PLTE
+				, CL_GBN
+				, SBJT_NTC_PLTE
+				, CNTS_SMRY
+				, CNTS_NTC_PLTE
+				, DT_RGST
+				, DT_BEGNC
+				, DT_END
+				, NO_ATCH_FILE_THUM_SRAL
+				, NO_ATCH_FILE_SRAL
+				, CL_KO_ENG
+				, CL_MBIL
+				, STAT_NTC
+				, YN_NTC
+				, YN_ELMN
+				, ID_CRTN_PRSN
+				, DNT_CRTN
+				, ID_REV_PRSN
+				, DNT_REV
+				, IP_ADMN_PRSN
+			  FROM HABT_NTC_PLTE
+			 WHERE CL_NTC_PLTE = '03'
+			   AND YN_NTC = 'Y'
+			   AND YN_ELMN = 'N'
+			<isEqual property="searchType" compareValue="0">
+	           AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_SMRY LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+	       	</isEqual>
+			<isEqual property="searchType" compareValue="1">
+	           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="2">
+	           AND CNTS_SMRY LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="3">
+	           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	 ORDER BY DNT_CRTN DESC
+          ) A
+       	 WHERE NUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+    <select id="selectCar01ListCnt" resultClass="Integer">
+        /* adm.selectComListCnt : 목록 개수 */
+        SELECT COUNT(NO_NTC_PLTE_SRAL) AS CNT
+		  FROM HABT_NTC_PLTE
+ 		 WHERE CL_NTC_PLTE = '03'
+ 		   AND YN_NTC = 'Y'
+		   AND YN_ELMN = 'N'
+ 		<isEqual property="searchType" compareValue="0">
+<!--            
+			AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_SMRY LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+ -->
+			AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_SMRY LIKE '%' || #searchData# || '%' )
+       	</isEqual>
+		<isEqual property="searchType" compareValue="1">
+           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+       	</isEqual>
+       	<isEqual property="searchType" compareValue="2">
+           AND CNTS_SMRY LIKE '%' || #searchData# || '%'
+       	</isEqual>
+<!-- 
+       	<isEqual property="searchType" compareValue="3">
+           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+       	</isEqual>
+ -->
+    </select>
+    
+    <!-- 회사소식 상세 -->
+	<select id="selectOne" resultClass="com.fnc.front.vo.Car01Vo">
+	<![CDATA[
+        /* com.selectCom */
+        SELECT
+        	NO_NTC_PLTE_SRAL as noNtcPlteSral
+			, CL_NTC_PLTE as clNtcPlte
+			, CL_GBN as clGbn
+			, SBJT_NTC_PLTE as sbjtNtcPlte
+			, CNTS_SMRY as cntsSmry
+			, CNTS_NTC_PLTE as cntsNtcPlte
+			, TO_CHAR(TO_DATE(DT_RGST,'YYYYMMDD'),'YYYY.MM.DD') as dtRgst
+			, TO_CHAR(TO_DATE(DT_BEGNC,'YYYYMMDD'),'YYYY.MM.DD') as dtBegnc
+			, TO_CHAR(TO_DATE(dT_END,'YYYYMMDD'),'YYYY.MM.DD') as dtEnd
+			, NO_ATCH_FILE_THUM_SRAL as noAtchFileThumSral
+			, NO_ATCH_FILE_SRAL as noAtchFileSral
+			, CL_KO_ENG as clKoEng
+			, CL_MBIL as clBil
+			, DECODE( STAT_NTC, '1', '대기',
+			                   '2', '접수중',
+			                   '3', '접수마감') as statNtc
+			, YN_NTC as ynNtc
+			, YN_ELMN as ynElmn
+			, ID_CRTN_PRSN as idCrtnPrsn
+			, DNT_CRTN as dntCrtn
+			, ID_REV_PRSN as idRevPrsn
+			, DNT_REV as dntRev
+			, IP_ADMN_PRSN as ipAdmnPrsn
+			, NVL((SELECT MAX(NO_NTC_PLTE_SRAL)
+                     FROM HABT_NTC_PLTE
+                    WHERE CL_NTC_PLTE = '03'
+                      AND NO_NTC_PLTE_SRAL < #noNtcPlteSral#), 0) AS beforeID
+	        , NVL((SELECT SBJT_NTC_PLTE
+                     FROM HABT_NTC_PLTE
+                    WHERE CL_NTC_PLTE = '03'
+                      AND NO_NTC_PLTE_SRAL = (SELECT MAX(NO_NTC_PLTE_SRAL) FROM HABT_NTC_PLTE WHERE CL_NTC_PLTE = '03' AND NO_NTC_PLTE_SRAL < #noNtcPlteSral#)
+                 ), '이전글이 없습니다') AS beforeNm
+	        , NVL((SELECT MIN(NO_NTC_PLTE_SRAL)
+                     FROM HABT_NTC_PLTE
+                    WHERE CL_NTC_PLTE = '03'
+                      AND NO_NTC_PLTE_SRAL > #noNtcPlteSral#), 0) AS nextID
+	        , NVL((SELECT SBJT_NTC_PLTE
+                     FROM HABT_NTC_PLTE
+                    WHERE CL_NTC_PLTE = '03'
+                      AND NO_NTC_PLTE_SRAL = (SELECT MIN(NO_NTC_PLTE_SRAL) FROM HABT_NTC_PLTE WHERE CL_NTC_PLTE = '03' AND NO_NTC_PLTE_SRAL > #noNtcPlteSral#)
+                 ), '다음글이 없습니다') AS nextNm
+		  FROM HABT_NTC_PLTE
+		 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+	]]> 		 
+    </select>
+ 	<select id="selectBfore" parameterClass="com.fnc.front.vo.Car01Vo" resultClass="com.fnc.front.vo.Car01Vo">
+        /* car.selectBefore */
+           SELECT nvl(beforeID,0) AS beforeID
+                     , nvl(beforeName, '이전글이 없습니다') AS beforeNm 
+                FROM(        
+                 SELECT  NO_NTC_PLTE_SRAL,
+                        SBJT_NTC_PLTE,
+                        LAG(NO_NTC_PLTE_SRAL) OVER (ORDER BY NO_NTC_PLTE_SRAL) beforeID,
+                        LAG(SBJT_NTC_PLTE) OVER (ORDER BY NO_NTC_PLTE_SRAL) beforeName
+                FROM    HABT_NTC_PLTE
+                ORDER BY NO_NTC_PLTE_SRAL
+                ) 
+		 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </select>   
+ 	<select id="selectNxt" parameterClass="com.fnc.front.vo.Car01Vo" resultClass="com.fnc.front.vo.Car01Vo">
+        /* car.selectBefore */
+           SELECT nvl(beforeID,0) AS nextID
+                     , nvl(beforeName, '다음글이 없습니다') AS nextNm 
+                FROM(        
+                 SELECT  NO_NTC_PLTE_SRAL,
+                        SBJT_NTC_PLTE,
+                        LEAD(NO_NTC_PLTE_SRAL) OVER (ORDER BY NO_NTC_PLTE_SRAL) beforeID,
+                        LEAD(SBJT_NTC_PLTE) OVER (ORDER BY NO_NTC_PLTE_SRAL) beforeName
+                FROM    HABT_NTC_PLTE
+                ORDER BY NO_NTC_PLTE_SRAL
+                ) 
+		 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </select>   
+</sqlMap>

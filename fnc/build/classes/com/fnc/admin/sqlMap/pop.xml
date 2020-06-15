@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<resultMap class="com.fnc.admin.vo.PopVo" id="popVo">
+		<result property="noPpupSral"		column = "NO_PPUP_SRAL"/>       <!-- 팝업 시퀀스 -->
+		<result property="noAtchFileSral"	column = "NO_ATCH_FILE_SRAL"/>  <!-- 첨부파일 시퀀스 -->
+		<result property="pthFileLogi" 		column = "PTH_FILE_LOGI"/> 		<!-- 원본 파일명 -->
+		<result property="pthFilePhys" 		column = "PTH_FILE_PHYS"/>     	<!-- 첨부파일 리네임명 -->
+		<result property="tyFile" 			column = "TY_FILE" />       	<!-- 파일타입 -->
+		<result property="sizeFile" 		column = "SIZE_FILE"/>        	<!-- 파일 사이즈 -->
+		<result property="cntsFileDtil" 	column = "CNTS_FILE_DTIL"/>  	<!-- 배너대체문구 -->
+		<result property="dtBegn" 			column = "DT_BEGN"/>       		<!-- 팝업 시작일 -->
+		<result property="dtEnd" 			column = "DT_END"/>          	<!-- 팝업 종료일 -->
+		<result property="ynNtc" 			column = "YN_NTC"/>          	<!-- 팝업 게시여부 -->
+		<result property="ynElmn" 			column = "YN_ELMN"/>        	<!-- 팝업 삭제여부 -->
+		<result property="dntCrtn" 			column = "DNT_CRTN"/>        	<!-- 팝업  등록일 -->		
+		<result property="urlAddrLnk" 		column = "URL_ADDR_LNK"/>     	<!-- 팝업 url -->
+		<result property="ynNewwdw"  		column = "YN_NEWWDW"/>      	<!-- 팝업 새창 여부 -->		
+		<result property="idCrtnPrsn" 		column = "ID_CRTN_PRSN"/>       <!-- 작성자  -->
+		<result property="idRevPrsn"  		column = "ID_REV_PRSN"/>      	<!-- 수정자 -->
+		<result property="dntRev"   		column = "DNT_REV"/>      	    <!-- 팝업 수정일 -->
+		<result property="nmLogiFile"  		column = "NM_LOGI_FILE"/>
+		<result property="noAtchFileDtilSral"  	column = "NO_ATCH_FILE_DTIL_SRAL"/>
+		<result property="nmPhysFile"  	column = "NM_PHYS_FILE"/>
+	</resultMap>
+	
+	<!-- 팝업 목록 cnt -->
+	<select id="popListCnt" resultClass="Integer">
+	SELECT COUNT(NO_PPUP_SRAL) AS CNT
+	  FROM HABT_ADMN_PPUP
+	  WHERE YN_ELMN = 'N'
+	</select>
+	
+	<!-- 팝업 목록 -->
+	<select id="popList" resultMap="popVo">
+	SELECT 
+       	   NO_PPUP_SRAL
+     	 , NO_ATCH_FILE_SRAL
+     	 , PTH_FILE_LOGI
+     	 , PTH_FILE_PHYS
+     	 , TY_FILE
+     	 , SIZE_FILE
+         , CNTS_FILE_DTIL
+         , DT_BEGN
+         , DT_END
+         , YN_NTC
+         , YN_ELMN
+         , DNT_CRTN
+         , URL_ADDR_LNK
+         , YN_NEWWDW
+         , ID_CRTN_PRSN
+         , ID_REV_PRSN
+         , DNT_REV
+         , NM_LOGI_FILE
+         , NO_ATCH_FILE_DTIL_SRAL
+         , NM_PHYS_FILE
+      FROM (
+      	   SELECT 
+      	   		  ROW_NUMBER() OVER(ORDER BY P.NO_PPUP_SRAL DESC) AS NUM
+      	   		, P.NO_PPUP_SRAL 
+     	 		, NVL(P.NO_ATCH_FILE_SRAL, 0) AS NO_ATCH_FILE_SRAL
+     	 		, FL.PTH_FILE_LOGI
+     	 		, FL.PTH_FILE_PHYS
+     	 		, FL.TY_FILE
+     	 		, FL.SIZE_FILE
+         		, FL.CNTS_FILE_DTIL
+       		  	, P.DT_BEGN            
+        		, P.DT_END            
+        		, P.YN_NTC  
+        		, P.YN_ELMN           
+         		, TO_CHAR(P.DNT_CRTN, 'YYYY-MM-DD') AS DNT_CRTN
+         		, P.URL_ADDR_LNK  
+         		, P.YN_NEWWDW
+        		, P.ID_CRTN_PRSN
+         		, P.ID_REV_PRSN
+         		, P.DNT_REV
+         		, FL.NM_LOGI_FILE
+         		, FL.NO_ATCH_FILE_DTIL_SRAL
+         		, FL.NM_PHYS_FILE
+     		 FROM HABT_ADMN_PPUP P 
+      		 LEFT OUTER JOIN HABT_FILE_LST_INFO FL
+               ON P.NO_ATCH_FILE_SRAL = FL.NO_ATCH_FILE_SRAL
+             WHERE P.YN_ELMN = 'N'
+            ORDER BY DNT_CRTN DESC
+                ) R
+     WHERE NUM BETWEEN #sNum# AND #eNum#
+	</select>
+	
+	<!-- 팝업 등록 -->
+	<insert id="insertPop">
+	INSERT INTO HABT_ADMN_PPUP
+	     (
+	       NO_PPUP_SRAL
+	     , NO_ATCH_FILE_SRAL 
+         , URL_ADDR_LNK
+     	 , DT_BEGN 
+     	 , DT_END 
+         , YN_NEWWDW
+         , YN_NTC   
+         , YN_ELMN           
+         , DNT_CRTN 
+         , ID_CRTN_PRSN
+  )VALUES( 
+           HABSQ_ADMN_PPUP.NEXTVAL
+         , #noAtchFileSral#
+         , #urlAddrLnk#
+         , REPLACE(#dtBegn#, '/', '')
+         , REPLACE(#dtEnd#, '/', '')
+         , #ynNewwdw#
+         , #ynNtc#
+         , 'N'
+         , SYSDATE
+         , #idCrtnPrsn#
+         )     
+	</insert>
+	
+	<!-- 팝업 상세 -->
+	<select id="selectPop" resultMap="popVo">
+		SELECT
+			P.NO_PPUP_SRAL 
+  	 		, NVL(P.NO_ATCH_FILE_SRAL, 0) AS NO_ATCH_FILE_SRAL
+  	 		, FL.PTH_FILE_LOGI
+  	 		, FL.PTH_FILE_PHYS
+  	 		, FL.TY_FILE
+  	 		, FL.SIZE_FILE
+      		, FL.CNTS_FILE_DTIL
+    		, P.DT_BEGN            
+     		, P.DT_END            
+     		, P.YN_NTC  
+     		, P.YN_ELMN           
+      		, P.DNT_CRTN
+      		, P.URL_ADDR_LNK  
+      		, P.YN_NEWWDW
+     		, P.ID_CRTN_PRSN
+      		, P.ID_REV_PRSN
+      		, P.DNT_REV
+      		, FL.NM_LOGI_FILE
+      		, FL.NO_ATCH_FILE_DTIL_SRAL
+      		, FL.NM_PHYS_FILE
+  		 FROM HABT_ADMN_PPUP P 
+         LEFT OUTER JOIN HABT_FILE_LST_INFO FL
+           ON P.NO_ATCH_FILE_SRAL = FL.NO_ATCH_FILE_SRAL
+	    WHERE NO_PPUP_SRAL = #noPpupSral#
+	</select>
+
+
+	<!-- 팝업 수정 -->
+	<update id="updatePop">
+	UPDATE HABT_ADMN_PPUP
+	   SET
+	       URL_ADDR_LNK		= #urlAddrLnk#
+     	 , DT_BEGN 			= REPLACE(#dtBegn#, '/', '')
+     	 , DT_END 			= REPLACE(#dtEnd#, '/', '')
+         , YN_NEWWDW		= #ynNewwdw#
+         , YN_NTC 			= #ynNtc#  
+         , DNT_REV			= SYSDATE
+         , ID_REV_PRSN		= #idRevRpsn#
+     WHERE NO_PPUP_SRAL 	= #noPpupSral#	
+	</update>
+	
+	<!-- 팝업 삭제 -->
+	<update id="deletePop">
+		/* admin.pop.deletePop : 삭제 */
+		UPDATE HABT_ADMN_PPUP
+		SET YN_ELMN = 'Y'
+		WHERE NO_PPUP_SRAL = #noPpupSral#
+	</update>
+	
+</sqlMap>

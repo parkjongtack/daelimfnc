@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+<sqlMap>
+	<resultMap class="com.fnc.admin.vo.PerVo" id="PerVo">
+        <result property="noNtcPlteSral" column="NO_NTC_PLTE_SRAL" />
+		<result property="clNtcPlte" column="CL_NTC_PLTE" />
+		<result property="clGbn" column="CL_GBN" />
+		<result property="sbjtNtcPlte" column="SBJT_NTC_PLTE" />
+		<result property="cntsSmry" column="CNTS_SMRY" />
+		<result property="cntsNtcPlte" column="CNTS_NTC_PLTE" />
+		<result property="dtRgst" column="DT_RGST" />
+		<result property="dtBegnc" column="DT_BEGNC" />
+		<result property="dtEnd" column="DT_END" />
+		<result property="noAtchFileThumSral" column="NO_ATCH_FILE_THUM_SRAL" />
+		<result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
+		<result property="clKoEng" column="CL_KO_ENG" />
+		<result property="clBil" column="CL_MBIL" />
+		<result property="statNtc" column="STAT_NTC" />
+		<result property="ynNtc" column="YN_NTC" />
+		<result property="ynElmn" column="YN_ELMN" />
+		<result property="idCrtnPrsn" column="ID_CRTN_PRSN" />
+		<result property="dntCrtn" column="DNT_CRTN" />
+		<result property="idRevPrsn" column="ID_REV_PRSN" />
+		<result property="dntRev" column="DNT_REV" />
+		<result property="ipAdmnPrsn" column="IP_ADMN_PRSN" />
+    </resultMap>
+
+    
+    <insert id="admin.insertPer">
+    	/*********** admin.insertPer 등록 *********/
+    	INSERT INTO HABT_NTC_PLTE 
+	    			(  
+				       NO_NTC_PLTE_SRAL 	<!-- 1.게시글 시퀀스 -->
+				     , CL_NTC_PLTE 			<!-- 2.구분 채용공고 03 -->
+				     , SBJT_NTC_PLTE    	<!-- 3.제목 -->
+				     , STAT_NTC 			<!-- 4.상태 1,2,3  -->
+				     , DT_RGST 				<!-- 5.작성일 -->
+				     , DT_BEGNC 			<!-- 6.접수기간 시작 -->
+				     , DT_END 				<!-- 7.접수기간 끝 -->
+				     , CNTS_NTC_PLTE 		<!-- 8.내용 -->
+				     , NO_ATCH_FILE_SRAL	<!-- 9.첨부파일 -->
+				     , YN_NTC				<!-- 10.게시여부 -->
+				     , YN_ELMN				<!-- 11.삭제여부 -->
+				     , ID_CRTN_PRSN			<!-- 12.수정자 -->
+				     , IP_ADMN_PRSN			<!-- 13.IP -->
+	
+	    			)
+					   VALUES 
+					(
+					   HABSQ_NTC_PLTE.NEXTVAL 	<!-- 1.게시글 시퀀스 -->
+					 , '04' 					<!-- 2.구분 채용공고 03 -->
+					 , #sbjtNtcPlte#			<!-- 3.제목 -->
+					 , #statNtc# 				<!-- 4.상태 1,2,3  -->
+					 , #dtRgst# 				<!-- 5.작성일 -->
+					 , #dtBegnc# 				<!-- 6.접수기간 시작 -->
+					 , #dtEnd# 					<!-- 7.접수기간 끝 -->
+					 , #cntsNtcPlte# 			<!-- 8.내용 -->
+					 , #noAtchFileSral#			<!-- 9.첨부파일 -->
+					 , #ynNtc#					<!-- 10.게시여부 -->
+					 , 'N'						<!-- 11.삭제여부 -->
+					 , #idCrtnPrsn#				<!-- 12.수정자 -->
+					 , #ipAdmnPrsn#				<!-- 13.IP -->
+	   		 		)
+    </insert>
+    
+    <!-- 개인정보 목록 개수  -->
+    <select id="admin.selectPerListCnt" resultClass="Integer">
+   		/********** admin.selectCarListCnt : 목록 개수 *************/
+	   SELECT COUNT(NO_NTC_PLTE_SRAL) 		AS CNT
+         FROM HABT_NTC_PLTE
+        WHERE CL_NTC_PLTE = '04'
+          AND YN_ELMN = 'N'
+            <isEqual property="searchType" compareValue="0">
+	      		AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+	       	</isEqual>
+			<isEqual property="searchType" compareValue="1">
+	           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	<isEqual property="searchType" compareValue="2">
+	           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+	       	</isEqual>
+	       	
+<!-- 	      	
+	       	<isEqual property="searchStat" compareValue="1">
+          			AND STAT_NTC = '1'
+	       	</isEqual>
+	       	<isEqual property="searchStat" compareValue="2">
+          			AND STAT_NTC = '2'
+	       	</isEqual>
+	       	<isEqual property="searchStat" compareValue="3">
+          			AND STAT_NTC = '3'
+	       	</isEqual> -->
+    </select>
+    
+    <!-- 개인정보 목록  -->
+    <select id="admin.selectPerList" resultMap="PerVo">
+    SELECT
+		       ROW_NUMBER() OVER(ORDER BY CL_NTC_PLTE DESC) AS NUM
+		     , NO_NTC_PLTE_SRAL
+			 , CL_NTC_PLTE
+			 , CL_GBN
+			 , SBJT_NTC_PLTE
+			 , CNTS_SMRY
+			 , CNTS_NTC_PLTE
+			 , DT_RGST
+			 , DT_BEGNC
+			 , DT_END
+			 , NO_ATCH_FILE_THUM_SRAL
+			 , NO_ATCH_FILE_SRAL
+			 , CL_KO_ENG
+			 , CL_MBIL
+			 , STAT_NTC
+			 , YN_NTC
+			 , YN_ELMN
+			 , ID_CRTN_PRSN
+			 , DNT_CRTN
+			 , ID_REV_PRSN
+			 , DNT_REV
+			 , IP_ADMN_PRSN
+          FROM ( SELECT
+                    ROW_NUMBER() OVER(ORDER BY NO_NTC_PLTE_SRAL DESC) AS NUM
+                    , NO_NTC_PLTE_SRAL
+					, CL_NTC_PLTE
+					, CL_GBN
+					, SBJT_NTC_PLTE
+					, CNTS_SMRY
+					, CNTS_NTC_PLTE
+					, DT_RGST
+					, DT_BEGNC
+					, DT_END
+					, NO_ATCH_FILE_THUM_SRAL
+					, NO_ATCH_FILE_SRAL
+					, CL_KO_ENG
+					, CL_MBIL
+					, STAT_NTC
+					, YN_NTC
+					, YN_ELMN
+					, ID_CRTN_PRSN
+					, DNT_CRTN
+					, ID_REV_PRSN
+					, DNT_REV
+					, IP_ADMN_PRSN
+                   FROM HABT_NTC_PLTE
+                   WHERE CL_NTC_PLTE='04'
+                     AND YN_ELMN ='N'
+                    <isEqual property="searchType" compareValue="0">
+	           		AND (SBJT_NTC_PLTE LIKE '%' || #searchData# || '%' OR CNTS_NTC_PLTE LIKE '%' || #searchData# || '%')
+			       	</isEqual>
+					<isEqual property="searchType" compareValue="1">
+			           AND SBJT_NTC_PLTE LIKE '%' || #searchData# || '%'
+			       	</isEqual>
+			       	<isEqual property="searchType" compareValue="2">
+			           AND CNTS_NTC_PLTE LIKE '%' || #searchData# || '%'
+			       	</isEqual>
+			       	
+			      	
+<!--			    <isEqual property="searchStat" compareValue="1">
+	           			AND STAT_NTC = '1'
+			       	</isEqual>
+			       	<isEqual property="searchStat" compareValue="2">
+	           			AND STAT_NTC = '2'
+			       	</isEqual>
+			       	<isEqual property="searchStat" compareValue="3">
+	           			AND STAT_NTC = '3'
+			       	</isEqual> -->
+                   ) A
+          WHERE NUM BETWEEN #sNum# AND #eNum#
+    </select>
+    
+    <!-- 개인정보 상세 -->
+    <select id="admin.selectPer" resultMap="PerVo">
+	     SELECT
+		     NO_NTC_PLTE_SRAL
+			 , CL_NTC_PLTE
+			 , CL_GBN
+			 , SBJT_NTC_PLTE
+			 , CNTS_SMRY
+			 , CNTS_NTC_PLTE
+			 , DT_RGST
+			 , DT_BEGNC
+			 , DT_END
+			 , NO_ATCH_FILE_THUM_SRAL
+			 , NO_ATCH_FILE_SRAL
+			 , CL_KO_ENG
+			 , CL_MBIL
+			 , STAT_NTC
+			 , YN_NTC
+			 , YN_ELMN
+			 , ID_CRTN_PRSN
+			 , DNT_CRTN
+			 , ID_REV_PRSN
+			 , DNT_REV
+			 , IP_ADMN_PRSN
+             FROM HABT_NTC_PLTE
+             WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </select>
+    
+    <!-- 개인정보 수정 -->
+    <update id="admin.updatePer">
+    	UPDATE HABT_NTC_PLTE 
+		   SET CL_GBN = #clGbn#
+		       , SBJT_NTC_PLTE = #sbjtNtcPlte#
+		       , CNTS_SMRY = #cntsSmry#
+		       , CNTS_NTC_PLTE = #cntsNtcPlte#
+		       , DT_RGST = #dtRgst#
+		       , DT_BEGNC = #dtBegnc#
+		       , DT_END = #dtEnd#
+		       , YN_NTC = #ynNtc#
+		       , NO_ATCH_FILE_SRAL = #noAtchFileSral#
+		       , ID_REV_PRSN = #idRevPrsn#
+		       , DNT_REV = SYSDATE
+		       , IP_ADMN_PRSN = #ipAdmnPrsn#
+		WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </update>
+   
+    <!-- 개인정보 삭제 -->
+    <update id="admin.updatePerYnElmn">
+    	UPDATE HABT_NTC_PLTE
+    	   SET YN_ELMN = 'Y'
+    	 WHERE NO_NTC_PLTE_SRAL = #noNtcPlteSral#
+    </update> 
+</sqlMap>
