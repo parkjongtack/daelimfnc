@@ -364,7 +364,7 @@ h4 + .sub-textb {margin-top:28px;}
 .half-info-box .info-txt.top {margin-top:50px;}
 .half-info-box .info-txt.top strong {margin-right:20px;font-size:18px;}
 .half-info-box .cmpny-link {display:inline-block;position:relative;margin-top:67px;padding:17px 160px 17px 21px;border:1px solid #ccc;color:#333;text-align:left;}
-.half-info-box .cmpny-link:after {content:'바로가기';display:inline-block;position:absolute;top:0;right:0;bottom:0;width:145px;height:100%;padding-top:18px;background:url(../images/common/btn_arrow_s.png) no-repeat right 21px center;background-size:12px 5px;font-size:14px;font-family:"나눔스퀘어 Bold",NanumSquareB;font-weight:600;text-align:center;}
+.half-info-box .cmpny-link:after {content:'VIEW';display:inline-block;position:absolute;top:0;right:0;bottom:0;width:145px;height:100%;padding-top:18px;background:url(../images/common/btn_arrow_s.png) no-repeat right 21px center;background-size:12px 5px;font-size:14px;font-family:"나눔스퀘어 Bold",NanumSquareB;font-weight:600;text-align:center;}
 .cmpny-slide-wrap {position:relative;;}
 .cmpny-slide-wrap .cmpny-slide {width:600px;height:401px;}
 .cmpny-slide-wrap .cmpny-slide .swiper-slide {width:100%;height:360px;}
