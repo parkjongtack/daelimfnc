@@ -42,7 +42,6 @@
   gtag('js', new Date());
   gtag('config', 'UA-162305477-1');
 </script>
-
 </head>
 <body id="main">
 <!-- wrapper -->
@@ -129,23 +128,21 @@
 					</li>
                 </ul>
                 <%
-                String lang_session = (String)session.getAttribute("lang");
-            	out.println(lang_session);
                 	//out.println(request.getParameter("request_locale"));
 	    			String request_locale = request.getParameter("request_locale");
-                	
+	    			String name = request.getParameter("request_locale")==null?"":request.getParameter("request_locale");  
                 	if(request_locale == null){
                 		request_locale = "ko";
                 	}
                 	
-                	session.setAttribute("request_locale", request_locale);
-                	//out.println(request_locale);
+                	//session.setAttribute("request_locale", request_locale);
+                	out.println(request_locale);
                 %>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
 			    	<select name="request_locale" class="lang_select">
 			    		<%
 							
-                            if(request_locale.equals("en")){
+                            if(name.equals("en")){
                         %>
 			    		<option value="en">EN</option>
                         <option value="ko">KO</option>
@@ -168,13 +165,34 @@
     </header>
     <script>
         var form_lang = document.form_lang;
+        
         var w_href = location.href
-        console.log(w_href);
+        var b_href = document.referrer;
+        
+        var wa_href = w_href.indexOf("?");
+        console.log(wa_href);
+        if(wa_href > 0){
+        	w_href = w_href.substring(0, wa_href);
+        	b_href = b_href.substring(0, wa_href);
+        }
+        console.log(w_href)
+        console.log(b_href)
+        if(w_href !== b_href){
+        
+        if(b_href.indexOf("en") !== -1){
+        	//ko 일때
+        	location.href = w_href+"?request_locale="+"en";
+        }
+        if(b_href.indexOf("ko") !== -1){
+        	//en 일때
+        	location.href = w_href+"?request_locale="+"ko";
+        }
+        }
         $('.lang_select').change(function(){
             var lang_ = $(this).val();
-            sessionStorage.setItem("lang",lang_);
+            //sessionStorage.setItem("lang",lang_);
             //alert(lang_);
-            location.href = "<% request.getRequestURI(); %>?request_locale="+lang_;
+            location.href = w_href+"?request_locale="+lang_;
             //var form = document.form_lang;
             //form.submit();
         });
