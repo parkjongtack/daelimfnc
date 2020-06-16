@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -74,49 +74,93 @@ function downloadFileAll(){
 			<div class="gnbwrap">
 				<h1><a href="/main.do">대림Fnc</a></h1>
 				<ul id="gnb">
-					<li><a href="/com01.do">회사소개</a>
+					<li><a href="/com01.do"><s:text name="header_sub_1"/></a>
 						<ul>
-							<li><a href="/com01.do">기업정보</a></li>
-							<!-- li><a href="/com02.do">CEO 인사말</a></li -->
-							<li><a href="/com03.do">기업연혁</a></li>
-							<li><a href="/com04_1.do">그룹사 현황</a></li>
-							<li><a href="/com05.do">오시는길</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
+							<!-- li><a href="/com02.do">CEO 인사말</a></li  -->
+							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+							<li><a href="/com04_1.do"><s:text name="header_sub_1_3"/></a></li>
+							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
 						</ul>
 					</li>
-					<li><a href="/biz01.do">사업소개</a>
+					<li><a href="/biz01.do"><s:text name="header_sub_2"/></a>
 						<ul>
-							<li><a href="/biz01.do">BOPP film</a></li>
-							<li><a href="/biz02.do">EVA Coated film</a></li>
-							<li><a href="/biz03.do">특수코팅</a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2_1"/></a></li>
+							<li><a href="/biz02.do"><s:text name="header_sub_2_2"/></a></li>
+							<li><a href="/biz03.do"><s:text name="header_sub_2_3"/></a></li>
 						</ul>
 					</li>
-					<li><a href="/rnd01.do">기술개발</a>
+					<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a>
 						<ul>
-							<li><a href="/rnd01.do">인증서</a></li>
-							<li><a href="/rnd02.do">지적재산권</a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3_1"/></a></li>
+							<li><a href="/rnd02.do"><s:text name="header_sub_3_2"/></a></li>
 						</ul>
 					</li>
-					<li><a href="/sus01_1.do">지속가능경영</a>
+					<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a>
 						<ul>
-							<li><a href="/sus01_1.do">안전&middot;보건&middot;환경 경영</a></li>
-							<li><a href="/sus02_1.do">정도경영</a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4_1"/></a></li>
+							<li><a href="/sus02_1.do"><s:text name="header_sub_4_2"/></a></li>
 						</ul>
 					</li>
-					<li><a href="/pr01.do">홍보센터</a>
+					<li><a href="/pr01.do"><s:text name="header_sub_5"/></a>
 						<ul>
-							<li><a href="/pr01.do">회사소식</a></li>
-							<li><a href="/pr02.do">CI/BI 소개</a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5_1"/></a></li>
+							<li><a href="/pr02.do"><s:text name="header_sub_5_2"/></a></li>
 						</ul>
 					</li>
-					<li><a href="/car01.do">인재채용</a>
+					<li><a href="/car01.do"><s:text name="header_sub_6"/></a>
 						<ul>
-							<li><a href="/car01.do">인재상</a></li>
-							<li><a href="/car02.do">인사제도</a></li>
-							<li><a href="/car01List.do">채용정보</a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6_1"/></a></li>
+							<li><a href="/car02.do"><s:text name="header_sub_6_2"/></a></li>
+							<li><a href="/car01List.do"><s:text name="header_sub_6_3"/></a></li>
 						</ul>
 					</li>
-				</ul>
+                </ul>
+                <%
+                String lang_session = (String)session.getAttribute("lang");
+            	out.println(lang_session);
+                	//out.println(request.getParameter("request_locale"));
+	    			String request_locale = request.getParameter("request_locale");
+                	
+                	if(request_locale == null){
+                		request_locale = "ko";
+                	}
+                	
+                	session.setAttribute("request_locale", request_locale);
+                	//out.println(request_locale);
+                %>
+                <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
+			    	<select name="request_locale" class="lang_select">
+			    		<%
+							
+                            if(request_locale.equals("en")){
+                        %>
+			    		<option value="en">EN</option>
+                        <option value="ko">KO</option>
+                        <%
+                            }else{
+                        %>
+                        <option value="ko">KO</option>
+                        <option value="en">EN</option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </form>
 				<div class="gnbAside">
-					<a href="javascript:void(0)" id="showSitemap" class="icon-gnb" title="전체메뉴보기 열기"><em class="blind">사이트맵</em></a>
+					<a href="javascript:void(0)" id="showSitemap" class="icon-gnb" title="전체메뉴보기"><em class="blind">사이트맵</em></a>
 				</div>
 			</div>
+    <script>
+        var form_lang = document.form_lang;
+        var w_href = location.href
+        console.log(w_href);
+        $('.lang_select').change(function(){
+            var lang_ = $(this).val();
+            //sessionStorage.setItem("lang",lang_);
+            //alert(lang_);
+            location.href = "<% request.getRequestURI(); %>?request_locale="+lang_;
+            //var form = document.form_lang;
+            //form.submit();
+        });
+    </script>
