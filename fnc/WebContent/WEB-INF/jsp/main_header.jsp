@@ -128,7 +128,6 @@
                </li>
                 </ul>
                 <%
-<<<<<<< .mine
                 	//out.println(request.getParameter("request_locale"));
 	    			String request_locale = request.getParameter("request_locale");
 	    			String name = request.getParameter("request_locale")==null?"":request.getParameter("request_locale");  
@@ -137,18 +136,9 @@
                 	}
                 	
                 	//session.setAttribute("request_locale", request_locale);
-                	out.println(request_locale);
-=======
-                   //out.println(request.getParameter("request_locale"));
-                String request_locale = request.getParameter("request_locale");
-                   
-                   if(request_locale == null){
-                      request_locale = "ko";
-                   }
-                   
+                	out.println(request_locale);                   
                    session.setAttribute("request_locale", request_locale);
                    //out.println(request_locale);
->>>>>>> .theirs
                 %>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
                 <select name="request_locale" class="lang_select">
