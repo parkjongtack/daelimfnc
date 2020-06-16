@@ -8,7 +8,7 @@
     <constant name="struts.multipart.maxSize" value="1073741824" />
     <constant name="struts.multipart.saveDir" value="/" />
     <constant name="struts.custom.i18n.resources" value="messages" />
-    <constant name="struts.locale" value="ko"></constant>
+    <!-- <constant name="struts.locale" value="ko"></constant> -->
     <!-- request_locale ==> get parameter control possible -->
     <!-- request_locale 파라미터로 다국어(ko/en) 조정 가능 -->
     <!-- Front -->
