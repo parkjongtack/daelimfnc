@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -117,30 +118,47 @@ function downloadFileAll(){
 						</ul>
 					</li>
                 </ul>
+                <% String langtype = "ko_KR"; %>
+				<!-- <c:out value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"/>-->
+				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'en_US' || param.request_locale == 'en_US'}">				
+					<fmt:setLocale value="en_US" scope="session" />
+					<c:set var="reqLang" value="ENGLISH"/>
+					<% langtype = "en_US"; %>
+				</c:if>
+				
+				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'ko_KR' || param.request_locale == 'ko_KR'}">				
+					<fmt:setLocale value="ko_KR" scope="session" />				
+					<c:set var="reqLang" value="KOREAN"/>
+					<% langtype = "ko_KR"; %>			
+				</c:if>                 
+                <% //out.println(((Locale) pageContext.getAttribute("org.apache.struts.action.LOCALE",PageContext.REQUEST_SCOPE)).getLanguage()); %>
                 <%
+                
                 	//out.println(request.getParameter("request_locale"));
-	    			String request_locale = request.getParameter("request_locale");
-	    			String name = request.getParameter("request_locale")==null?"":request.getParameter("request_locale");  
-                	if(request_locale == null){
-                		request_locale = "ko";
+	    			String request_locale = langtype;
+	    			String name = langtype==null?"":langtype;  
+                	if(request_locale == null) {
+                		request_locale = "ko_KR";
                 	}
                 	
-                	//session.setAttribute("request_locale", request_locale);
-                	out.println(request_locale);
+                   //session.setAttribute("request_locale", request_locale);
+                   //out.println(request_locale);                   
+                   //session.setAttribute("request_locale", request_locale);
+                   //out.println(request_locale);
                 %>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
-			    	<select name="request_locale" class="lang_select">
-			    		<%
-							
-                            if(name.equals("en")){
+                <select name="request_locale" class="lang_select">
+                   <%
+                     
+                            if(name.equals("en_US")){
                         %>
-			    		<option value="en">EN</option>
-                        <option value="ko">KO</option>
+                   		<option value="en_US">EN</option>
+                        <option value="ko_KR">KO</option>
                         <%
                             }else{
                         %>
-                        <option value="ko">KO</option>
-                        <option value="en">EN</option>
+                        <option value="ko_KR">KO</option>
+                        <option value="en_US">EN</option>
                         <%
                             }
                         %>
@@ -151,6 +169,7 @@ function downloadFileAll(){
 				</div>
 			</div>
     <script>
+    	/*
         var form_lang = document.form_lang;
         var w_href = location.href
         var b_href = document.referrer;
@@ -181,4 +200,17 @@ function downloadFileAll(){
             //var form = document.form_lang;
             //form.submit();
         });
+        */
+        $(function () {
+	        $('select[name=request_locale]').change(function(){
+	            var lang_ = $(this).val();
+	            var form = document.form_lang;
+	            form.submit();
+	            //sessionStorage.setItem("lang",lang_);
+	            //alert(lang_);
+	            //location.href = "/main.do?request_locale="+lang_;
+	            //var form = document.form_lang;
+	            //form.submit();
+	        });
+        });        
     </script>

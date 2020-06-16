@@ -13,6 +13,7 @@
     <!-- request_locale 파라미터로 다국어(ko/en) 조정 가능 -->
     <!-- Front -->
     <package name="default" namespace ="/" extends="struts-default, json-default">
+    	 
         <global-results>
             <result name="redirect">/common/redirect.jsp</result>
             <result name="adminLogin">/common/redirectAdminLogin.jsp</result>
