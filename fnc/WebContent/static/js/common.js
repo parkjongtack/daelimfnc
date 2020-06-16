@@ -7,7 +7,7 @@ $(document).ready(function(){
 	});
 
 	/* gnb */
-	$('body').on("mouseover focusin",'#gnb>li>a, #gnb',function(e){
+	$('body').on("mouseover focusin",'#gnb>li>a, #gnb, .lang_select',function(e){
 		e.stopPropagation();
 		$('.gnbBg').stop(true,true).slideDown(300);    
 		$('#gnb>li>ul').stop(true,true).slideDown(300);

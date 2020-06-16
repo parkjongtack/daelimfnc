@@ -15,9 +15,8 @@
 		<div id="content">
 
 			<div class="main-visual">
-				<h2 class="main-title">DAELIM FnC</h2>
-				<p class="main-sub-text">대림에프엔씨는 플라스틱가공 전문기업으로 BOPP Film, EVA Coated Film을 생산하며<br>
-				지속적인 성장과 차별화된 고객가치를 실현하고 있습니다.</p>
+				<h2 class="main-title"><s:text name="main_slide_title"/></h2>
+				<p class="main-sub-text"><s:text name="main_slide_txt"/></p>
 				<div class="swiper-pagination-area">
 					<div class="progressbar-box">
 						<div class="bar"></div>
@@ -35,6 +34,7 @@
 			</div>
 			<!-- 
 <h2>국제화 테스트</h2>
+<s:text name=""/>
 <s:text name="say.hello"/><p>
 <s:text name="title"/><p>
 <s:text name="subject"/><p>
@@ -45,22 +45,22 @@
 				<div class="subinfo-slide-box">
 					<div class="slider-t detail-con">
 						<div class="m-biz-slide m-biz-01">
-							<strong class="de-tit">BUSINESS</strong>
-							<span class="de-item">특수코팅</span>
-							<p class="de-info-txt">고객의 다양한 요구와 인쇄 조건에 맞춘<br>특수코팅 솔루션을 제공</p>
-							<a href="/biz03.do" class="btn-detail-link">제품정보 상세보기</a>
+							<strong class="de-tit"><s:text name="main_sub_slide_head"/></strong>
+							<span class="de-item"><s:text name="main_sub_slide_1_1"/></span>
+							<p class="de-info-txt"><s:text name="main_sub_slide_1_2"/></p>
+							<a href="/biz03.do" class="btn-detail-link"><s:text name="main_sub_slide_more"/></a>
 						</div>
 						<div class="m-biz-slide m-biz-02">
-							<strong class="de-tit">BUSINESS</strong>
-							<span class="de-item">EVA Coated FILM</span>
-							<p class="de-info-txt">투명한 색상 & 인쇄성이 뛰어난<br>안정적인 생산을 바탕으로 우수한 품질의 제품을 공급</p>
-							<a href="/biz02.do" class="btn-detail-link">제품정보 상세보기</a>
+							<strong class="de-tit"><s:text name="main_sub_slide_head"/></strong>
+							<span class="de-item"><s:text name="main_sub_slide_2_1"/></span>
+							<p class="de-info-txt"><s:text name="main_sub_slide_2_2"/></p>
+							<a href="/biz02.do" class="btn-detail-link"><s:text name="main_sub_slide_more"/></a>
 						</div>
 						<div class="m-biz-slide m-biz-03">
-							<strong class="de-tit">BUSINESS</strong>
-							<span class="de-item">BOPP film</span>
-							<p class="de-info-txt">뛰어난 광택과 투명성, 우수한 인쇄성으로<br>포장/인쇄를 비롯한 다양한 분야 활용</p>
-							<a href="/biz01.do" class="btn-detail-link">제품정보 상세보기</a>
+							<strong class="de-tit"><s:text name="main_sub_slide_head"/></strong>
+							<span class="de-item"><s:text name="main_sub_slide_3_1"/></span>
+							<p class="de-info-txt"><s:text name="main_sub_slide_3_2"/></p>
+							<a href="/biz01.do" class="btn-detail-link"><s:text name="main_sub_slide_more"/></a>
 						</div>
 					</div>
 					<div class="slider-i">
@@ -76,20 +76,20 @@
 					<ul class="about-list">
 						<li class="about01">
 							<a href="/com03.do">
-								<strong class="item-tit">대림 FnC</strong>
-								<span class="item-txt">국내 유일의 5Layer 설비를<br>통해 차별화된 고부가 제품 생산</span>
+								<strong class="item-tit"><s:text name="main_about_1_1"/></strong>
+								<span class="item-txt"><s:text name="main_about_1_2"/></span>
 							</a>
 						</li>
 						<li class="about02">
 							<a href="/sus01_1.do">
-								<strong class="item-tit">지속경영</strong>
-								<span class="item-txt">보건.안전.환경을 최우선으로<br>지속가능경영을<br>실천하는 사회적 기업</span>
+								<strong class="item-tit"><s:text name="main_about_2_1"/></strong>
+								<span class="item-txt"><s:text name="main_about_2_2"/></span>
 							</a>
 						</li>
 						<li class="about03">
 							<a href="/rnd01.do">
-								<strong class="item-tit">인증서</strong>
-								<span class="item-txt">대림FnC 보유 인증서 / 지적재산권<br>다운로드 서비스</span>
+								<strong class="item-tit"><s:text name="main_about_3_1"/></strong>
+								<span class="item-txt"><s:text name="main_about_3_2"/></span>
 							</a>
 						</li>
 					</ul>
@@ -98,9 +98,9 @@
 			<div class="main-bnnr-con detail-con">
 				<div class="innerwrap">
 				<strong class="de-tit">RECRUITMENT</strong>
-				<span class="de-item">인재채용관</span>
-				<p class="de-info-txt">대림FnC와 함께 성장할 인재를 기다립니다.</p>
-				<a href="car01List.do" class="btn-detail-link">채용관 바로가기</a>
+				<span class="de-item"><s:text name="main_last_1"/></span>
+				<p class="de-info-txt"><s:text name="main_last_2"/></p>
+				<a href="car01List.do" class="btn-detail-link"><s:text name="main_last_3"/></a>
 				</div>
 			</div>
 

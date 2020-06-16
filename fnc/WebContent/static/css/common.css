@@ -144,7 +144,7 @@ header .gnbwrap:after {content:'';display:block;clear:both;}
 header #gnb {float:left;margin-left:50px;}
 header #gnb > li > ul {display:none;}
 header .gnbAside {float:right;padding-top:25px;}
-header #gnb{display:table;float:left;position:relative;top:32px;width:980px;}
+header #gnb{display:table;float:left;position:relative;top:32px;width:880px;}
 header #gnb > li{display:table-cell;position:relative;min-width:130px;width:1%;padding-bottom:20px;text-align:center;}
 header #gnb > li>a{display:block;position:relative;height:43px;font-size:18px;font-weight:600;color:#fff;font-family:"나눔스퀘어 bold",NanumSquareB;}
 header #gnb > li>ul{display:none;position:absolute;top:53px;width:100%;height:239px;z-index:11;overflow:hidden;padding-top:12px;border-left:1px solid #f3f3f3}
@@ -156,6 +156,10 @@ header .gnbBg {display:none;position:absolute;left:0;top:85px;width:100%;height:
 header:after {content:'';display:block;position:absolute;top:435px;left:0;width:100%;height:60px;border-bottom:1px solid #dcdcdc;background:#fafafa;z-index:-5;}
 header.fixed .lnb {position:fixed;top:0;z-index:10;}
 header.fixed:after {position:fixed;top:0;z-index:5;}
+
+header .gnbwrap form{float: left;}
+header .gnbwrap select{margin-top:20px; color: #fff; position: relative; background: url('../images/common/select_arrow.png') no-repeat 50px center; background-size: 10px 10px; border: 0;}
+header .gnbwrap select option{color: #333}
 
 .lnb{position:relative;top:372px;width:1260px;height:60px;text-align:left;}
 .lnb::after {content:'';display:block;clear:both;}

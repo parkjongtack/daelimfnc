@@ -11,6 +11,7 @@
 #main header.active {border-color:#f3f3f3;background-color:#fff;}
 #main header.active h1 a {background-image:url(../images/common/img_logo_n.png);}
 #main header.active #gnb > li>a {color:#333;}
+#main header.active .lang_select{color: #333; background: url('../images/common/select_arrow_on.png') no-repeat 50px center; background-size: 10px 10px; border: 0;} 
 #main header #gnb > li>ul {}
 #main header #gnb > li>ul:hover {margin-top:-1px;border-top:1px solid #0081c4;}
 #main header.active .icon-gnb {background-image:url(../images/common/btn_gnb_b.png);}
@@ -18,7 +19,7 @@
 #main #container {min-width:1260px;padding-top:0;padding-bottom:190px;}
 #main #container .main-swiper {max-width:1920px;height:950px;margin:0 auto;}
 
-/* 硫붿씤 鍮꾩＜�뼹 �뒳�씪�씠�뱶 而ㅼ뒪�� */
+/* 筌롫뗄�뵥 �뜮袁⑼폒占쎈섰 占쎈뮩占쎌뵬占쎌뵠占쎈굡 �뚣끉�뮞占쏙옙 */
 #main #wrapper {min-width:1260px;}
 #main #content {width:auto !important;}
 #main .main-visual {overflow:hidden;position:relative;width:100%;}
@@ -41,16 +42,16 @@
 #main .main-visual .s-btn-prev {float:left;background-image:url(../images/main/btn_silck_prev.png);}
 #main .main-visual .s-btn-next {float:right;background-image:url(../images/main/btn_silck_next.png);}
 #main .main-visual .slick-counter {width:100px;margin:0 auto;color:#fff;font-size:14px;}
-#main .main-visual .slick-counter .current {margin-right:3px;font-size:16px;font-family:"�굹�닎�뒪�섏뼱 bold",NanumSquareB;font-weight:600;vertical-align:middle;}
+#main .main-visual .slick-counter .current {margin-right:3px;font-size:16px;font-family:"占쎄돌占쎈땸占쎈뮞占쎌꼷堉� bold",NanumSquareB;font-weight:600;vertical-align:middle;}
 #main .main-visual .slick-counter .total {margin-left:3px;font-size:14px;vertical-align:middle;}
 
 /* #main .main-visual .swiper-slide.slick-acitve {background-size:100% 100%;} */
 
-/* 硫붿씤 �뒳�씪�씠�뱶 諛붾줈媛�湲� 踰꾪듉 */
+/* 筌롫뗄�뵥 占쎈뮩占쎌뵬占쎌뵠占쎈굡 獄쏅뗀以덂첎占썸묾占� 甕곌쑵�뱣 */
 /* #main .main-btn-box {text-align: center;margin-top:100px;}
 #main .main-btn-box .btn-main-link {min-width:150px;padding:10px 20px;border:1px solid #000;} */
 
-/* 硫붿씤 �궗�뾽�냼媛� �뒳�씪�씠�뱶 */
+/* 筌롫뗄�뵥 占쎄텢占쎈씜占쎈꺖揶쏉옙 占쎈뮩占쎌뵬占쎌뵠占쎈굡 */
 .main-info-box {overflow:hidden;position:relative;max-width:1920px;height:1220px;margin:90px auto 0;padding:0 90px;}
 .subinfo-slide-box .slick-slider .slick-list,
 .subinfo-slide-box .slick-slider .slick-track {width:100%;height:100%;padding:0 !important;}
@@ -109,7 +110,7 @@
 #main .topbnr .s-btn-prev {float:left;background-image:url(../images/main/btn_silck_prevs.png);cursor:pointer;}
 #main .topbnr .s-btn-next {float:right;background-image:url(../images/main/btn_silck_nexts.png);cursor:pointer;}
 #main .topbnr .slick-counter {width:100px;margin:0 auto;color:#fff;font-size:14px;text-align:center;}
-#main .topbnr .slick-counter .current {margin-right:3px;font-size:16px;font-family:"�굹�닎�뒪�섏뼱 bold",NanumSquareB;font-weight:600;vertical-align:middle;}
+#main .topbnr .slick-counter .current {margin-right:3px;font-size:16px;font-family:"占쎄돌占쎈땸占쎈뮞占쎌꼷堉� bold",NanumSquareB;font-weight:600;vertical-align:middle;}
 #main .topbnr .slick-counter .total {margin-left:3px;font-size:14px;vertical-align:middle;}
 #main .topbnr .slick-counter .bar {display:inline-block;vertical-align:middle;width:1px;height:14px;margin:0 2px;font-size:0;background:#718da7;}
 #main .topbnr .topbnrClose {position:absolute;bottom:30px;left:50%;width:1260px;margin-left:-630px;text-align:right;color:#fff;font-size:13px;}

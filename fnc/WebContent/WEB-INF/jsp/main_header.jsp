@@ -126,11 +126,44 @@
 							<li><a href="/car01List.do"><s:text name="header_sub_6_3"/></a></li>
 						</ul>
 					</li>
-				</ul>
+                </ul>
+                <%
+	    			String request_locale = request.getParameter("request_locale");
+                	if(request_locale == null){
+                		request_locale = "ko";
+                	}        
+                %>
+                <form action="" name="form_lang">
+			    	<select class="lang_select">
+			    		<%
+							
+                            if(request_locale.equals("en")){
+                        %>
+			    		<option value="en">EN</option>
+                        <option value="ko">KO</option>
+                        <%
+                            }else{
+                        %>
+                        <option value="ko">KO</option>
+                        <option value="en">EN</option>
+                        <%
+                            }
+                        %>
+                    </select>
+                </form>
 				<div class="gnbAside">
 					<a href="javascript:void(0)" id="showSitemap" class="icon-gnb" title="전체메뉴보기"><em class="blind">사이트맵</em></a>
 				</div>
 			</div>
 		</div>
 		<div class="gnbBg"></div>
-	</header>
+    </header>
+    <script>
+        var form_lang = document.form_lang;
+        var w_href = location.href
+        $('.lang_select').change(function(){
+            var lang_ = $(this).val();
+            alert(lang_);
+            location.href = "/main.do?request_locale="+lang_;
+        })
+    </script>
