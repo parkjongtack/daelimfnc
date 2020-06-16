@@ -127,8 +127,11 @@
 						</ul>
 					</li>
                 </ul>
+
                 <%
+                
 	    			String request_locale = request.getParameter("request_locale");
+                out.println(request_locale);
                 	if(request_locale == null){
                 		request_locale = "ko";
                 	}        

@@ -13,6 +13,12 @@
     <!-- request_locale 파라미터로 다국어(ko/en) 조정 가능 -->
     <!-- Front -->
     <package name="default" namespace ="/" extends="struts-default, json-default">
+        <interceptors>
+			<interceptor name="i18nCookie" class="org.apache.struts2.interceptor.I18nInterceptor"/>    	
+        </interceptors>    	
+        
+        
+        
         <global-results>
             <result name="redirect">/common/redirect.jsp</result>
             <result name="adminLogin">/common/redirectAdminLogin.jsp</result>
@@ -20,11 +26,16 @@
             <result name="alertMsg">/common/inc_alertMsg.jsp</result>
         </global-results>
         <action name="main" class="com.fnc.front.action.MainAction">
+		    <interceptor-ref name="i18nCookie">
+		        <param name="localeStorage">cookie</param>
+		    </interceptor-ref>
+		    <interceptor-ref name="basicStack"/>     
+		    <result name="success">good_result.ftl</result>        
             <result name="success">/WEB-INF/jsp/main.jsp</result>
         </action>
 
         <!-- company -->
-        <action name="com01" class="com.fnc.front.action.Com01Action">
+        <action name="com01" class="com.fnc.front.action.Com01Action">  
             <result name="success">/WEB-INF/jsp/company/com01.jsp</result>
         </action>
         <action name="com02" class="com.fnc.front.action.Com02Action">
