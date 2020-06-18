@@ -11,23 +11,22 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="/biz01.do">사업소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-					
-							<li><a href="/com01.do">회사소개</a></li>
-							<li><a href="/biz01.do" class="active">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do" class="active"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="/biz01.do">특수코팅<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2_3"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/biz01.do">BOPP film</a></li>
-							<li><a href="/biz02.do">EVA Coated film</a></li>
-							<li><a href="/biz03.do" class="active">특수코팅</a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2_1"/></a></li>
+							<li><a href="/biz02.do"><s:text name="header_sub_2_2"/></a></li>
+							<li><a href="/biz03.do" class="active"><s:text name="header_sub_2_3"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -41,19 +40,18 @@
 	<div id="container">
 		
 		<div class="sub-visual Biz">
-			<h2>사업소개</h2>
+			<h2><s:text name="biz_title"/></h2>
 		</div>
 		<div id="content">
-			<h3>특수코팅</h3>
+			<h3><s:text name="biz03_1"/></h3>
 			
-			<h4>제품특징</h4>
+			<h4><s:text name="biz03_2"/></h4>
 			<p class="sub-text">
-				대림에프엔씨는 고객의 다양한 요구와 인쇄 조건에 맞춘 특수코팅 솔루션을 제공합니다. 수년간 유럽 및 북미선진시장 수출을 통해 특수코팅 기술력과 품질을<br> 인정 받았습니다.<br> 
-				특수코팅 사업 강화를 통해 세계를 선도하는 기술력과 신속한 납기로 고객만족을 극대화해 가겠습니다.
+				<s:text name="biz03_3"/>
 			</p>
-			<strong class="sub-text-tit">대표기술</strong>
+			<strong class="sub-text-tit"><s:text name="biz03_4"/></strong>
 			<p class="sub-text">Soft Feel, Anti Scratch, Digital Printing</p>
-			<h4>제품규격</h4>
+			<h4><s:text name="biz03_6"/></h4>
 
 			<table class="brdList d-line-type">
 				<colgroup>
@@ -68,15 +66,15 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th rowspan="2">구분</th>
+					<th rowspan="2"><s:text name="biz03_7"/></th>
 					<th rowspan="2">Grade</th>
-					<th rowspan="2">상세용도</th>
-					<th rowspan="2">두께</th>
-					<th rowspan="2">표면처리</th>
-					<th colspan="3">제품인증서</th>
+					<th rowspan="2"><s:text name="biz03_9"/></th>
+					<th rowspan="2"><s:text name="biz03_10"/></th>
+					<th rowspan="2"><s:text name="biz03_11"/></th>
+					<th colspan="3"><s:text name="biz03_12"/></th>
 				</tr>
 				<tr>
-					<th>전체</th>
+					<th><s:text name="biz03_13"/></th>
 					<th>MSDS</th>
 					<th>FDA</th>
 				</tr>
@@ -152,22 +150,31 @@
 			<h4>제품문의</h4>
 			<table class="brdList">
 				<colgroup>
-					<col style="width:33.33%;">
-					<col style="width:33.33%;">
-					<col style="width:33.33%;">
+					<col style="width:30%;">
+					<col style="width:20%;">
+					<col style="width:25%;">
+					<col style="width:25%;">
 				</colgroup>
 				<thead>
 				<tr>
-					<th>이름</th>
-					<th>연락처</th>
-					<th>이메일</th>
+					<th><s:text name="biz01_29"/></th>
+					<th><s:text name="biz01_30"/></th>
+					<th><s:text name="biz01_31"/></th>
+					<th><s:text name="biz01_32"/></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>박익성</td>
-					<td>031-688-3434</td>
-					<td><a href="mailto:edpark86@daelimfnc.co.kr" class="btn-mail">메일발송</a></td>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_34"/></td>
+					<td><s:text name="biz01_35"/></td>
+					<td><a href="<s:text name="biz_mail_1"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
+				</tr>
+				<tr>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_38"/></td>
+					<td><s:text name="biz01_39"/></td>
+					<td><a href="<s:text name="biz_mail_2"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
 				</tbody>
 			</table>

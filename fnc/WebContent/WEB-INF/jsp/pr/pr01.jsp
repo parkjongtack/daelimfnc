@@ -128,20 +128,21 @@ function goView(idx){
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">홍보센터<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_5"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/biz01.do">사업소개</a></li>
-								<li><a href="/rnd01.do">기술개발</a></li>
-								<li><a href="/sus01_1.do">지속가능경영</a></li>
-								<li><a href="/pr01.do" class="active">홍보센터</a></li>
-								<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do" class="active"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소식<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="pr01_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/pr01.do" class="active">회사소식</a></li>
-							<li><a href="/pr02.do">CI/BI 소개</a></li>
+							<li><a href="/pr01.do" class="active"><s:text name="pr01_1"/></a></li>
+							<li><a href="/pr02.do"><s:text name="pr02_1"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -159,7 +160,7 @@ function goView(idx){
 
 		<div id="content">
 
-			<h3>회사소식</h3>
+			<h3><s:text name="pr01_1"/></h3>
 
 			<section>
 				<form id="searchForm" name="searchForm" method="post">
@@ -168,11 +169,11 @@ function goView(idx){
 					<fieldset>
 						<div class="srchArea">
 							<select id="searchCls" name="searchCls" title="검색조건선택">
-								<option value="1" <c:if test="${searchCls == '1' }">selected="selected"</c:if>>전체</option>
-								<option value="2" <c:if test="${searchCls == '2' }">selected="selected"</c:if>>제목</option>
-								<option value="3" <c:if test="${searchCls == '3' }">selected="selected"</c:if>>내용</option>
+								<option value="1" <c:if test="${searchCls == '1' }">selected="selected"</c:if>><s:text name="pr01_2"/></option>
+								<option value="2" <c:if test="${searchCls == '2' }">selected="selected"</c:if>><s:text name="pr01_3"/></option>
+								<option value="3" <c:if test="${searchCls == '3' }">selected="selected"</c:if>><s:text name="pr01_4"/></option>
 							</select>
-							<input type="text" id="searchCnts" name="searchCnts" placeholder="검색어를 입력하세요." value="${searchCnts}"><label for="searchCnts" class="blind">검색어 입력</label>
+							<input type="text" id="searchCnts" name="searchCnts" placeholder="<s:text name="pr01_5"/>" value="${searchCnts}"><label for="searchCnts" class="blind">검색어 입력</label>
 							<input type="button" class="btn btSrch" value="검색" onclick="goSearch();">
 						</div>
 					</fieldset>

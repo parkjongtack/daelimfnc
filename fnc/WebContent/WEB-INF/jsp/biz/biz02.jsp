@@ -5,28 +5,29 @@
 <head>
 <title>EVA Coated Film &lt; 사업소개 &lt; DAELIMFnC</title>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
 						<div class="lnb">
 				<ul>
 					<li>
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">사업소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">회사소개</a></li>
-							<li><a href="/biz01.do" class="active">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do" class="active"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">EVA Coated Film<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2_2"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/biz01.do">BOPP film</a></li>
-							<li><a href="/biz02.do" class="active">EVA Coated film</a></li>
-							<li><a href="/biz03.do">특수코팅</a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2_1"/></a></li>
+							<li><a href="/biz02.do" class="active"><s:text name="header_sub_2_2"/></a></li>
+							<li><a href="/biz03.do"><s:text name="header_sub_2_3"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -40,14 +41,14 @@
 	<div id="container">
 
 		<div class="sub-visual Biz">
-			<h2>사업소개</h2>
+			<h2><s:text name="biz_title"/></h2>
 		</div>
 		<div id="content">
 			<h3>EVA Coated Film</h3>
 			<div class="tit-img-box">
 				<img src="../static/images/common/img_subtit_02.jpg" alt="" />
 			</div>
-			<h4>제품특징</h4>
+			<h4><s:text name="biz02_1"/></h4>
 			<table class="brdList row-type">
 				<colgroup>
 					<col width="320px">
@@ -55,59 +56,59 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<th>EVA Coated Film</th>
-						<td>BOPP 필름에 EVA 수지를 코팅</td>
+						<th><s:text name="biz02_2"/></th>
+						<td><s:text name="biz02_3"/></td>
 					</tr>
 					<tr>
-						<th>안정적 생산</th>
-						<td>BOPP 필름부터 EVA 코팅까지 생산 일원화</td>
+						<th><s:text name="biz02_4"/></th>
+						<td><s:text name="biz02_5"/></td>
 					</tr>
 					<tr>
-						<th>고객 가치 향상</th>
-						<td>안정적인 생산을 바탕으로 우수한 품질의 제품을 공급하여 고객 가치 향상</td>
+						<th><s:text name="biz02_6"/></th>
+						<td><s:text name="biz02_7"/></td>
 					</tr>
 				</tbody>
 			</table>
-			<h4>제품규격</h4>
+			<h4><s:text name="biz02_8"/></h4>
 			<div class="search-chkbox-area">
-				<strong class="search-tit">용도별 검색</strong>
+				<strong class="search-tit"><s:text name="biz01_9"/></strong>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_00" class="chk" name="checkbox" value="" checked>
-					<label for="checkbox_00">전체</label>
+					<label for="checkbox_00"><s:text name="biz01_10"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_01" class="chk" name="search" value="A">
-					<label for="checkbox_01">인쇄/포장</label>
+					<label for="checkbox_01"><s:text name="biz01_11"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_02" class="chk" name="search" value="B">
-					<label for="checkbox_02">테이프</label>
+					<label for="checkbox_02"><s:text name="biz01_12"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_03" class="chk" name="search" value="C">
-					<label for="checkbox_03">일반합지</label>
+					<label for="checkbox_03"><s:text name="biz01_13"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_04" class="chk" name="search" value="D">
-					<label for="checkbox_04">Thermal용 합지</label>
+					<label for="checkbox_04"><s:text name="biz01_14"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_05" class="chk" name="search" value="E">
-					<label for="checkbox_05">기능성</label>
+					<label for="checkbox_05"><s:text name="biz01_15"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_06" class="chk" name="search" value="F">
 					<label for="checkbox_06">EVA</label>
 				</span>
-				<button type="button" class="btn btn-search" onclick="searchList();">검색</button>
+				<button type="button" class="btn btn-search" onclick="searchList();"><s:text name="biz01_17"/></button>
 			</div>
 			
 			<div class="rule-box">
-				<strong class="rule-tit">명명규칙</strong>
-				<span class="b-box">E</span><span>EVA Coated</span>
-				<span class="b-box">G</span><span class="b-box">M</span><span>용도</span>
-				<span class="b-box">2</span><span class="b-box">5</span><span>두께</span>
-				<span class="b-box">2</span><span>표면처리</span>
+				<strong class="rule-tit"><s:text name="biz01_17"/></strong>
+				<span class="b-box">D</span><span>Daelim</span>
+				<span class="b-box">G</span><span class="b-box">P</span><span><s:text name="biz01_19"/></span>
+				<span class="b-box">2</span><span class="b-box">0</span><span><s:text name="biz01_20"/></span>
+				<span class="b-box">1</span><span><s:text name="biz01_21"/></span>
 			</div>
 
 			<table class="brdList d-line-type">
@@ -124,15 +125,15 @@
 				</colgroup>
 				<thead>
 				<tr>
-                    <th scope="col" rowspan="2" colspan="2">구분</th>
-                    <th scope="col" rowspan="2">Grade</th>
-                    <th scope="col" rowspan="2">상세용도</th>
-                    <th scope="col" rowspan="2">두께</th>
-                    <th scope="col" rowspan="2">표면처리</th>
-                    <th colspan="3">제품인증서</th>
+                    <th scope="col" rowspan="2" colspan="2"><s:text name="biz01_22"/></th>
+					<th scope="col" rowspan="2">Grade</th>
+					<th scope="col" rowspan="2"><s:text name="biz01_23"/></th>
+					<th scope="col" rowspan="2"><s:text name="biz01_24"/></th>
+					<th scope="col" rowspan="2"><s:text name="biz01_25"/></th>
+					<th colspan="3"><s:text name="biz01_26"/></th>
 				</tr>
 				<tr>
-                    <th scope="col">전체</th>
+                    <th scope="col"><s:text name="biz01_27"/></th>
                     <th scope="col">MSDS</th>
                     <th scope="col">FDA</th>
 				</tr>
@@ -142,28 +143,37 @@
 			</table>
 			<span class="tbl-info-txt">※ MIE 2.16kg, MIP 5kg, MIF 21.6kg</span>
 			<div class="btn-area">
-				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');">인증서 추가요청</button>
+				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');"><s:text name="biz02_32"/></button>
 			</div>
 			
-			<h4>제품문의</h4>
+			<h4><s:text name="biz01_28"/></h4>
 			<table class="brdList">
 				<colgroup>
-					<col style="width:33.33%;">
-					<col style="width:33.33%;">
-					<col style="width:33.33%;">
+					<col style="width:30%;">
+					<col style="width:20%;">
+					<col style="width:25%;">
+					<col style="width:25%;">
 				</colgroup>
 				<thead>
 				<tr>
-					<th>이름</th>
-					<th>연락처</th>
-					<th>이메일</th>
+					<th><s:text name="biz01_29"/></th>
+					<th><s:text name="biz01_30"/></th>
+					<th><s:text name="biz01_31"/></th>
+					<th><s:text name="biz01_32"/></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>박익성</td>
-					<td>031-688-3434</td>
-                    <td><a href="mailto:edpark86@daelimfnc.co.kr" class="btn-mail">메일발송</a></td>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_34"/></td>
+					<td><s:text name="biz01_35"/></td>
+					<td><a href="<s:text name="biz_mail_1"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
+				</tr>
+				<tr>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_38"/></td>
+					<td><s:text name="biz01_39"/></td>
+					<td><a href="<s:text name="biz_mail_2"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
 				</tbody>
 			</table>

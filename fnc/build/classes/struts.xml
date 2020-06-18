@@ -24,6 +24,10 @@
             <result name="success">/WEB-INF/jsp/main.jsp</result>
         </action>
 
+        <action name="contact" class="com.fnc.front.action.ContactAction">
+            <result name="success">/WEB-INF/jsp/contact/contact_us.jsp</result>
+        </action>
+
         <!-- company -->
         <action name="com01" class="com.fnc.front.action.Com01Action">
             <result name="success">/WEB-INF/jsp/company/com01.jsp</result>

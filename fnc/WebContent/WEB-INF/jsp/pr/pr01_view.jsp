@@ -26,21 +26,21 @@ function goView(idx){
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">홍보센터<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_5"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">회사소개</a></li>
-								<li><a href="/biz01.do">사업소개</a></li>
-								<li><a href="/rnd01.do">기술개발</a></li>
-								<li><a href="/sus01_1.do">지속가능경영</a></li>
-								<li><a href="/pr01.do" class="active">홍보센터</a></li>
-								<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do" class="active"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소식<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="pr01_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/pr01.do" class="active">회사소식</a></li>
-							<li><a href="/pr02.do">CI/BI 소개</a></li>
+							<li><a href="/pr01.do" class="active"><s:text name="pr01_1"/></a></li>
+							<li><a href="/pr02.do"><s:text name="pr02_1"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -54,11 +54,11 @@ function goView(idx){
 	<!-- Container -->
 	<div id="container">
 
-		<div class="sub-visual Pr"><h2>홍보센터</h2></div>
+		<div class="sub-visual Pr"><h2><s:text name="header_sub_5"/></h2></div>
 
 		<div id="content">
 			
-			<h3>회사소식</h3>
+			<h3><s:text name="pr01_1"/></h3>
 
 			<section>
 				<div class="newsView">

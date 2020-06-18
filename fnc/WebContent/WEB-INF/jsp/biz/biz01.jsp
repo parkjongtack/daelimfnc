@@ -12,22 +12,22 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascr ipt:void(0)">사업소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">회사소개</a></li>
-							<li><a href="/biz01.do" class="active">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do" class="active"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">BOPP film<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_2_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/biz01.do" class="active">BOPP film</a></li>
-							<li><a href="/biz02.do">EVA Coated film</a></li>
-							<li><a href="/biz03.do">특수코팅</a></li>
+							<li><a href="/biz01.do" class="active"><s:text name="header_sub_2_1"/></a></li>
+							<li><a href="/biz02.do"><s:text name="header_sub_2_2"/></a></li>
+							<li><a href="/biz03.do"><s:text name="header_sub_2_3"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -41,14 +41,14 @@
 	<div id="container">
 
 		<div class="sub-visual Biz">
-			<h2>사업소개</h2>
+			<h2><s:text name="biz_title"/></h2>
 		</div>
 		<div id="content">
 			<h3>BOPP film</h3>
 			<div class="tit-img-box">
 				<img src="../static/images/common/img_subtit_01.jpg" alt="" />
 			</div>
-			<h4>제품특징</h4>
+			<h4><s:text name="biz01_1"/></h4>
 			<table class="brdList row-type">
 				<colgroup>
 					<col width="320px">
@@ -56,59 +56,59 @@
 				</colgroup>
 				<tbody>
 					<tr>
-						<th>투명한 색상 &amp; 인쇄성</th>
-						<td>인쇄성 뛰어난 광택과 투명성, 우수한 인쇄성으로<br>포장/인쇄를 비롯한 다양한 분야 활용</td>
+						<th><s:text name="biz01_2"/></th>
+						<td><s:text name="biz01_3"/></td>
 					</tr>
 					<tr>
-						<th>고기능성</th>
-						<td>국내 유일 5-layer 설비 활용,<br>다양한 고기능성 제품 생산 가능</td>
+						<th><s:text name="biz01_4"/></th>
+						<td><s:text name="biz01_5"/></td>
 					</tr>
 					<tr>
-						<th>고객 가치 향상</th>
-						<td>방담, White, 내스크레치, 영구대전방지 등<br>다양한 용도 제품 생산으로 고객 가치 향상</td>
+						<th><s:text name="biz01_6"/></th>
+						<td><s:text name="biz01_7"/></td>
 					</tr>
 				</tbody>
 			</table>
-			<h4>제품규격</h4>
+			<h4><s:text name="biz01_8"/></h4>
 			<div class="search-chkbox-area">
-				<strong class="search-tit">용도별 검색</strong>
+				<strong class="search-tit"><s:text name="biz01_9"/></strong>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_00" class="chk" name="checkbox" value="" checked>
-					<label for="checkbox_00">전체</label>
+					<label for="checkbox_00"><s:text name="biz01_10"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_01" class="chk" name="search" value="A">
-					<label for="checkbox_01">인쇄/포장</label>
+					<label for="checkbox_01"><s:text name="biz01_11"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_02" class="chk" name="search" value="B">
-					<label for="checkbox_02">테이프</label>
+					<label for="checkbox_02"><s:text name="biz01_12"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_03" class="chk" name="search" value="C">
-					<label for="checkbox_03">일반합지</label>
+					<label for="checkbox_03"><s:text name="biz01_13"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_04" class="chk" name="search" value="D">
-					<label for="checkbox_04">Thermal용 합지</label>
+					<label for="checkbox_04"><s:text name="biz01_14"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_05" class="chk" name="search" value="E">
-					<label for="checkbox_05">기능성</label>
+					<label for="checkbox_05"><s:text name="biz01_15"/></label>
 				</span>
 				<span class="checkbox-area">
 					<input type="checkbox" id="checkbox_06" class="chk" name="search" value="F">
 					<label for="checkbox_06">EVA</label>
 				</span>
-				<button type="button" class="btn btn-search" onclick="searchList();">검색</button>
+				<button type="button" class="btn btn-search" onclick="searchList();"><s:text name="biz01_17"/></button>
 			</div>
 
 			<div class="rule-box">
-				<strong class="rule-tit">명명규칙</strong>
+				<strong class="rule-tit"><s:text name="biz01_17"/></strong>
 				<span class="b-box">D</span><span>Daelim</span>
-				<span class="b-box">G</span><span class="b-box">P</span><span>용도</span>
-				<span class="b-box">2</span><span class="b-box">0</span><span>두께</span>
-				<span class="b-box">1</span><span>표면처리</span>
+				<span class="b-box">G</span><span class="b-box">P</span><span><s:text name="biz01_19"/></span>
+				<span class="b-box">2</span><span class="b-box">0</span><span><s:text name="biz01_20"/></span>
+				<span class="b-box">1</span><span><s:text name="biz01_21"/></span>
 			</div>
 
 			<table class="brdList d-line-type">
@@ -125,15 +125,15 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th scope="col" rowspan="2" colspan="2">구분</th>
+					<th scope="col" rowspan="2" colspan="2"><s:text name="biz01_22"/></th>
 					<th scope="col" rowspan="2">Grade</th>
-					<th scope="col" rowspan="2">상세용도</th>
-					<th scope="col" rowspan="2">두께</th>
-					<th scope="col" rowspan="2">표면처리</th>
-					<th colspan="3">제품인증서</th>
+					<th scope="col" rowspan="2"><s:text name="biz01_23"/></th>
+					<th scope="col" rowspan="2"><s:text name="biz01_24"/></th>
+					<th scope="col" rowspan="2"><s:text name="biz01_25"/></th>
+					<th colspan="3"><s:text name="biz01_26"/></th>
 				</tr>
 				<tr>
-					<th scope="col">전체</th>
+					<th scope="col"><s:text name="biz01_27"/></th>
 					<th scope="col">MSDS</th>
 					<th scope="col">FDA</th>
 				</tr>
@@ -143,10 +143,10 @@
 			</table>
 			<span class="tbl-info-txt">※ MIE 2.16kg, MIP 5kg, MIF 21.6kg</span>
 			<div class="btn-area">
-				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');">인증서 추가요청</button>
+				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');"><s:text name="biz02_32"/></button>
 			</div>
 
-			<h4>제품문의</h4>
+			<h4><s:text name="biz01_28"/></h4>
 			<table class="brdList">
 				<colgroup>
 					<col style="width:30%;">
@@ -156,35 +156,35 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th>제품</th>
-					<th>이름</th>
-					<th>연락처</th>
-					<th>이메일</th>
+					<th><s:text name="biz01_29"/></th>
+					<th><s:text name="biz01_30"/></th>
+					<th><s:text name="biz01_31"/></th>
+					<th><s:text name="biz01_32"/></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>BOPP</td>
-					<td>홍준석</td>
-					<td>031-688-3431</td>
-					<td><a href="mailto:jshong@daelimfnc.co.kr" class="btn-mail">메일발송</a></td>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_34"/></td>
+					<td><s:text name="biz01_35"/></td>
+					<td><a href="<s:text name="biz_mail_1"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
 				<tr>
-					<td>합성지</td>
-					<td>장명훈</td>
-					<td>031-688-3441</td>
-                    <td><a href="mailto:mhjang@daelimfnc.co.kr" class="btn-mail">메일발송</a></td>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_38"/></td>
+					<td><s:text name="biz01_39"/></td>
+					<td><a href="<s:text name="biz_mail_2"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
 				<tr>
-					<td>수출</td>
-					<td>강병권</td>
-					<td>031-688-3451</td>
-                    <td><a href="mailto:marcus24@daelimfnc.co.kr" class="btn-mail">메일발송</a></td>
+					<td><s:text name="biz01_33"/></td>
+					<td><s:text name="biz01_41"/></td>
+					<td><s:text name="biz01_42"/></td>
+					<td><a href="<s:text name="biz_mail_3"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
 				</tbody>
 			</table>
 		
-			<h4>대리점</h4>
+			<h4><s:text name=""/></h4>
 			<table class="brdList">
 				<colgroup>
 					<col style="width:20%;">
@@ -194,42 +194,42 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th>대리점명</th>
-					<th>주소</th>
-					<th>연락처</th>
-					<th>팩스</th>
+					<th><s:text name="biz01_43"/></th>
+					<th><s:text name="biz01_45"/></th>
+					<th><s:text name="biz01_44"/></th>
+					<th><s:text name="biz01_46"/></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td>대림판매(주)</td>
-					<td class="align-l">(04561) 서울특별시 중구 동호로34길 29 (광희동1가) 2층 </td>
-					<td>02-2264-1600</td>
-					<td>02-2273-9316</td>
+					<td><s:text name="biz01_47"/></td>
+					<td class="align-l"><s:text name="biz01_49"/></td>
+					<td><s:text name="biz01_48"/></td>
+					<td><s:text name="biz01_50"/></td>
 				</tr>
 				<tr>
-					<td>(주)대인포리</td>
-					<td class="align-l">(12737) 경기도 광주시 초월읍 산수로 45-11</td>
-					<td>031-769-0061~3</td>
-					<td>031-769-0064</td>
+					<td><s:text name="biz01_51"/></td>
+					<td class="align-l"><s:text name="biz01_53"/></td>
+					<td><s:text name="biz01_52"/></td>
+					<td><s:text name="biz01_54"/></td>
 				</tr>
 				<tr>
-					<td>유한피엔피</td>
-					<td class="align-l">(17311) 경기도 이천시 백사면 이여로 282-66</td>
-					<td>031-634-6831</td>
-					<td>031-634-6833</td>
+					<td><s:text name="biz01_55"/></td>
+					<td class="align-l"><s:text name="biz01_57"/></td>
+					<td><s:text name="biz01_56"/></td>
+					<td><s:text name="biz01_58"/></td>
 				</tr>
 				<tr>
-					<td> (주)유창필름</td>
-					<td class="align-l">(41587) 대구광역시 북구 침산로 40-1</td>
-					<td>053-353-6558</td>
-					<td>053-354-4470</td>
+					<td><s:text name="biz01_59"/></td>
+					<td class="align-l"><s:text name="biz01_61"/></td>
+					<td><s:text name="biz01_60"/></td>
+					<td><s:text name="biz01_62"/></td>
 				</tr>
 				<tr>
-					<td>대림화성(주)</td>
-					<td class="align-l">(10316) 경기도 고양시 일산동구 견달산로210번길 11</td>
-					<td>031-969-0030~1</td>
-					<td>031-969-1044</td>
+					<td><s:text name="biz01_63"/></td>
+					<td class="align-l"><s:text name="biz01_65"/></td>
+					<td><s:text name="biz01_64"/></td>
+					<td><s:text name="biz01_66"/></td>
 				</tr>
 				</tbody>
 			</table>

@@ -11,24 +11,24 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do" class="active">회사소개</a></li>
-							<li><a href="/biz01.do">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do" class="active"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">그룹사 현황<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1_3"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">기업정보</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
 							<!-- <li><a href="/com02.do">CEO인사말</a></li> -->
-							<li><a href="/com03.do">기업연혁</a></li>
-							<li><a href="/com04_1.do" class="active">그룹사 현황</a></li>
-							<li><a href="/com05.do">오시는길</a></li>
+							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+							<li><a href="/com04_1.do" class="active"><s:text name="header_sub_1_3"/></a></li>
+							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -43,73 +43,73 @@
 	<div id="container">
 
 		<div class="sub-visual Company">
-			<h2>회사소개</h2>
+			<h2><s:text name="com01_1"/></h2>
 		</div>
 		<div id="content">
 
-			<h3>그룹사 현황</h3>
+			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li class="active"><a href="/com04_1.do">개요</a></li>
-				<li><a href="/com04_2.do">석유화학</a></li>
-				<li><a href="/com04_3.do">건설</a></li>
-				<li><a href="/com04_4.do">제조/상사</a></li>
-				<li><a href="/com04_5.do">IT</a></li>
-				<li><a href="/com04_6.do">레저</a></li>
-				<li><a href="/com04_7.do">교육/문화</a></li>
-				<li><a href="/com04_8.do">에너지</a></li>
+				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
+				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
+				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
+				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
+				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
+				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
+				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
 			<div class="cmpny-tabcon">
-				<strong class="blind">개요</strong>
-				<p class="sub-textb align-c">1939년 창업한 대림그룹은 건설 및 석유화학 전문 기업인 대림산업을 중심으로<br>12개 관계사로 이루어진 대한민국 대표 그룹입니다.</p>
+				<strong class="blind"><s:text name="com04_2"/></strong>
+				<p class="sub-textb align-c"><s:text name="com04_2"/></p>
 				<ul class="cmpny-list">
 					<li class="item_01">
-						<strong class="tit">석유화학</strong>
+						<strong class="tit"><s:text name="com04_3"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_2.do#come4_2_1">대림산업㈜ 석유화학 사업부</a></li>
-							<li><a href="/com04_2.do#come4_2_2">여천NCC㈜</a></li>
-							<li><a href="/com04_2.do#come4_2_3">폴리미래㈜</a></li>
+							<li><a href="/com04_2.do#come4_2_1"><s:text name="com04_4"/></a></li>
+							<li><a href="/com04_2.do#come4_2_2"><s:text name="com04_5"/></a></li>
+							<li><a href="/com04_2.do#come4_2_3"><s:text name="com04_6"/></a></li>
 						</ul>
 					</li>
 					<li class="item_02">
-						<strong class="tit">건설</strong>
+						<strong class="tit"><s:text name="com04_7"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_3.do#come4_3_1">대림산업㈜ 건설사업부</a></li>
-							<li><a href="/com04_3.do#come4_3_2">㈜삼호</a></li>
-							<li><a href="/com04_3.do#come4_3_3">고려개발㈜</a></li>
+							<li><a href="/com04_3.do#come4_3_1"><s:text name="com04_8"/></a></li>
+							<li><a href="/com04_3.do#come4_3_2"><s:text name="com04_9"/></a></li>
+							<li><a href="/com04_3.do#come4_3_3"><s:text name="com04_10"/></a></li>
 						</ul>
 					</li>
 					<li class="item_03">
-						<strong class="tit">제조/상사</strong>
+						<strong class="tit"><s:text name="com04_11"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_4.do#come4_4_1">㈜대림코퍼레이션 상사부문</a></li>
-							<li><a href="/com04_4.do#come4_4_2">㈜대림피앤피</a> / <a href="/com04_4.do#come4_4_3">대림 C&S㈜</a></li>
-							<li><a href="/com04_4.do#come4_4_4">대림 자동차공업㈜</a> / <a href="/com04_4.do#come4_4_5">대림오토바이㈜</a></li>
+							<li><a href="/com04_4.do#come4_4_1"><s:text name="com04_12"/></a></li>
+							<li><a href="/com04_4.do#come4_4_2"><s:text name="com04_13"/></a> / <a href="/com04_4.do#come4_4_3"><s:text name="com04_15"/></a></li>
+							<li><a href="/com04_4.do#come4_4_4"><s:text name="com04_16"/></a> / <a href="/com04_4.do#come4_4_5"><s:text name="com04_17"/></a></li>
 						</ul>
 					</li>
 					<li class="item_04">
 						<strong class="tit">IT</strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_5.do#come4_5_1">㈜대림코퍼레이션</a></li>
-							<li><a href="/com04_5.do#come4_5_2">IT컨버전스 부문</a></li>
+							<li><a href="/com04_5.do#come4_5_1"><s:text name="com04_20"/></a></li>
+							<li><a href="/com04_5.do#come4_5_2"><s:text name="com04_21"/></a></li>
 						</ul>
 					</li>
 					<li class="item_05">
-						<strong class="tit">레저</strong>
+						<strong class="tit"><s:text name="com04_22"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_6.do#come4_6_1">글래드 호텔앤리조트㈜</a></li>
+							<li><a href="/com04_6.do#come4_6_1"><s:text name="com04_23"/></a></li>
 						</ul>
 					</li>
 					<li class="item_06">
-						<strong class="tit">교육/문화</strong>
+						<strong class="tit"><s:text name="com04_24"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_7.do#come4_7_1">대림문화재단/대림미술관</a></li>
-							<li><a href="/com04_7.do#come4_7_2">학교법인 대림학원</a></li>
+							<li><a href="/com04_7.do#come4_7_1"><s:text name="com04_25"/></a></li>
+							<li><a href="/com04_7.do#come4_7_2"><s:text name="com04_26"/></a></li>
 						</ul>
 					</li>
 					<li class="item_07">
-						<strong class="tit">에너지</strong>
+						<strong class="tit"><s:text name="com04_27"/></strong>
 						<ul class="cmpny-item-list">
-							<li><a href="/com04_8.do#come4_8_1">대림 에너지</a></li>
+							<li><a href="/com04_8.do#come4_8_1"><s:text name="com04_28"/></a></li>
 						</ul>
 					</li>
 				</ul>
