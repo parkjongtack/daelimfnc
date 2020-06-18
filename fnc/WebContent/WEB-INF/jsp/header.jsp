@@ -69,60 +69,7 @@ function downloadFileAll(){
 </head>
 <body>
 <!-- wrapper -->
-<div id="wrapper">
-
-	<ul id="skipnavi">
-		<li><a href="#content">본문 바로가기</a></li>
-	</ul>
-  
-	<header>
-		<div class="innerwrap">
-			<div class="gnbwrap">
-				<h1><a href="/main.do">대림Fnc</a></h1>
-				<ul id="gnb">
-					<li><a href="/com01.do"><s:text name="header_sub_1"/></a>
-						<ul>
-							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
-							<!-- li><a href="/com02.do">CEO 인사말</a></li  -->
-							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
-							<li><a href="/com04_1.do"><s:text name="header_sub_1_3"/></a></li>
-							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
-						</ul>
-					</li>
-					<li><a href="/biz01.do"><s:text name="header_sub_2"/></a>
-						<ul>
-							<li><a href="/biz01.do"><s:text name="header_sub_2_1"/></a></li>
-							<li><a href="/biz02.do"><s:text name="header_sub_2_2"/></a></li>
-							<li><a href="/biz03.do"><s:text name="header_sub_2_3"/></a></li>
-						</ul>
-					</li>
-					<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a>
-						<ul>
-							<li><a href="/rnd01.do"><s:text name="header_sub_3_1"/></a></li>
-							<li><a href="/rnd02.do"><s:text name="header_sub_3_2"/></a></li>
-						</ul>
-					</li>
-					<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a>
-						<ul>
-							<li><a href="/sus01_1.do"><s:text name="header_sub_4_1"/></a></li>
-							<li><a href="/sus02_1.do"><s:text name="header_sub_4_2"/></a></li>
-						</ul>
-					</li>
-					<li><a href="/pr01.do"><s:text name="header_sub_5"/></a>
-						<ul>
-							<li><a href="/pr01.do"><s:text name="header_sub_5_1"/></a></li>
-							<li><a href="/pr02.do"><s:text name="header_sub_5_2"/></a></li>
-						</ul>
-					</li>
-					<li><a href="/car01.do"><s:text name="header_sub_6"/></a>
-						<ul>
-							<li><a href="/car01.do"><s:text name="header_sub_6_1"/></a></li>
-							<li><a href="/car02.do"><s:text name="header_sub_6_2"/></a></li>
-							<li><a href="/car01List.do"><s:text name="header_sub_6_3"/></a></li>
-						</ul>
-					</li>
-                </ul>
-                <% String langtype = "ko_KR"; %>
+				<% String langtype = "ko_KR"; %>
 				<!-- <c:out value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"/>-->
 				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'en_US' || param.request_locale == 'en_US'}">				
 					<fmt:setLocale value="en_US" scope="session" />
@@ -134,7 +81,8 @@ function downloadFileAll(){
 					<fmt:setLocale value="ko_KR" scope="session" />				
 					<c:set var="reqLang" value="KOREAN"/>
 					<% langtype = "ko_KR"; %>			
-				</c:if>                 
+				</c:if> 
+				
                 <% //out.println(((Locale) pageContext.getAttribute("org.apache.struts.action.LOCALE",PageContext.REQUEST_SCOPE)).getLanguage()); %>
                 <%
                 
@@ -150,10 +98,83 @@ function downloadFileAll(){
                    //session.setAttribute("request_locale", request_locale);
                    //out.println(request_locale);
                 %>
+<div id="wrapper">
+
+	<ul id="skipnavi">
+		<li><a href="#content">본문 바로가기</a></li>
+	</ul>
+  
+	<header>
+		<div class="innerwrap">
+			<div class="gnbwrap">
+				<h1><a href="/main.do">대림Fnc</a></h1>
+				<ul id="gnb">
+               <li><a href="/com01.do"><s:text name="header_sub_1"/></a>
+                  <ul>
+                     <li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
+                     <!-- li><a href="/com02.do">CEO 인사말</a></li  -->
+                     <li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+                     <li><a href="/com04_1.do"><s:text name="header_sub_1_3"/></a></li>
+                     <li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
+                  </ul>
+               </li>
+               <li><a href="/biz01.do"><s:text name="header_sub_2"/></a>
+                  <ul>
+                     <li><a href="/biz01.do"><s:text name="header_sub_2_1"/></a></li>
+                     <li><a href="/biz02.do"><s:text name="header_sub_2_2"/></a></li>
+                     <li><a href="/biz03.do"><s:text name="header_sub_2_3"/></a></li>
+                  </ul>
+               </li>
+               <li><a href="/rnd01.do"><s:text name="header_sub_3"/></a>
+                  <ul>
+                     <li><a href="/rnd01.do"><s:text name="header_sub_3_1"/></a></li>
+					 <%
+					     if(name.equals("ko_KR")){
+					 %>
+                     <li><a href="/rnd02.do"><s:text name="header_sub_3_2"/></a></li>
+                     <%} %>
+                  </ul>
+               </li>
+               <li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a>
+                  <ul>
+                     <li><a href="/sus01_1.do"><s:text name="header_sub_4_1"/></a></li>
+					 <%
+					     if(name.equals("ko_KR")){
+					 %>
+                     <li><a href="/sus02_1.do"><s:text name="header_sub_4_2"/></a></li>
+                     <%} %>
+                  </ul>
+               </li>
+               <li><a href="/pr01.do"><s:text name="header_sub_5"/></a>
+                  <ul>
+                     <li><a href="/pr01.do"><s:text name="header_sub_5_1"/></a></li>
+                     <li><a href="/pr02.do"><s:text name="header_sub_5_2"/></a></li>
+                  </ul>
+               </li>
+					 <%
+					     if(name.equals("ko_KR")){
+					 %>
+               <li><a href="/car01.do"><s:text name="header_sub_6"/></a>
+                  <ul>
+                     <li><a href="/car01.do"><s:text name="header_sub_6_1"/></a></li>
+                     <li><a href="/car02.do"><s:text name="header_sub_6_2"/></a></li>
+                     <%}else{ %>
+               <li><a href="/contact.do"><s:text name="header_sub_6"/></a>
+                  <ul>
+                     <li><a href="/contact.do"><s:text name="header_sub_6_1"/></a></li>
+                     <li><a href="javascript:" onclick="sendEmail()"><s:text name="header_sub_6_2"/></a></li>
+                     <%} %>
+					 <%					
+					     if(name.equals("ko_KR")){
+					 %>
+                     <li><a href="/car01List.do"><s:text name="header_sub_6_3"/></a></li>
+                     <%} %>
+                  </ul>
+                </li>
+                </ul>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
                 <select name="request_locale" class="lang_select">
-                   <%
-                     
+                   		<%
                             if(name.equals("en_US")){
                         %>
                    		<option value="en_US">EN</option>

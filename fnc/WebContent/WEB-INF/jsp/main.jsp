@@ -96,6 +96,9 @@
 					</ul>
 				</div>
 			</div>
+<%					
+    if(name.equals("ko_KR")){
+%>
 			<div class="main-bnnr-con detail-con">
 				<div class="innerwrap">
 				<strong class="de-tit">RECRUITMENT</strong>
@@ -104,6 +107,7 @@
 				<a href="car01List.do" class="btn-detail-link"><s:text name="main_last_3"/></a>
 				</div>
 			</div>
+			<%} %>
 
 		</div>
 	</div>

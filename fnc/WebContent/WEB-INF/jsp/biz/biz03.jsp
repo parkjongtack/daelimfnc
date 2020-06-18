@@ -143,9 +143,13 @@
 				</tr>
 				</tbody>
 			</table>
+<%					
+    if(name.equals("ko_KR")){
+%>	
 			<div class="btn-area">
-				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');">인증서 추가요청</button>
+				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');"><s:text name="biz02_32"/></button>
 			</div>
+<%} %>
 			
 			<h4>제품문의</h4>
 			<table class="brdList">

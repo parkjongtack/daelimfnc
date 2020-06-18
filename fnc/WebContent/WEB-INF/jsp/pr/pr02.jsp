@@ -39,7 +39,7 @@
 	<!-- Container -->
 	<div id="container">
 
-		<div class="sub-visual Pr"><h2>홍보센터</h2></div>
+		<div class="sub-visual Pr"><h2><s:text name="header_sub_5"/></h2></div>
 
 		<div id="content">
 			

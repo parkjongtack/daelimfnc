@@ -17,6 +17,9 @@
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
  -->
 	<footer>
+<%					
+    if(name.equals("ko_KR")){
+%>				
 		<div class="ft-top">
 			<div class="innerwrap">
 				<div class="footMenu">
@@ -67,7 +70,11 @@
 				</dl>
 			</div>
 		</div>
-		<div class="ft-bottom">
+		
+		<div class="ft-bottom" style="padding-top:30px;">
+		<%}else{ %>
+		<div class="ft-bottom" style="border-top:1px solid #ddd;">
+		<%} %>
 			<div class="innerwrap">
 				<address>
 				<s:text name="real_footer"/>

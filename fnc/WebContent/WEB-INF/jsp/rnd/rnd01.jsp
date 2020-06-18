@@ -25,7 +25,11 @@
 						<a href="javascript:void(0)"><s:text name="rnd01_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
 							<li><a href="/rnd01.do" class="active"><s:text name="rnd01_1"/></a></li>
+							<%					
+							    if(name.equals("ko_KR")){
+							%>								
 							<li><a href="/rnd02.do"><s:text name="header_sub_2_2"/></a></li>
+							<%} %>
 						</ul>
 					</li>
 				</ul>
@@ -55,6 +59,9 @@
 						<dd><a href="/static/bizfolder/certs/295KRQS_CERTIFICATE_2018.pdf" class="btn btn-download03" target="_blank" title="새창열기 다운로드">PDF Download</a></dd>
 				</dl>
 				</li>
+				<%					
+				    if(name.equals("ko_KR")){
+				%>				
 				<li>
 				<dl>
 					<dt>
@@ -64,6 +71,7 @@
 						<dd><a href="/static/bizfolder/certs/HBMark_K.zip" class="btn btn-download03" target="_blank" title="새창열기 다운로드">PDF Download</a></dd>
 				</dl>
 				</li>
+				<%} %>
 				<li>
 				<dl>
 					<dt>
@@ -73,6 +81,9 @@
 						<dd><a href="/static/bizfolder/certs/HBMark_E.zip" class="btn btn-download03" target="_blank" title="새창열기 다운로드">PDF Download</a></dd>
 				</dl>
 				</li>
+				<%					
+				    if(name.equals("ko_KR")){
+				%>					
 				<li>
 				<dl>
 					<dt>
@@ -82,6 +93,7 @@
 						<dd><a href="/static/bizfolder/certs/KOSHA18001Cert_K171031.zip" class="btn btn-download03" target="_blank" title="새창열기 다운로드">PDF Download</a></dd>
 				</dl>
 				</li>
+				<%} %>
 				<li>
 				<dl>
 					<dt>

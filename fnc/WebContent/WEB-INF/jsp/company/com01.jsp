@@ -81,9 +81,13 @@
 			</div>
 			<div class="inner-area">
 				<h4><s:text name="com01_11"/></h4>
+				<%					
+				    if(name.equals("ko_KR")){
+				%>							
 				<p class="sub-text">
 					<s:text name="com01_12"/>
 				</p>
+				<%} %>
 				<div class="cmpny-info-img-box-03">
 					<img src="../static/images/contents/img_cmpny_info_03.png" alt="
 						미래창조(멀리보는 경영), 

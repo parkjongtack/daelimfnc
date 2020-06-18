@@ -22,12 +22,19 @@
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)"><s:text name="rnd01_1"/><i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_4_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/rnd01.do" class="active"><s:text name="rnd01_1"/></a></li>
+							<li><a href="/rnd01.do" class="active"><s:text name="header_sub_4_1"/></a></li>
+<%					
+    if(name.equals("ko_KR")){
+%>									
 							<li><a href="/rnd02.do"><s:text name="header_sub_2_2"/></a></li>
+							<%} %>
 						</ul>
 					</li>
+<%					
+    if(name.equals("ko_KR")){
+%>								
 						<li>
 							<a href="javascript:void(0)"><s:text name="header_sub_3"/><i class="icon-arr"></i></a>
 							<ul class="submenus">
@@ -38,6 +45,7 @@
 								<li><a href="/sus01_5.do">보건경영활동</a></li>
 							</ul>
 						</li>
+						<%} %>
 					</ul>
 				</div>
 			</div>

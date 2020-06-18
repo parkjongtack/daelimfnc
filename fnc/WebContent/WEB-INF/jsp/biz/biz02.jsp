@@ -142,9 +142,13 @@
 				</tbody>
 			</table>
 			<span class="tbl-info-txt">※ MIE 2.16kg, MIP 5kg, MIF 21.6kg</span>
+			<%					
+			    if(name.equals("ko_KR")){
+			%>	
 			<div class="btn-area">
 				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');"><s:text name="biz02_32"/></button>
 			</div>
+			<%} %>
 			
 			<h4><s:text name="biz01_28"/></h4>
 			<table class="brdList">

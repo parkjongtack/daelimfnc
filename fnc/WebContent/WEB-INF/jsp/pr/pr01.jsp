@@ -156,7 +156,7 @@ function goView(idx){
 	<!-- Container -->
 	<div id="container">
 
-		<div class="sub-visual Pr"><h2>홍보센터</h2></div>
+		<div class="sub-visual Pr"><h2><s:text name="header_sub_5"/></h2></div>
 
 		<div id="content">
 
@@ -184,7 +184,7 @@ function goView(idx){
 				<ul class="thumbnailList"></ul>
 				<c:if test="${count ne 0}">
 					<div class="btn-area">
-						<button type="button" class="btn btn-full-more" onclick="pagingMore(currentPage+1);">더보기 (<strong>1</strong>/<span></span>)</button>
+						<button type="button" class="btn btn-full-more" onclick="pagingMore(currentPage+1);"><s:text name="see_more"/> (<strong>1</strong>/<span></span>)</button>
 					</div>
 				</c:if>
 			</section>

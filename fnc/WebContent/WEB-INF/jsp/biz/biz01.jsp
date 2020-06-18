@@ -142,10 +142,13 @@
 				</tbody>
 			</table>
 			<span class="tbl-info-txt">※ MIE 2.16kg, MIP 5kg, MIF 21.6kg</span>
+				<%					
+				    if(name.equals("ko_KR")){
+				%>	
 			<div class="btn-area">
 				<button type="button" class="btn btn-primary i-confirm" onclick="sendEmail('sikim@daelimfnc.co.kr','3','기타문의');"><s:text name="biz02_32"/></button>
 			</div>
-
+				<%} %>
 			<h4><s:text name="biz01_28"/></h4>
 			<table class="brdList">
 				<colgroup>
@@ -175,15 +178,21 @@
 					<td><s:text name="biz01_39"/></td>
 					<td><a href="<s:text name="biz_mail_2"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
+				<%					
+				    if(name.equals("ko_KR")){
+				%>					
 				<tr>
 					<td><s:text name="biz01_33"/></td>
 					<td><s:text name="biz01_41"/></td>
 					<td><s:text name="biz01_42"/></td>
 					<td><a href="<s:text name="biz_mail_3"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
 				</tr>
+				<%} %>				
 				</tbody>
 			</table>
-		
+				<%					
+				    if(name.equals("ko_KR")){
+				%>	
 			<h4><s:text name=""/></h4>
 			<table class="brdList">
 				<colgroup>
@@ -233,6 +242,7 @@
 				</tr>
 				</tbody>
 			</table>
+							<%} %>
 		</div>
 		<button type="button" class="btn-top">TOP</button>
 	</div>

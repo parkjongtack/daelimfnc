@@ -33,7 +33,7 @@ function customerPop() {
 								<li><a href="/com04_8.do"><s:text name="header_all_1_3_8"/></a></li>
 							</ul>
 						</li>
-						<li><a href="/com05.do"><s:text name="오시는길"/></a></li>
+						<li><a href="/com05.do"><s:text name="header_all_1_4"/></a></li>
 					</ul>
 				</li>
 				<li><a href="/biz01.do"><s:text name="header_all_2"/></a>
@@ -46,16 +46,23 @@ function customerPop() {
 				<li><a href="/rnd01.do"><s:text name="header_all_3"/></a>
 					<ul>
 						<li><a href="/rnd01.do"><s:text name="header_all_3_1"/></a></li>
+<%					
+    if(name.equals("ko_KR")){
+%>
 						<li><a href="/rnd02.do"><s:text name="header_all_3_2"/></a></li>
+<%} %>						
 					</ul>
 				</li>
 				<li><a href="/sus01_1.do"><s:text name="header_all_4"/></a>
 					<ul>
 						<li><a href="/sus01_1.do"><s:text name="header_all_4_1"/></a>
+<%					
+    if(name.equals("ko_KR")){
+%>
 							<ul>
 								<li><a href="/sus01_1.do"><s:text name="header_all_4_1"/></a></li>
 								<li><a href="/sus01_2.do"><s:text name="header_all_4_2"/></a></li>
-								<li><a href="/sus01_3_1.do"><s:text name="header_all_4_3"/></a>
+								<li><a href="/sus01_3_1.do"><s:text name="header_all_4_2_1"/></a>
 									<ul>
 										<li><a href="/sus01_3_1.do"><s:text name="header_all_4_1_3_1"/></a></li>
 										<li><a href="/sus01_3_2.do"><s:text name="header_all_4_1_3_2"/></a></li>
@@ -66,12 +73,14 @@ function customerPop() {
 								<li><a href="/sus01_4.do"><s:text name="header_all_4_1_4"/></a></li>
 								<li><a href="/sus01_5.do"><s:text name="header_all_4_1_5"/></a></li>
 							</ul>
+				
 						</li>
 						<li><a href="/sus02_1.do"><s:text name="header_all_4_2"/></a>
 							<ul>
 								<li><a href="javascript:void(0)"><s:text name="header_all_4_2_1"/></a></li> <!-- TODO : /sus02_1.do -->
 							</ul>
 						</li>
+<%} %>
 					</ul>
 				</li>
 				<li><a href="/pr01.do"><s:text name="header_all_5"/></a>
@@ -80,15 +89,23 @@ function customerPop() {
 						<li><a href="/pr02.do"><s:text name="header_all_5_2"/></a></li>
 					</ul>
 				</li>
-				<li><a href="/car01.do"><s:text name="header_all_6"/></a>
-					<ul>
-						<li><a href="/car01.do"><s:text name="header_all_6_1"/></a></li>
-						<li><a href="/car02.do"><s:text name="header_all_6_2"/></a></li>
-						<li><a href="/car01List.do"><s:text name="header_all_6_2"/></a></li>
-					</ul>
-				</li>
+<%
+    if(name.equals("ko_KR")){
+%>
+               <li><a href="/car01.do"><s:text name="header_sub_6"/></a>
+                  <ul>
+                     <li><a href="/car01.do"><s:text name="header_sub_6_1"/></a></li>
+                     <li><a href="/car02.do"><s:text name="header_sub_6_2"/></a></li>
+                     <%}else{ %>
+               <li><a href="/contact.do"><s:text name="header_sub_6"/></a>
+                  <ul>
+                     <li><a href="/contact.do"><s:text name="header_sub_6_1"/></a></li>
+                     <li><a href="javascript:" onclick="sendEmail()"><s:text name="header_sub_6_2"/></a></li>
+                     <%} %>
 			</ul>
-
+<%					
+    if(name.equals("ko_KR")){
+%>
 			<div class="subsite">
 			<ul>
 				<li><a href="/ps01.do"><s:text name="header_all_cs_1"/></a>
@@ -103,6 +120,7 @@ function customerPop() {
 				</li>
 			</ul>
 			</div>
+<%} %>			
 			<a href="javascript:void(0)" class="icons popClose" title="전체메뉴보기 닫기"><em class="blind">닫기</em></a>
 		</div>
 	</div>

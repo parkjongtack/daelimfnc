@@ -49,6 +49,35 @@
 </script>
 </head>
 <body id="main">
+				<% String langtype = "ko_KR"; %>
+				<!-- <c:out value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"/>-->
+				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'en_US' || param.request_locale == 'en_US'}">				
+					<fmt:setLocale value="en_US" scope="session" />
+					<c:set var="reqLang" value="ENGLISH"/>
+					<% langtype = "en_US"; %>
+				</c:if>
+				
+				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'ko_KR' || param.request_locale == 'ko_KR'}">				
+					<fmt:setLocale value="ko_KR" scope="session" />				
+					<c:set var="reqLang" value="KOREAN"/>
+					<% langtype = "ko_KR"; %>			
+				</c:if> 
+				
+                <% //out.println(((Locale) pageContext.getAttribute("org.apache.struts.action.LOCALE",PageContext.REQUEST_SCOPE)).getLanguage()); %>
+                <%
+                
+                	//out.println(request.getParameter("request_locale"));
+	    			String request_locale = langtype;
+	    			String name = langtype==null?"":langtype;  
+                	if(request_locale == null) {
+                		request_locale = "ko_KR";
+                	}
+                	
+                   //session.setAttribute("request_locale", request_locale);
+                   //out.println(request_locale);                   
+                   //session.setAttribute("request_locale", request_locale);
+                   //out.println(request_locale);
+                %>
 <!-- wrapper -->
 <div id="wrapper">
    <ul id="skipnavi">
@@ -109,13 +138,21 @@
                <li><a href="/rnd01.do"><s:text name="header_sub_3"/></a>
                   <ul>
                      <li><a href="/rnd01.do"><s:text name="header_sub_3_1"/></a></li>
+<%
+    if(name.equals("ko_KR")){
+%>
                      <li><a href="/rnd02.do"><s:text name="header_sub_3_2"/></a></li>
+                     <%} %>
                   </ul>
                </li>
                <li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a>
                   <ul>
                      <li><a href="/sus01_1.do"><s:text name="header_sub_4_1"/></a></li>
+<%
+    if(name.equals("ko_KR")){
+%>
                      <li><a href="/sus02_1.do"><s:text name="header_sub_4_2"/></a></li>
+                     <%} %>
                   </ul>
                </li>
                <li><a href="/pr01.do"><s:text name="header_sub_5"/></a>
@@ -126,41 +163,24 @@
                </li>
                <li><a href="/car01.do"><s:text name="header_sub_6"/></a>
                   <ul>
+<%
+    if(name.equals("ko_KR")){
+%>
                      <li><a href="/car01.do"><s:text name="header_sub_6_1"/></a></li>
                      <li><a href="/car02.do"><s:text name="header_sub_6_2"/></a></li>
+                     <%}else{ %>
+                     <li><a href="/contact.do"><s:text name="header_sub_6_1"/></a></li>
+                     <li><a href="javascript:" onclick="sendEmail()"><s:text name="header_sub_6_2"/></a></li>
+                     <%} %>
+<%					
+    if(name.equals("ko_KR")){
+%>
                      <li><a href="/car01List.do"><s:text name="header_sub_6_3"/></a></li>
+                     <%} %>
                   </ul>
                 </li>
                 </ul>
-                <% String langtype = "ko_KR"; %>
-				<!-- <c:out value="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session']}"/>-->
-				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'en_US' || param.request_locale == 'en_US'}">				
-					<fmt:setLocale value="en_US" scope="session" />
-					<c:set var="reqLang" value="ENGLISH"/>
-					<% langtype = "en_US"; %>
-				</c:if>
-				
-				<c:if test="${sessionScope['javax.servlet.jsp.jstl.fmt.locale.session'] eq 'ko_KR' || param.request_locale == 'ko_KR'}">				
-					<fmt:setLocale value="ko_KR" scope="session" />				
-					<c:set var="reqLang" value="KOREAN"/>
-					<% langtype = "ko_KR"; %>			
-				</c:if> 
-				
-                <% //out.println(((Locale) pageContext.getAttribute("org.apache.struts.action.LOCALE",PageContext.REQUEST_SCOPE)).getLanguage()); %>
-                <%
                 
-                	//out.println(request.getParameter("request_locale"));
-	    			String request_locale = langtype;
-	    			String name = langtype==null?"":langtype;  
-                	if(request_locale == null) {
-                		request_locale = "ko_KR";
-                	}
-                	
-                   //session.setAttribute("request_locale", request_locale);
-                   //out.println(request_locale);                   
-                   //session.setAttribute("request_locale", request_locale);
-                   //out.println(request_locale);
-                %>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
                 <select name="request_locale" class="lang_select">
                    <%

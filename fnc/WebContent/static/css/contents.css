@@ -150,7 +150,7 @@ input[type="file"] + .btn-add {margin-left:7px;}
 .tab-ul-02 {display:table;width:100%;text-align:center;margin-top:80px;}
 .tab-ul-02 li {display:table-cell;width:1%;border:1px solid #ddd;border-right:0;font-size:16px;}
 .tab-ul-02 li:last-child {border-right:1px solid #ddd;}
-.tab-ul-02 li a {display:inline-block;width:100%;height:100%;padding:21px 5px;}
+.tab-ul-02 li a {display:inline-block;width:100%;height:100%;padding:21px 5px;vertical-align:middle;}
 .tab-ul-02 li.active {background:#1b2e5a;color:#fff;}
 .tab-ul-02 li.active a {color:#fff;}
 
@@ -199,10 +199,10 @@ h4 + .sub-textb {margin-top:28px;}
 /* CONTENT ********/
 /*search-chkbox-area*/
 .search-chkbox-area {position:relative;margin-top:30px;border-top:1px solid #e8e8e8;border-bottom:1px solid #e8e8e8;}
-.search-chkbox-area .search-tit {display:inline-block;width:260px;padding:33px 0;border-right:1px solid #e8e8e8;background:#f9f9f9;text-align:center;}
+.search-chkbox-area .search-tit {display:inline-block;width:100px;padding:33px 0;border-right:1px solid #e8e8e8;background:#f9f9f9;text-align:center;}
 .search-chkbox-area .btn.btn-search {position:absolute;top:21px;right:0;margin-left:110px;}
 .search-chkbox-area .checkbox-area input[type="checkbox"] + label {vertical-align:middle;}
-.search-chkbox-area .checkbox-area {margin-left:40px;}
+.search-chkbox-area .checkbox-area {margin-left:25px;}
 /*rule-box*/
 .rule-box {text-align:right;margin-top:50px;}
 .rule-box .rule-tit {border-right:1px solid #c2c2c2;padding-right:20px;font-size:14px;}
