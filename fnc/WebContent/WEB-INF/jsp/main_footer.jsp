@@ -114,7 +114,7 @@
                             </td>
                         </tr>
                         <tr id="tr_category" style="display: table-row;">
-							<th scope="row"><label for="cate"><s:text name=layer01_9/></label><span class="expr">*</span></th>
+							<th scope="row"><label for="cate"><s:text name="layer01_9"/></label><span class="expr">*</span></th>
 							<td>
 								<select id="cate" name="cate" class="ipt-basic full-size">
 									<option value=""><s:text name="layer01_10"/></option>
@@ -151,7 +151,7 @@
                             </td> 
                         </tr>
                         <tr>
-                            <th scope="row"><s:text name="footer_4_13"/></th>
+                            <th scope="row"><s:text name="layer01_19"/></th>
                             <td>
                                 <label for="tel1" class="blind"><s:text name="footer_4_13"/></label>
                                 <select id="tel1" name="tel1" class="ipt-basic s-size">
@@ -170,25 +170,25 @@
                             </td> 
                         </tr>
                         <tr>
-                            <th scope="row"><label for="title"><s:text name="footer_4_13"/></label><span class="expr">*</span></th>
+                            <th scope="row"><label for="title"><s:text name="layer01_20"/></label><span class="expr">*</span></th>
                             <td>
                                 <input type="text" id="title" name="title" value="" class="ipt-basic full-size">
                             </td> 
                         </tr>
                         <tr>
-                            <th scope="row"><label for="cont"><s:text name="footer_4_13"/></label><span class="expr">*</span></th>
+                            <th scope="row"><label for="cont"><s:text name="layer01_21"/></label><span class="expr">*</span></th>
                             <td>
                                 <textarea rows="1" cols="1" id="cont" name="cont" class="textarea-basic scroll-cstm"></textarea>
                             </td> 
                         </tr>
                         <tr>
-                            <th scope="row"><label for="answer"><s:text name="footer_4_13"/></label><span class="expr">*</span></th>
+                            <th scope="row"><label for="answer"><s:text name="layer01_22"/></label><span class="expr">*</span></th>
                             <td>
                                 <div class="crtfctn-area">
                                     <div id="catpcha" class="crtfctn-num"></div>
-                                    <button type="button" class="btn btn-refresh" id="reLoad"><s:text name="footer_4_13"/></button>
+                                    <button type="button" class="btn btn-refresh" id="reLoad"><s:text name="layer01_23"/></button>
                                     <input type="text" id="answer" name="answer" value="" class="ipt-basic pop-s-size">
-                                    <strong><s:text name="footer_4_13"/></strong>
+                                    <strong><s:text name="layer01_24"/></strong>
                                 </div>
                             </td> 
                         </tr>
@@ -196,28 +196,28 @@
                 </table>
                 </form>
                 <div class="terms-agree-area scroll-cstm">
-                    <strong class="tit"><s:text name="footer_4_13"/></strong>
+                    <strong class="tit"><s:text name="layer01_25"/></strong>
 <!-- 컨텐츠 들여쓰기 정렬 금지 -->
-<div class="prewrap-txt-box"><s:text name="footer_4_13"/>
+<div class="prewrap-txt-box"><s:text name="layer01_26"/>
 </div>
 <!-- // 컨텐츠 들여쓰기 정렬 금지 -->
-                    <p class="info-txt02"><s:text name="footer_4_13"/></p>
+                    <p class="info-txt02"><s:text name="layer01_27"/></p>
                     <div class="radio-area">
-                        <span class="info-txt02"><s:text name="footer_4_13"/></span>
+                        <span class="info-txt02"><s:text name="layer01_28"/></span>
                         <span class="radio-box">
                             <input type="radio" id="radio_01" name="agree" value="1">
-                            <label for="radio_01"><s:text name="footer_4_13"/></label>
+                            <label for="radio_01"><s:text name="layer01_29"/></label>
                         </span>
                         <span class="radio-box">
                             <input type="radio" id="radio_02" name="agree" value="2">
-                            <label for="radio_02"><s:text name="footer_4_13"/></label>
+                            <label for="radio_02"><s:text name="layer01_30"/></label>
                         </span>
                     </div>
                 </div>
 
                 <div class="btn-area">
-                    <button type="button" class="btn btn-secondary" onclick="popclose()"><s:text name="footer_4_13"/></button>
-                    <button type="submit" id="btnSubmit" onclick="reqSend();" class="btn btn-primary" ><s:text name="footer_4_13"/></button>
+                    <button type="button" class="btn btn-secondary" onclick="popclose()"><s:text name="layer01_31"/></button>
+                    <button type="submit" id="btnSubmit" onclick="reqSend();" class="btn btn-primary" ><s:text name="layer01_32"/></button>
                 </div>
             </div>
         </div>
