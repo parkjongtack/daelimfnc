@@ -14,6 +14,13 @@
 					<li><a href="/admin/bizList.do" class="biz">제품 관리</a></li>
 				</ul>
 			</li>
+			<li>
+				<a href="/admin/comList.do">영문관리</a>
+				<ul>
+					<li><a href="/admin/ListEn.do" class="ListEn">회사 소식 관리</a></li>
+					<li><a href="/admin/bizList.do" class="biz">제품 관리</a></li>
+				</ul>
+			</li>			
 <c:if test="${adminVo.clAdmnPrsn eq 'A'}">
 			<li>
 				<a href="/admin/admList.do">관리자 관리</a>
@@ -35,6 +42,8 @@
 			lnbShow("0", "main");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("pop") > -1) { // 팝업관리
 			lnbShow("0", "pop");
+		} else if($(location).attr('pathname').toLowerCase().indexOf("listen") > -1) { // 제품관리
+			lnbShow("1", "ListEn");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("com") > -1) { // 회사소식관리
 			lnbShow("0", "com");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("car") > -1) { // 채용정보관리

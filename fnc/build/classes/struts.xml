@@ -350,6 +350,11 @@
         <action name="comList" class="com.fnc.admin.action.ComAction" method="list">
             <result name="success">/WEB-INF/jsp/admin/company/comList.jsp</result>
         </action>
+        
+        <action name="ListEn" class="com.fnc.admin.action.ComAction2" method="list">
+            <result name="success">/WEB-INF/jsp/admin/company/comListEn.jsp</result>
+        </action>
+        
         <!-- 회사소식 목록 -->
         <action name="comListAjax" class="com.fnc.admin.action.ComAction" method="listAjax">
             <result name="success" type="json" />
