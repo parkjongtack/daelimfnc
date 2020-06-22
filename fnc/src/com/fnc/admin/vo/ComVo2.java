@@ -1,6 +1,6 @@
 package com.fnc.admin.vo;
 
-public class ComVo {
+public class ComVo2 {
 	private int noNtcPlteSral;
 	private String clNtcPlte;
 	private String clGbn;
@@ -28,29 +28,11 @@ public class ComVo {
 	
 	private String sbjtNtcPlteEn;
 	private String cntsSmryEn;
-	private String cntsNtcPlteEn;		
+	private String cntsNtcPlteEn;	
 	
-	public String getSbjtNtcPlteEn() {
-		return sbjtNtcPlteEn;
-	}
-	public void setSbjtNtcPlteEn(String sbjtNtcPlteEn) {
-		this.sbjtNtcPlteEn = sbjtNtcPlteEn;
-	}
-	public String getCntsSmryEn() {
-		return cntsSmryEn;
-	}
-	public void setCntsSmryEn(String cntsSmryEn) {
-		this.cntsSmryEn = cntsSmryEn;
-	}
-	public String getCntsNtcPlteEn() {
-		return cntsNtcPlteEn;
-	}
-	public void setCntsNtcPlteEn(String cntsNtcPlteEn) {
-		this.cntsNtcPlteEn = cntsNtcPlteEn;
-	}
-
 	private String sNum;
 	private String eNum;
+	
 	
 	public String getSearchType() {
 		return searchType;
@@ -203,6 +185,25 @@ public class ComVo {
 	public void setIpAdmnPrsn(String ipAdmnPrsn) {
 		this.ipAdmnPrsn = ipAdmnPrsn;
 	}
+	public String getSbjtNtcPlteEn() {
+		return sbjtNtcPlteEn;
+	}
+	public void setSbjtNtcPlteEn(String sbjtNtcPlteEn) {
+		this.sbjtNtcPlteEn = sbjtNtcPlteEn;
+	}
+	public String getCntsSmryEn() {
+		return cntsSmryEn;
+	}
+	public void setCntsSmryEn(String cntsSmryEn) {
+		this.cntsSmryEn = cntsSmryEn;
+	}
+	public String getCntsNtcPlteEn() {
+		return cntsNtcPlteEn;
+	}
+	public void setCntsNtcPlteEn(String cntsNtcPlteEn) {
+		this.cntsNtcPlteEn = cntsNtcPlteEn;
+	}
+	
 	
 	@Override
 	public String toString() {
@@ -212,7 +213,7 @@ public class ComVo {
 				+ noAtchFileThumSral + ", noAtchFileSral=" + noAtchFileSral + ", clKoEng=" + clKoEng + ", clBil="
 				+ clBil + ", statNtc=" + statNtc + ", ynNtc=" + ynNtc + ", ynElmn=" + ynElmn + ", idCrtnPrsn="
 				+ idCrtnPrsn + ", dntCrtn=" + dntCrtn + ", idRevPrsn=" + idRevPrsn + ", dntRev=" + dntRev
-				+ ", ipAdmnPrsn=" + ipAdmnPrsn + "]";
+				+ ", ipAdmnPrsn=" + ipAdmnPrsn + ", sbjtNtcPlteEn=" + sbjtNtcPlteEn + ", cntsSmryEn=" + cntsSmryEn + ", cntsNtcPlteEn=" + cntsNtcPlteEn + "]";
 	}
 	
 	

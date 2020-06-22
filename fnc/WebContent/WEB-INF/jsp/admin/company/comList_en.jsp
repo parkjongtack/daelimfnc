@@ -73,7 +73,6 @@ $(function() {
 function fn_getList(sNum,eNum) {
 	var searchType = $("#searchType").val();
 	var searchData = $("#searchData").val();
-	
 	$.ajax({
         url : "/admin/comListAjax.do",
         type: 'POST',
@@ -113,10 +112,10 @@ function fn_getList(sNum,eNum) {
 		        	html += '<tr>';
 		        	html += '	<td>' + (Number(data.cnt) - sNum - i + 1)  + '</td>';
 		        	html += '	<td>' + clGbnNm + '</td>';
-		        	html += '	<td class="al-left">' + data.resultList[i].sbjtNtcPlte + '</td>';
+		        	html += '	<td class="al-left">' + data.resultList[i].sbjtNtcPlteEn + '</td>';
 		        	html += '	<td>' + regDt + '</td>';
 		        	html += '	<td>' + ynNtcNm  + '</td>';
-		        	html += '	<td><a href="/admin/comModi.do?noNtcPlteSral=' + data.resultList[i].noNtcPlteSral + '" class="btn btn-prim">수정</a></td>';
+		        	html += '	<td><a href="/admin/comModi2.do?noNtcPlteSral=' + data.resultList[i].noNtcPlteSral + '" class="btn btn-prim">수정</a></td>';
 		        	html += '	<td><a href="javascript:;" class="btn btn-secon" onclick="javascript:comDel(' + data.resultList[i].noNtcPlteSral + '); return false;">삭제</a></td>';
 		        	html += '</tr>';
 	        	}

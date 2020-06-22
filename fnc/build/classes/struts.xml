@@ -7,7 +7,7 @@
     <constant name="struts.devMode" value="true" />
     <constant name="struts.action.extension" value="do" />
     <constant name="struts.multipart.maxSize" value="1073741824" />
-    <constant name="struts.multipart.saveDir" value="/" />
+    <constant name="struts.multipart.saveDir" value="D:\project\daelimfnc\fnc\WebContent" />
     <constant name="struts.custom.i18n.resources" value="messages" />
     <constant name="struts.locale" value="ko"></constant>
     <!-- request_locale ==> get parameter control possible -->
@@ -228,7 +228,6 @@
             <result name="adminExpirePwd" type="redirect">/admin/expirePwd.do</result>
             <result name="noAccess" type="redirect">/admin/bnnList.do</result>
         </global-results>
-        
         <!-- 로그인관련 -->
         <action name="loginForm" class="com.fnc.common.action.LoginAction" method="loginForm">
             <interceptor-ref name="defaultStack"/>
@@ -321,6 +320,17 @@
         <action name="bizList" class="com.fnc.admin.action.BizAction" method="list">
             <result name="success">/WEB-INF/jsp/admin/biz/bizList.jsp</result>
         </action>
+        
+        <!-- 제품 목록 화면 -->
+        <action name="bizListEn" class="com.fnc.admin.action.BizAction2" method="list">
+            <result name="success">/WEB-INF/jsp/admin/biz/bizList_en.jsp</result>
+        </action>        
+        
+        <!-- 제품 목록 -->
+        <action name="bizListAjax2" class="com.fnc.admin.action.BizAction2" method="listAjax">
+            <result name="success" type="json" />
+        </action>         
+        
         <!-- 제품 목록 -->
         <action name="bizListAjax" class="com.fnc.admin.action.BizAction" method="listAjax">
             <result name="success" type="json" />
@@ -350,6 +360,22 @@
         <action name="comList" class="com.fnc.admin.action.ComAction" method="list">
             <result name="success">/WEB-INF/jsp/admin/company/comList.jsp</result>
         </action>
+        
+        <action name="comList2" class="com.fnc.admin.action.ComAction2" method="list">
+            <result name="success">/WEB-INF/jsp/admin/company/comList2.jsp</result>            
+        </action>        
+        
+        <!-- 회사소식 목록 -->
+        <action name="newsListEn" class="com.fnc.admin.action.ComAction2" method="list">
+            <result name="success">/WEB-INF/jsp/admin/company/comList_en.jsp</result>
+        </action>        
+
+        <!-- 회사소식 목록 -->
+        <action name="comListAjax2" class="com.fnc.admin.action.ComAction2" method="listAjax">
+            <result name="success" type="json" />
+        </action>
+
+        
         <!-- 회사소식 목록 -->
         <action name="comListAjax" class="com.fnc.admin.action.ComAction" method="listAjax">
             <result name="success" type="json" />
@@ -366,8 +392,15 @@
         <action name="comModi" class="com.fnc.admin.action.ComAction" method="modi">
             <result name="success">/WEB-INF/jsp/admin/company/comModi.jsp</result>
         </action>
+        <!-- 회사소식 수정 --> 
+        <action name="comModi2" class="com.fnc.admin.action.ComAction2" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/company/comModi2.jsp</result>
+        </action>  
         <action name="modiExcute" class="com.fnc.admin.action.ComAction" method="comModiExcute">
             <result name="success" type="redirect">/admin/comList.do</result>
+        </action>              
+        <action name="modiExcute2" class="com.fnc.admin.action.ComAction2" method="comModiExcute2">
+            <result name="success" type="redirect">/admin/newsListEn.do</result>
         </action>
         <!-- 회사소식 삭제 -->
         <action name="comDele" class="com.fnc.admin.action.ComAction" method="dele">

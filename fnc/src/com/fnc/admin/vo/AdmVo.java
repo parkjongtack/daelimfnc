@@ -26,6 +26,28 @@ public class AdmVo {
 	private String searchType;			// 검색타입
 	private String searchData;			// 검색데이터
 	
+	private String sbjtNtcPlteEn;
+	private String cntsSmryEn;
+	private String cntsNtcPlteEn;		
+	
+	public String getSbjtNtcPlteEn() {
+		return sbjtNtcPlteEn;
+	}
+	public void setSbjtNtcPlteEn(String sbjtNtcPlteEn) {
+		this.sbjtNtcPlteEn = sbjtNtcPlteEn;
+	}
+	public String getCntsSmryEn() {
+		return cntsSmryEn;
+	}
+	public void setCntsSmryEn(String cntsSmryEn) {
+		this.cntsSmryEn = cntsSmryEn;
+	}
+	public String getCntsNtcPlteEn() {
+		return cntsNtcPlteEn;
+	}
+	public void setCntsNtcPlteEn(String cntsNtcPlteEn) {
+		this.cntsNtcPlteEn = cntsNtcPlteEn;
+	}
 	private String sNum;
 	private String eNum;
 	
