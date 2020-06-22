@@ -41,18 +41,35 @@ function fn_getList(sNum,eNum) {
 				for (var i = 0; i < data.resultList.length; i++) {
 					var result = data.resultList[i];
 					var cntsSmry = result.cntsSmry;
+					var cntsSmryEn = result.cntsSmryEn;					
 					var dtRgst = result.dtRgst;
 					var dtRgst = dtRgst.substring(0,4) + "-" + dtRgst.substring(4,6) + "-" + dtRgst.substring(6,8);
 					
-					html += '<li>';
-					html += '<a href="javascript:goView(' + result.noNtcPlteSral + ');" class="thumbnail"><img src="' + thumbPath + result.nmPhysFile + '" alt="' + result.cntsFileDtil + '"></a>';
-					html += '<div class="highlight">';
-					html += '<a href="javascript:goView(' + result.noNtcPlteSral +');"><span>[' + result.clGbnNm + ']</span> ' + result.sbjtNtcPlte + '</a>';
-					html += '<p>' + cntsSmry.replace(/\n/g, "<br />") + '</p>';
-					html += '<span>' + dtRgst + '</span>';
-					html += '</div>';
-					html += '</li>';
-
+					 <%
+				     	if(name.equals("ko_KR")){
+				 	 %>					
+							html += '<li>';
+							html += '<a href="javascript:goView(' + result.noNtcPlteSral + ');" class="thumbnail"><img src="' + thumbPath + result.nmPhysFile + '" alt="' + result.cntsFileDtil + '"></a>';
+							html += '<div class="highlight">';
+							html += '<a href="javascript:goView(' + result.noNtcPlteSral +');"><span>[' + result.clGbnNm + ']</span> ' + result.sbjtNtcPlte + '</a>';
+							html += '<p>' + cntsSmry.replace(/\n/g, "<br />") + '</p>';
+							html += '<span>' + dtRgst + '</span>';
+							html += '</div>';
+							html += '</li>';
+						<%
+				     		} else {
+				     	%>
+							html += '<li>';
+							html += '<a href="javascript:goView(' + result.noNtcPlteSral + ');" class="thumbnail"><img src="' + thumbPath + result.nmPhysFile + '" alt="' + result.cntsFileDtil + '"></a>';
+							html += '<div class="highlight">';
+							html += '<a href="javascript:goView(' + result.noNtcPlteSral +');"><span>[' + result.clGbnNm + ']</span> ' + result.sbjtNtcPlteEn + '</a>';
+							html += '<p>' + cntsSmryEn.replace(/\n/g, "<br />") + '</p>';
+							html += '<span>' + dtRgst + '</span>';
+							html += '</div>';
+							html += '</li>';						
+						<%
+				     		}
+						%>
 	        	}
       			/* $.paginView(data.cnt); */
 				totalData = Number(data.cnt);

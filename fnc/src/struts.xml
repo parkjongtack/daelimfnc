@@ -347,10 +347,16 @@
         <action name="bizModi" class="com.fnc.admin.action.BizAction" method="modi">
             <result name="success">/WEB-INF/jsp/admin/biz/bizModi.jsp</result>
         </action> 
+        <action name="bizModi2" class="com.fnc.admin.action.BizAction2" method="modi">
+            <result name="success">/WEB-INF/jsp/admin/biz/bizModi2.jsp</result>
+        </action>         
         <!-- 제품 수정 -->
         <action name="bizModiExcute" class="com.fnc.admin.action.BizAction" method="modiExcute">
             <result name="success" type="redirect">/admin/bizList.do</result>
         </action>
+        <action name="bizModiExcute2" class="com.fnc.admin.action.BizAction2" method="modiExcute">
+            <result name="success" type="redirect">/admin/bizListEn.do</result>
+        </action>        
         <!-- 제품 삭제 -->
         <action name="bizDelAjax" class="com.fnc.admin.action.BizAction" method="delAjax">
             <result name="success" type="json" />

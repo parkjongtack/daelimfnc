@@ -106,7 +106,7 @@
 			        	html += "	<td>" + data.resultList[i].nmPdCt + "</td>";
 			        	html += "	<td>" + data.resultList[i].dntCrtn + "</td>";
 			        	html += "	<td>" + data.resultList[i].ynNtc + "</td>";
-			        	html += "	<td><a href='/admin/bizModi.do?noPrdtSral=" + data.resultList[i].noPrdtSral + "' class='btn btn-prim'>수정</a></td>";
+			        	html += "	<td><a href='/admin/bizModi2.do?noPrdtSral=" + data.resultList[i].noPrdtSral + "' class='btn btn-prim'>수정</a></td>";
 			        	html += "	<td><a href='javascript:;' class='btn btn-secon'  onclick='javascript:fn_delete(" + data.resultList[i].noPrdtSral + ");'>삭제</a></td>";
 			        	html += "</tr>";
 			     

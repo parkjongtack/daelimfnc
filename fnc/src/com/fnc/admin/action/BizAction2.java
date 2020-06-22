@@ -8,7 +8,9 @@ import java.util.Map;
 import org.apache.log4j.Logger;
 
 import com.fnc.admin.dao.BizDao;
+import com.fnc.admin.dao.BizDao2;
 import com.fnc.admin.vo.BizVo;
+import com.fnc.admin.vo.BizVo2;
 import com.fnc.common.dao.FileDao;
 import com.fnc.common.vo.AdminVo;
 import com.fnc.common.vo.FileVo;
@@ -20,20 +22,42 @@ public class BizAction2 extends BaseAction {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = Logger.getLogger(BizAction2.class);
 	
-	BizDao dao = new BizDao();
+	BizDao2 dao = new BizDao2();
 	FileDao fileDao = new FileDao();
 	
 	//객체 변수
-	private List<BizVo> resultList;
-	private BizVo resultVo;
+	private List<BizVo2> resultList;
+	private BizVo2 resultVo;
 	private int cnt;
 	private String resultCd;
 	private List<FileVo> fileVoList; // 첨부파일
 
-	public BizVo getResultVo() {
+	private String atrb_2_en;
+	private String atrb_4_en;
+	private String cdPdCtUseEn;
+	
+	public String getAtrb_2_en() {
+		return atrb_2_en;
+	}
+	public void setAtrb_2_en(String atrb_2_en) {
+		this.atrb_2_en = atrb_2_en;
+	}
+	public String getAtrb_4_en() {
+		return atrb_4_en;
+	}
+	public void setAtrb_4_en(String atrb_4_en) {
+		this.atrb_4_en = atrb_4_en;
+	}
+	public String getCdPdCtUseEn() {
+		return cdPdCtUseEn;
+	}
+	public void setCdPdCtUseEn(String cdPdCtUseEn) {
+		this.cdPdCtUseEn = cdPdCtUseEn;
+	}
+	public BizVo2 getResultVo() {
 		return resultVo;
 	}
-	public void setResultVo(BizVo resultVo) {
+	public void setResultVo(BizVo2 resultVo) {
 		this.resultVo = resultVo;
 	}
 	public int getCnt() {
@@ -48,10 +72,10 @@ public class BizAction2 extends BaseAction {
 	public void setResultCd(String resultCd) {
 		this.resultCd = resultCd;
 	}
-	public List<BizVo> getResultList() {
+	public List<BizVo2> getResultList() {
 		return resultList;
 	}
-	public void setResultList(List<BizVo> resultList) {
+	public void setResultList(List<BizVo2> resultList) {
 		this.resultList = resultList;
 	}
 	public int noPrdtSral;
@@ -141,7 +165,7 @@ public class BizAction2 extends BaseAction {
 	 */
 	public String modiExcute() throws Exception {
 		HashMap<String, Object> paramMap = getMap();
-		
+		System.out.println("들어왔음");
 		HashMap<String, Object> fileMap = new HashMap<String, Object>();	// 이미지용 객체
 		
 		// 세션 값 세팅
@@ -150,8 +174,16 @@ public class BizAction2 extends BaseAction {
 		AdminVo adminVo = (AdminVo) session.get("adminVo");
 		paramMap.put("idRevPrsn", adminVo.getUserId());
 		paramMap.put("ipAdmnPrsn", request.getRemoteAddr());
-		paramMap.put("dtRgst", StringManager.chkNull(paramMap.get("dtRgst")).replaceAll("-", ""));	// 등록일
+		//paramMap.put("dtRgst", StringManager.chkNull(paramMap.get("dtRgst")).replaceAll("-", ""));	// 등록일
 		
+		paramMap.put("atrb_2_en", request.getParameter("atrb_2_en"));
+		paramMap.put("atrb_4_en", request.getParameter("atrb_4_en"));
+		paramMap.put("noPrdtSral", request.getParameter("noPrdtSral"));	
+		/*
+		System.out.println(request.getParameter("atrb_2_en"));
+		System.out.println(request.getParameter("atrb_3_en"));		
+		System.out.println(request.getParameter("atrb_4_en"));
+		*/
 		// 파일 수정
 		if (paramMap.get("noAtchFileSral") != null && !"".equals(paramMap.get("noAtchFileSral"))) {
 			// 파일 시퀀스가 있다면 - 파일이 하나라도 있다면 수정
@@ -205,7 +237,7 @@ public class BizAction2 extends BaseAction {
 		
 		dao.updateBiz(paramMap);
 
-		return SUCCESS;
+		return "success";
 	}
 	
 	/**

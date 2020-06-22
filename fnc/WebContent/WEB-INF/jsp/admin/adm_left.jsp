@@ -37,18 +37,18 @@
 	$(function() {
 		/* 좌측메뉴 선택 기능 : S */
 		$("#lnb a").removeClass("active"); // active 클래스 제거
-
+		
 		if($(location).attr('pathname').toLowerCase().indexOf("bnn") > -1) { // 메인이미지
 			lnbShow("0", "main");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("pop") > -1) { // 팝업관리
 			lnbShow("0", "pop");
-		} else if($(location).attr('pathname').toLowerCase().indexOf("newslisten") > -1) { // 회사소식관리
+		} else if($(location).attr('pathname').toLowerCase().indexOf("newslisten") > -1 || $(location).attr('pathname').toLowerCase().indexOf("commodi2") > -1) { // 회사소식관리
 			lnbShow("1", "newsEn");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("com") > -1) { // 회사소식관리
 			lnbShow("0", "com");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("car") > -1) { // 채용정보관리
 			lnbShow("0", "car");
-		} else if($(location).attr('pathname').toLowerCase().indexOf("bizlisten") > -1) { // 제품관리
+		} else if($(location).attr('pathname').toLowerCase().indexOf("bizlisten") > -1 || $(location).attr('pathname').toLowerCase().indexOf("bizmodi2") > -1) { // 제품관리
 			lnbShow("1", "businessEn");
 		} else if($(location).attr('pathname').toLowerCase().indexOf("biz") > -1) { // 제품관리
 			lnbShow("0", "biz");

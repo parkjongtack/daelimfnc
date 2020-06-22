@@ -71,6 +71,8 @@
 	            , A.NO_ATCH_FILE_THUM_SRAL AS noAtchFileThumSral
 	            , A.SBJT_NTC_PLTE AS sbjtNtcPlte
 	            , A.CNTS_SMRY AS cntsSmry
+	            , A.SBJT_NTC_PLTE_EN AS sbjtNtcPlteEn
+	            , A.CNTS_SMRY_EN AS cntsSmryEn      
 	            , A.DT_RGST AS dtRgst
 	            , CASE
 	            	WHEN A.CL_GBN = '01' THEN '공지사항'

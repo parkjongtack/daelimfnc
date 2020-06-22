@@ -162,7 +162,7 @@ public class ComAction2 extends BaseAction {
 		paramMap.put("ipAdmnPrsn", request.getRemoteAddr());
 		paramMap.put("dtRgst", StringManager.chkNull(paramMap.get("dtRgst")).replaceAll("-", ""));	// 등록일
 		
-		System.out.println(request.getParameter("sbjtNtcPlteEn"));
+		//System.out.println(request.getParameter("sbjtNtcPlteEn"));
 		
 		paramMap.put("sbjtNtcPlteEn", request.getParameter("sbjtNtcPlteEn"));
 		paramMap.put("cntsSmryEn", request.getParameter("cntsSmryEn"));

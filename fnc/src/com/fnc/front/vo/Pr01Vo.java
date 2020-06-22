@@ -17,6 +17,28 @@ public class Pr01Vo {
 	private String searchCls;
 	private String searchCnts;
 
+	private String sbjtNtcPlteEn;
+	private String cntsSmryEn;
+	private String cntsNtcPlteEn;		
+	
+	public String getSbjtNtcPlteEn() {
+		return sbjtNtcPlteEn;
+	}
+	public void setSbjtNtcPlteEn(String sbjtNtcPlteEn) {
+		this.sbjtNtcPlteEn = sbjtNtcPlteEn;
+	}
+	public String getCntsSmryEn() {
+		return cntsSmryEn;
+	}
+	public void setCntsSmryEn(String cntsSmryEn) {
+		this.cntsSmryEn = cntsSmryEn;
+	}
+	public String getCntsNtcPlteEn() {
+		return cntsNtcPlteEn;
+	}
+	public void setCntsNtcPlteEn(String cntsNtcPlteEn) {
+		this.cntsNtcPlteEn = cntsNtcPlteEn;
+	}
 	private String sNum;
 	private String eNum;
 	
