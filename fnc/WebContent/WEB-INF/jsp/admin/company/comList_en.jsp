@@ -48,9 +48,11 @@
 					</thead>
 					<tbody id="tbody"></tbody>
 				</table>
+				<!-- 
 				<div class="list-btr al-right">
 					<a href="/admin/comRegi.do" class="btn btn-submit">등록</a>
 				</div>
+				 -->
 				
 				<div class="paging" id="paging" style="display: none;"></div>
 			</div>

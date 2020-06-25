@@ -51,8 +51,8 @@ public class ComDao2 {
 	
 	// 회사정보 수정
 	public void updateCom(HashMap<String, Object> paramMap) throws SQLException {
-		//Object result = SqlReaderXml.getInstance().update("updateCom2", paramMap);
-		Object result = Integer.valueOf(SqlReaderXml.getInstance().update("updateCom2", paramMap));
+		Object result = SqlReaderXml.getInstance().update("updateCom2", paramMap);
+		//Object result = Integer.valueOf(SqlReaderXml.getInstance().update("updateCom2", paramMap));
 		logger.info("updateCom result -------------------------");
 		logger.info(result);
 	}

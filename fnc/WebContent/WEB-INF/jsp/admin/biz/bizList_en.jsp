@@ -59,10 +59,11 @@
 				
 				</tbody>
 				</table>
-
+				<!-- 
 				<div class="list-btr al-right">
 					<a href="/admin/bizRegi.do" class="btn btn-submit">등록</a>
 				</div>
+				 -->
 
 				<div class="paging" id="paging" style="display: none;"></div>
 			</div>

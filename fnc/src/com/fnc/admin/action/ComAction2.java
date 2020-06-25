@@ -22,6 +22,7 @@ import com.fnc.util.StringManager;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
+
 public class ComAction2 extends BaseAction {
 
 	private static final long serialVersionUID = 1L;

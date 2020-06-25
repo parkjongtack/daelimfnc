@@ -164,14 +164,16 @@
 		/**
 		FIXME ,,, MAIN IMG (운영배포 후 주석 해제) [S]
 		*/
-		/*
+
 		$(".main_01").css("background-image","url('${fn:split(bnnInfo.IMG_1,'|')[0]}')")
 		$(".main_02").css("background-image","url('${fn:split(bnnInfo.IMG_2,'|')[0]}')")
 		$(".main_03").css("background-image","url('${fn:split(bnnInfo.IMG_3,'|')[0]}')")
-        */
+
+		/*        		
 		$(".main_01").css("background-image","url('/static/2020051319201495cIZ.jpg")
 		$(".main_02").css("background-image","url('/static/20200513192014g7l04.jpg")
 		$(".main_03").css("background-image","url('/static/20200513192014XSkQP.jpg")
+		*/
 
         /**
         FIXME ... [E]
