@@ -63,8 +63,19 @@
 				<div class="inner-area">
 					<h3><s:text name="sus01_1"/></h3>
 					<div class="vision-img-box">
+						<%					
+						    if(name.equals("ko_KR")){
+						%>						
 						<img src="../static/images/contents/img_vision.png" 
 							alt="HSE 비전 및 목표. 목표 : 무질병 - 쾌적한 작업환경으로 건강한 일터 구축, 무사고 - 본질안전 추구로 안전한 일터 실현, 무오염 - 오염물질 배출 저감으로 환경보전 기여, 비전 : 보건.안전.환경을 최우선으로 하는 글로벌 리더쉽을 토대로 지속가능경영을 실천하는 사회적 기업."> 
+						<%
+						    } else {
+						%>
+						<img src="../static/images/contents/img_visionen.png" 
+							alt="HSE 비전 및 목표. 목표 : 무질병 - 쾌적한 작업환경으로 건강한 일터 구축, 무사고 - 본질안전 추구로 안전한 일터 실현, 무오염 - 오염물질 배출 저감으로 환경보전 기여, 비전 : 보건.안전.환경을 최우선으로 하는 글로벌 리더쉽을 토대로 지속가능경영을 실천하는 사회적 기업."> 						
+						<%
+						    }
+						%>
 					</div>
 					<h4><s:text name="sus01_2"/></h4>
 					<p class="sub-text"><s:text name="sus01_3"/></p>
