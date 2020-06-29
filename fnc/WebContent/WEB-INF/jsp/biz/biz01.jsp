@@ -316,13 +316,29 @@ function fn_getList(){
         	if(data.resultList != null && data.resultList.length > 0) {
 	        	for(var i = 0; i < data.resultList.length; i++) {
 		        			
+					<%					
+				    	if(name.equals("ko_KR")){
+					%>			        	
 	        		html += "<tr>";
 		        	html += "	<td>" + data.resultList[i].gubun1 + "</td>";
 		        	html += "	<td>" + data.resultList[i].gubun2 + "</td>";
 		        	html += "	<td>" + data.resultList[i].nmPdct + "</td>";
-		        	html += "	<td class='align-l'>" + data.resultList[i].atrb2 + "</td>";
+					html += "	<td class='align-l'>" + data.resultList[i].atrb2 + "</td>";
 		        	html += "	<td>" + data.resultList[i].atrb3 + "</td>";
 		        	html += "	<td>" + data.resultList[i].atrb4 + "</td>";
+		        	<%
+				    	} else {
+		        	%>
+	        		html += "<tr>";
+		        	html += "	<td>" + data.resultList[i].gubun1 + "</td>";
+		        	html += "	<td>" + data.resultList[i].cdPdCtUseEn + "</td>";
+		        	html += "	<td>" + data.resultList[i].nmPdct + "</td>";		        	
+		        	html += "	<td class='align-l'>" + data.resultList[i].atrb_2_en + "</td>";
+		        	html += "	<td>" + data.resultList[i].atrb3 + "</td>";
+		        	html += "	<td>" + data.resultList[i].atrb_4_en + "</td>";
+		        	<%
+				    	}
+		        	%>
 		        	html += "<td>";
 		        	if ($.trim(data.resultList[i].file1) != "") {
 		        	html += "<a href='/fileDownload.do?idx=" + data.resultList[i].file1 + "&dir=product' class='btn-download type-all'><span class='blind'>전체다운로드</span></a>";

@@ -42,14 +42,36 @@
 				<tr>
 					<th><span class="expr">*</span>제품용도</th>
 					<td>
-						<select id="cdPdCtUse" class="srh-hpart"  name="cdPdCtUse">
+						<select id="cdPdCtUseEn" class="srh-hpart"  name="cdPdCtUseEn">
 							<option value="">제품용도선택</option>
+							<!-- 
 							<option value="01" <c:if test="${resultVo.cdPdCtUse eq '01'}">selected="selected"</c:if>>인쇄/포장</option>
 							<option value="02" <c:if test="${resultVo.cdPdCtUse eq '02'}">selected="selected"</c:if>>테이프</option>
 							<option value="03" <c:if test="${resultVo.cdPdCtUse eq '03'}">selected="selected"</c:if>>일반합지</option>
 							<option value="04" <c:if test="${resultVo.cdPdCtUse eq '04'}">selected="selected"</c:if>>Thermal용 합지</option>
 							<option value="05" <c:if test="${resultVo.cdPdCtUse eq '05'}">selected="selected"</c:if>>기능성</option>
 							<option value="06" <c:if test="${resultVo.cdPdCtUse eq '06'}">selected="selected"</c:if>>EVA</option>
+							 -->
+							<option value="Printing" <c:if test="${resultVo.cdPdCtUseEn eq 'Printing'}">selected="selected"</c:if>>Printing</option>
+							<option value="Packaging" <c:if test="${resultVo.cdPdCtUseEn eq 'Packaging'}">selected="selected"</c:if>>Packaging</option>
+							<option value="Heat Resistance Printing" <c:if test="${resultVo.cdPdCtUseEn eq 'Heat Resistance Printing'}">selected="selected"</c:if>>Heat Resistance Printing</option>
+							<option value="Tape, Label" <c:if test="${resultVo.cdPdCtUseEn eq 'Tape, Label'}">selected="selected"</c:if>>Tape, Label</option>
+							<option value="Color" <c:if test="${resultVo.cdPdCtUseEn eq 'Color'}">selected="selected"</c:if>>Color</option>
+							<option value="Matte" <c:if test="${resultVo.cdPdCtUseEn eq 'Matte'}">selected="selected"</c:if>>Matte</option>
+							<option value="Gloss" <c:if test="${resultVo.cdPdCtUseEn eq 'Gloss'}">selected="selected"</c:if>>Gloss</option>
+							<option value="Anti Fog" <c:if test="${resultVo.cdPdCtUseEn eq 'Anti Fog'}">selected="selected"</c:if>>Anti Fog</option>
+							<option value="Co-extrusion" <c:if test="${resultVo.cdPdCtUseEn eq '15'}">selected="selected"</c:if>>Co-extrusion</option>
+							<option value="Tabaco" <c:if test="${resultVo.cdPdCtUseEn eq 'Tabaco'}">selected="selected"</c:if>>Tabaco</option>
+							<option value="Straw" <c:if test="${resultVo.cdPdCtUseEn eq 'Straw'}">selected="selected"</c:if>>Straw</option>
+							<option value="White" <c:if test="${resultVo.cdPdCtUseEn eq 'White'}">selected="selected"</c:if>>White</option>
+							<option value="Synthetic Paper" <c:if test="${resultVo.cdPdCtUseEn eq 'Synthetic Paper'}">selected="selected"</c:if>>Synthetic Paper</option>
+							<option value="Deco Sheet" <c:if test="${resultVo.cdPdCtUseEn eq 'Deco Sheet'}">selected="selected"</c:if>>Deco Sheet</option>
+							<option value="Anti-Scuff" <c:if test="${resultVo.cdPdCtUseEn eq 'Anti-Scuff'}">selected="selected"</c:if>>Anti-Scuff</option>
+							<option value="Soft Feel" <c:if test="${resultVo.cdPdCtUseEn eq 'Soft Feel'}">selected="selected"</c:if>>Soft Feel</option>
+							<option value="Heat Resistance" <c:if test="${resultVo.cdPdCtUseEn eq 'Heat Resistance'}">selected="selected"</c:if>>Heat Resistance</option>
+							<option value="Semi Matte" <c:if test="${resultVo.cdPdCtUseEn eq 'Semi Matte'}">selected="selected"</c:if>>Semi Matte</option>
+							<option value="Stationery" <c:if test="${resultVo.cdPdCtUseEn eq 'Stationery'}">selected="selected"</c:if>>Stationery</option>
+							<option value="Anti Static" <c:if test="${resultVo.cdPdCtUseEn eq '26'}">selected="selected"</c:if>>Anti Static</option>
 						</select>
 
 						<div class="chklist" id="op1">
@@ -243,7 +265,7 @@ function hide(){
 }
 
 function show() {
-	var cdPdCtUse = $("#cdPdCtUse option:selected").val();
+	var cdPdCtUse = $("#cdPdCtUseEn option:selected").val();
 	console.log(cdPdCtUse);
 	if(cdPdCtUse == '01'){
 		$("#op1").find("div").show();
@@ -354,9 +376,9 @@ function fn_modi() {
 		cdCtgr.focus();
 		return false;
 	}
-	if( cdPdCtUse.value == "" || cdPdCtUse.value == null || cdPdCtUse.value == undefined) {
+	if( cdPdCtUseEn.value == "" || cdPdCtUseEn.value == null || cdPdCtUseEn.value == undefined) {
 		alert("제품용도를 선택해주세요");
-		cdPdCtUse.focus();
+		cdPdCtUseEn.focus();
 		return false;
 	}
 	if( $("input:radio[name=atrb]:checked").length < 1) {
@@ -397,4 +419,4 @@ function fn_cancel() {
 }
 </script>
 
-<%@include file="/WEB-INF/jsp/admin/adm_footer.jsp" %>
+<%//@include file="/WEB-INF/jsp/admin/adm_footer.jsp" %>

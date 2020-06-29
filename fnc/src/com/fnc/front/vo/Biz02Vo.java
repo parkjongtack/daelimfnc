@@ -12,8 +12,35 @@ public class Biz02Vo {
 	private String file1;
 	private String file2;
 	private String file3;
+	private String atrb_2_en;
+	private String atrb_3_en;
+	private String atrb_4_en;	
+	private String cdPdCtUseEn;
 	
-	
+	public String getCdPdCtUseEn() {
+		return cdPdCtUseEn;
+	}
+	public void setCdPdCtUseEn(String cdPdCtUseEn) {
+		this.cdPdCtUseEn = cdPdCtUseEn;
+	}
+	public String getAtrb_2_en() {
+		return atrb_2_en;
+	}
+	public void setAtrb_2_en(String atrb_2_en) {
+		this.atrb_2_en = atrb_2_en;
+	}
+	public String getAtrb_3_en() {
+		return atrb_3_en;
+	}
+	public void setAtrb_3_en(String atrb_3_en) {
+		this.atrb_3_en = atrb_3_en;
+	}
+	public String getAtrb_4_en() {
+		return atrb_4_en;
+	}
+	public void setAtrb_4_en(String atrb_4_en) {
+		this.atrb_4_en = atrb_4_en;
+	}
 	public String getFile1() {
 		return file1;
 	}

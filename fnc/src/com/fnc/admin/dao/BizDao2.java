@@ -46,7 +46,8 @@ public class BizDao2 {
   	
  	// 수정
  	public void updateBiz(HashMap<String, Object> paramMap) throws SQLException {
- 		Object result = Integer.valueOf(SqlReaderXml.getInstance().update("admin.updateBiz2", paramMap));
+ 		SqlReaderXml.getInstance().update("admin.updateBiz2", paramMap);
+ 		//Object result = Integer.valueOf(SqlReaderXml.getInstance().update("admin.updateBiz2", paramMap));
  		//return SqlReaderXml.getInstance().update("admin.updateBiz2", paramMap);
  	}
  		
