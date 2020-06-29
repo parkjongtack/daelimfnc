@@ -52,7 +52,7 @@ public class Biz01Action extends BaseAction{
 	
 	Biz01Dao dao = new Biz01Dao();
 	
-public String execute() throws Exception {
+	public String execute() throws Exception {
 		
 		/*this.resultList = dao.selectBiz01List();
 		
@@ -84,6 +84,7 @@ public String execute() throws Exception {
 	
 	public String bizlist() throws Exception {
 		HashMap<String, Object> paramMap = getMap();
+		logger.debug(getMap());
 		List<String> val = new ArrayList<String>();
 		
 		String[] searchVal = StringManager.chkNull((paramMap.get("searchVal"))).split("\\,");
@@ -112,6 +113,8 @@ public String execute() throws Exception {
 				logger.debug("### resultList.get(" + i + ").getNmPdct() : " + this.resultList.get(i).getNmPdct() + " ###");
 				logger.debug("### resultList.get(" + i + ").getAtrb2() : " + this.resultList.get(i).getAtrb2() + " ###");
 				logger.debug("### resultList.get(" + i + ").getAtrb3() : " + this.resultList.get(i).getAtrb3() + " ###");
+				logger.debug("### resultList.get(" + i + ").getAtrb2en() : " + this.resultList.get(i).getAtrb_2_en() + " ###");
+				logger.debug("### resultList.get(" + i + ").getAtrb3en() : " + this.resultList.get(i).getAtrb_3_en() + " ###");				
 				logger.debug("### resultList.get(" + i + ").getNoAtchFileSral() : " + this.resultList.get(i).getNoAtchFileSral() + " ###");
 				logger.debug("### resultList.get(" + i + ").getNoAtchFileSral() : " + this.resultList.get(i).getFile1() + " ###");
 				logger.debug("### resultList.get(" + i + ").getNoAtchFileSral() : " + this.resultList.get(i).getFile2() + " ###");

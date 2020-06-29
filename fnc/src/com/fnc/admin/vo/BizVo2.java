@@ -10,30 +10,7 @@ public class BizVo2 {
 	private String atrb2;		// 속성2
 	private String atrb3;		// 속성3
 	private String atrb4; 		// 속성4
-	public String getAtrb2() {
-		return atrb2;
-	}
-	public void setAtrb2(String atrb2) {
-		this.atrb2 = atrb2;
-	}
-	public String getAtrb3() {
-		return atrb3;
-	}
-	public void setAtrb3(String atrb3) {
-		this.atrb3 = atrb3;
-	}
-	public String getAtrb4() {
-		return atrb4;
-	}
-	public void setAtrb4(String atrb4) {
-		this.atrb4 = atrb4;
-	}
-	public String getAtrb5() {
-		return atrb5;
-	}
-	public void setAtrb5(String atrb5) {
-		this.atrb5 = atrb5;
-	}
+	
 	private String atrb5;		// 속성5
 	private String noAtchFileSral;	// 첨부파일일련번호
 	private String clKoEng;		// 국문영문구분 K:국문 E:영문
@@ -61,8 +38,47 @@ public class BizVo2 {
 	private String searchData;			// 검색데이터
 	
 	private String atrb_2_en;
+	private String atrb_3_en;	
+	
+	private String sNum;
+	private String eNum;	
+	
 	private String atrb_4_en;
-	private String cdPdCtUseEn;
+	private String cdPdCtUseEn;	
+	
+	public String getAtrb2() {
+		return atrb2;
+	}
+	public void setAtrb2(String atrb2) {
+		this.atrb2 = atrb2;
+	}
+	public String getAtrb3() {
+		return atrb3;
+	}
+	public void setAtrb3(String atrb3) {
+		this.atrb3 = atrb3;
+	}
+	public String getAtrb4() {
+		return atrb4;
+	}
+	public void setAtrb4(String atrb4) {
+		this.atrb4 = atrb4;
+	}
+	public String getAtrb5() {
+		return atrb5;
+	}
+	public void setAtrb5(String atrb5) {
+		this.atrb5 = atrb5;
+	}
+
+	
+	public String getAtrb_3_en() {
+		return atrb_3_en;
+	}
+	public void setAtrb_3_en(String atrb_3_en) {
+		this.atrb_3_en = atrb_3_en;
+	}
+
 	
 	public String getCdPdCtUseEn() {
 		return cdPdCtUseEn;
@@ -82,9 +98,6 @@ public class BizVo2 {
 	public void setAtrb_4_en(String atrb_4_en) {
 		this.atrb_4_en = atrb_4_en;
 	}
-	private String sNum;
-	private String eNum;
-	
 	public int getNoPrdtSral() {
 		return noPrdtSral;
 	}
@@ -266,6 +279,7 @@ public class BizVo2 {
 	public void setClFile3(String clFile3) {
 		this.clFile3 = clFile3;
 	}
+
 	@Override
 	public String toString() {
 		return "BizVo [noPrdtSral=" + noPrdtSral + ", " + (cdCtgr != null ? "cdCtgr=" + cdCtgr + ", " : "")

@@ -176,9 +176,14 @@ public class BizAction2 extends BaseAction {
 		paramMap.put("ipAdmnPrsn", request.getRemoteAddr());
 		//paramMap.put("dtRgst", StringManager.chkNull(paramMap.get("dtRgst")).replaceAll("-", ""));	// 등록일
 		
+		System.out.println(request.getParameter("cdPdCtUseEn"));
+		//System.exit(0);
+		
 		paramMap.put("atrb_2_en", request.getParameter("atrb_2_en"));
 		paramMap.put("atrb_4_en", request.getParameter("atrb_4_en"));
-		paramMap.put("noPrdtSral", request.getParameter("noPrdtSral"));	
+		paramMap.put("noPrdtSral", request.getParameter("noPrdtSral"));
+		paramMap.put("cdPdCtUseEn", request.getParameter("cdPdCtUseEn"));	
+		
 		/*
 		System.out.println(request.getParameter("atrb_2_en"));
 		System.out.println(request.getParameter("atrb_3_en"));		

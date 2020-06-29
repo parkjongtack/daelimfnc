@@ -8,6 +8,10 @@
         <result property="atrb2" column="ATRB_2" />
         <result property="atrb3" column="ATRB_3" />
         <result property="atrb4" column="ATRB_4" />
+        <result property="atrb_2_en" column="ATRB_2_EN" />
+        <result property="atrb_3_en" column="ATRB_3_EN" />
+        <result property="atrb_4_en" column="ATRB_4_EN" />
+        <result property="cdPdCtUseEn" column="CD_PDCT_USE_EN" />        
         <result property="noAtchFileSral" column="NO_ATCH_FILE_SRAL" />
         <result property="file1" column="FILE1" />
         <result property="file2" column="FILE2" />
@@ -58,6 +62,9 @@
           , A.ATRB_2
           , A.ATRB_3
           , A.ATRB_4
+          , A.ATRB_2_EN
+          , A.ATRB_3_EN
+          , A.ATRB_4_EN          
           , A.NO_ATCH_FILE_SRAL
           , B.NO_ATCH_FILE_DTIL_SRAL AS FILE1
           , C.NO_ATCH_FILE_DTIL_SRAL AS FILE2

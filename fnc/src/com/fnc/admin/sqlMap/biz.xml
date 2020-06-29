@@ -92,8 +92,7 @@
        B.NM_CTGR as cdCtgr,
 	   ATRB_2 as atrb_2_en,
 	   ATRB_3 as atrb_3_en,
-	   ATRB_4 as atrb_4_en,
-	   CD_PDCT_USE_EN as cdPdCtUseEn       
+	   ATRB_4 as atrb_4_en      
        FROM HABT_PDCT A
            INNER JOIN HABT_ADMN_CTGR B
            ON ( B.CD_CTGR = A.CD_CTGR )
@@ -270,7 +269,8 @@
 		       A.ATRB_5 as atrb5,
 		       A.ATRB_2_EN as atrb_2_en,
 		       A.ATRB_3_EN as atrb_3_en,
-		       A.ATRB_4_EN as atrb_4_en,		       
+		       A.ATRB_4_EN as atrb_4_en,
+		       A.CD_PDCT_USE_EN as cdPdCtUseEn,		       
 		       A.NO_ATCH_FILE_SRAL as noAtchFileSral,
 		       A.CL_KO_ENG as clKoEng,
 		       A.CL_MBIL as clMbil,
@@ -341,7 +341,7 @@
 	 	/* admin.biz.updateBiz : 수정 */
 	 	UPDATE HABT_PDCT
 	 	   SET CD_CTGR = #cdCtgr#                      
-			 , CD_PDCT_USE = #cdPdCtUse#
+			 <!-- , CD_PDCT_USE = #cdPdCtUse#  -->
 			 , CD_PDCT_USE_EN= #cdPdCtUseEn#            
 			 , NM_PDCT = #nmPdCt#       
 			 , ATRB_1 = #atrb1#
