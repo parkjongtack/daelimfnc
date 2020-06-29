@@ -49,12 +49,12 @@
 
 			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
 				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
 				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
 				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
 				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
-				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
+				<li class="active"><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
 				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
 				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
@@ -62,19 +62,15 @@
 				<strong class="blind">레저</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_6_1">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_197"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_10.png" alt="글래드 호텔앤리조트㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span>1977년 6월 24일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_199"/></span></p>
 								<p class="info-txt">
-									글래드 호텔앤리조트는 40년 이상의 호텔 운영 노하우를 바탕으로 전국에
-									9개의 호텔 및 콘도 총 3,000여 객실을 운영하고 있습니다.
-									글래드는 실용적이면서도 고객 중심적인 서비스를 제공하며
-									머무는 모든 시간과 공간이 기쁘고 만족스러운 호텔'이 되기 위해
-									노력하고 있습니다.
+									<s:text name="com04_200"/>
 								</p>
 								<a href="http://glad-hotels.com" target="_blank" class="cmpny-link">http://glad-hotels.com</a>
 							</div>
@@ -107,12 +103,12 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>제주특별자치도 제주시 노연로 80(연동)</span>
+									<span><s:text name="com04_203"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>064.747.5000</span>
+										<span><s:text name="com04_205"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>064.742.3150</span>
+										<span><s:text name="com04_207"/></span>
 									</div>
 								</div>
 							</div>

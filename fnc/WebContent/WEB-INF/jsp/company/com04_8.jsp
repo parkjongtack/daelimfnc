@@ -49,29 +49,28 @@
 
 			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
 				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
 				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
 				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
 				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
 				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
 				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
-				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
+				<li class="active"><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
 			<div class="cmpny-tabcon">
 				<strong class="blind">에너지</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_8_1">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_233"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_13.png" alt="대림에너지 로고">
 								</div>
-								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span>2013년 12월 31일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_235"/></span></p>
 								<p class="info-txt">
-									글로벌 민자발전사업 Developer로서 국내외 발전 프로젝트에 대한
-									투자ㆍ개발 및 운영을 통한 비즈니스 모델을 구축하고 있습니다.
+									<s:text name="com04_236"/>
 								</p>
 								<a href="http://www.daelimenergy.com" target="_blank" class="cmpny-link">http://www.daelimenergy.com</a>
 							</div>
@@ -98,12 +97,12 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>경기도 포천시 창수면 추동리 790</span>
+									<span><s:text name="com04_239"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>02.6711.4944</span>
+										<span><s:text name="com04_241"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>02.6711.4901</span>
+										<span><s:text name="com04_243"/></span>
 									</div>
 								</div>
 							</div>

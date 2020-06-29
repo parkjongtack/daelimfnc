@@ -49,11 +49,11 @@
 
 			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
 				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
 				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
 				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
-				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
+				<li class="active"><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
 				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
 				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
 				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
@@ -62,17 +62,15 @@
 				<strong class="blind">IT</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_5_1">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_186"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_06.png" alt="㈜대림코퍼레이션 IT컨버전스 부문 로고">
 								</div>
-								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span>1995년 3월 29일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_188"/></span></p>
 								<p class="info-txt">
-									시스템 통합(SI) 및 관리(SM), 네트워크 컨설팅 및 e-business 등
-									정보통신 각 분야에 토탈 솔루션 제공을 주 영업으로 하는 종합 정보
-									서비스 회사입니다.
+									<s:text name="com04_189"/>
 								</p>
 								<a href="http://www.daelimcorp.co.kr" target="_blank" class="cmpny-link">http://www.daelimcorp.co.kr</a>
 							</div>
@@ -99,12 +97,12 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>서울특별시 중구 칠패로 36 (봉래동1가, 연세봉래빌딩) 12층</span>
+									<span><s:text name="com04_192"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>02.3704.8400</span>
+										<span><s:text name="com04_194"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>02.3704.8491</span>
+										<span><s:text name="com04_196"/></span>
 									</div>
 								</div>
 							</div>

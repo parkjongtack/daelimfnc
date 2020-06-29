@@ -49,10 +49,10 @@
 
 			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
 				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
 				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
-				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
+				<li class="active"><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
 				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
 				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
 				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
@@ -62,18 +62,15 @@
 				<strong class="blind">제조/상사</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_4_1">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_133"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_06.png" alt="㈜대림코퍼레이션 상사부문 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1994년 10월 10일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_135"/></span></p>
 								<p class="info-txt">
-									1994년에 석유화학 전문 무역회사로 출발한 이래 성장을 거듭하고 있습니다.
-									기존 석유화학 무역상사로서의 사업영역에서 자동차, 건설자재 등으로
-									사업의 폭을 확장하고 향후 e-business 및 벤처투자사업까지 확대함으로써
-									종합사업회사를 지향하고 있습니다.
+									<s:text name="com04_136"/>
 								</p>
 								<a href="http://www.daelimcorp.co.kr" target="_blank" class="cmpny-link">http://www.daelimcorp.co.kr</a>
 							</div>
@@ -103,28 +100,27 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>서울특별시 중구 세종대로 39, 대한상공회의소빌딩</span>
+									<span><s:text name="com04_139"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>02.3708.3000 </span>
+										<span><s:text name="com04_141"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>02.771.8921</span>
+										<span><s:text name="com04_143"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_4_2">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_144"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_07.png" alt="㈜대림피앤피 로고">
 								</div>
-								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span>2019년 7월 1일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_146"/></span></p>
 								<p class="info-txt">
-									㈜대림피앤피는 축적된 경험과 네트워크에 기반한 석유화학제품 전문
-									트레이딩 회사로서,폴리에틸렌 및 폴리부텐을 전 세계 다양한 고객들에게 공급하며 지속 가능한 성장에 기여하고 있습니다.
+									<s:text name="com04_147"/>
 								</p>
 								<a href="http://www.daelimpnp.co.kr/" target="_blank" class="cmpny-link">http://www.daelimpnp.co.kr/</a>
 							</div>
@@ -151,27 +147,25 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>서울특별시 중구 세종대로 39 대한상공회의소 13층</span>
+									<span><s:text name="com04_150"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>02.6945.0500</span>
+										<span><s:text name="com04_152"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_4_3">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_153"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_08.png" alt="대림 C&S㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1962년 5월 27일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_155"/></span></p>
 								<p class="info-txt">
-									파일업계의 Leading Company로 고품질의 Hypile을 생산, 공급하고
-									있으며 철 구조물(특수강교, 풍력발전 타워, 수문 등)분야에서 최고의
-									생산규모와 기술 역량을 보유하고 있는 종합 건설 기자재 전문회사입니다.
+									<s:text name="com04_156"/>
 								</p>
 								<a href="http://www.daelimcns.co.kr" target="_blank" class="cmpny-link">http://www.daelimcns.co.kr</a>
 							</div>
@@ -201,30 +195,27 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>서울특별시 중구 을지로 5길 16 삼화타워</span>
+									<span><s:text name="com04_159"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>02.311.3300 </span>
+										<span><s:text name="com04_161"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>02.311.3399, 3377</span>
+										<span><s:text name="com04_163"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_4_4">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_164"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_09.png" alt="대림 자동차공업㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1978년 3월 14일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_166"/></span></p>
 								<p class="info-txt">
-									자동차부품연구 및 기술개발 전문회사로 현대자동차, 닛산, 자트코, TKP 등
-									국내외 자동차회사와 자동차부품업체에 제품을 공급하고 있습니다.
-									자동차 구동부품에서 산업용 부품까지 다양한 제품을 양산하고 있으며
-									신소재를 개발하여 차량의 경량화, 저연비화에 앞장을 서고 있습니다.
+									<s:text name="com04_167"/>
 								</p>
 								<a href="http://www.dmc.co.kr" target="_blank" class="cmpny-link">http://www.dmc.co.kr</a>
 							</div>
@@ -251,28 +242,27 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>경상남도 창원시 성산구 공단로 602 (성산동)</span>
+									<span><s:text name="com04_170"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>055.239.7000</span>
+										<span><s:text name="com04_172"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>055.282.3621</span>
+										<span><s:text name="com04_174"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_4_5">
-						<h4><s:text name="com04_"/></h4>
+						<h4><s:text name="com04_175"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_09.png" alt="대림오토바이㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1978년 3월 14일 (2018년 1월 1일 대림자동차에서 분할)</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_177"/></span></p>
 								<p class="info-txt">
-									국내 이륜차 시장의 1위를 점유하고 있는 이륜차 선두주자입니다.<br>
-									국내 최대의 모터사이클 제조업체로 생산시설 및 고급연구인력을 갖추고 있으며,<br> 고객의 요구에 맞는 제품을 높은 수준의 품질과 최고의 서비스로 제공하고 있습니다.
+									<s:text name="com04_178"/>
 								</p>
 								<a href="http://www.d-motorcycle.com" target="_blank" class="cmpny-link">www.d-motorcycle.com</a>
 							</div>
@@ -302,12 +292,12 @@
 								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
 									<strong class="s-tit"><s:text name="com04_ad"/></strong>
-									<span>경상남도 창원시 성산구 공단로 602 (성산동)</span>
+									<span><s:text name="com04_181"/></span>
 									<div class="fr">
 										<strong class="s-tit"><s:text name="com04_tel"/></strong>
-										<span>055.239.7000</span>
+										<span><s:text name="com04_183"/></span>
 										<strong class="s-tit"><s:text name="com04_fax"/></strong>
-										<span>055.282.3621</span>
+										<span><s:text name="com04_185"/></span>
 									</div>
 								</div>
 							</div>
