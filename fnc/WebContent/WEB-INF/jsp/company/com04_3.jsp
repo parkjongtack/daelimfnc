@@ -129,7 +129,17 @@
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
-									<img src="../static/images/contents/img_cmpny_logo_04.png" alt="㈜삼호 로고">
+									<%
+									    if(name.equals("ko_KR")){
+									%>
+									<img src="../static/images/contents/img_cmpny_logo_04.png" alt="㈜삼호 로고">									
+									<%
+									    } else {
+									%>								
+									<img src="../static/images/contents/pic_dlogoList02en.gif" alt="㈜삼호 로고">
+									<%
+									    }
+									%>
 								</div>
 								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_106"/></span></p>
 								<p class="info-txt">
@@ -192,7 +202,18 @@
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
+									<%
+									    if(name.equals("ko_KR")){
+									%>
 									<img src="../static/images/contents/img_cmpny_logo_05.png" alt="고려개발㈜ 로고">
+									<%
+									    } else {
+									%>			
+									<img src="../static/images/contents/pic_dlogoList01en.gif" alt="고려개발㈜ 로고">									
+									<%
+									    }
+									%>					
+
 								</div>
 								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_124"/></span></p>
 								<p class="info-txt">

@@ -126,7 +126,18 @@
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
+									<%
+									    if(name.equals("ko_KR")){
+									%>
 									<img src="../static/images/contents/img_cmpny_logo_12.png" alt="학교법인 대림학원 로고">
+									<%
+									    } else {
+									%>			
+									<img src="../static/images/contents/pic_dlogoList08en.gif" alt="학교법인 대림학원 로고">									
+									<%
+									    }
+									%>					
+
 								</div>
 								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_224"/></span></p>
 								<p class="info-txt">

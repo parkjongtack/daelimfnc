@@ -125,7 +125,17 @@
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
-									<img src="../static/images/contents/img_cmpny_logo_01.png" alt="여천NCC(주) 로고">
+									<%
+									    if(name.equals("ko_KR")){
+									%>
+									<img src="../static/images/contents/img_cmpny_logo_01.png" alt="여천NCC(주) 로고">									
+									<%
+									    } else {
+									%>
+									<img src="../static/images/contents/pic_dlogoList03en.gif" alt="여천NCC(주) 로고">
+									<%
+									    }
+									%>
 								</div>
 								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_44"/></span></p>
 								<p class="info-txt">
