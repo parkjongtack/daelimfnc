@@ -68,36 +68,14 @@
 					</li>
 				</ul>
 				<div class="cmpny-info-img-box">
-				<%					
-				    if(name.equals("ko_KR")){
-				%>							
 					<img src="../static/images/contents/img_cmpny_info_01.png" alt="한숲인상 한숲인의 7가지 덕목은 약속을 지킨다 , 멀리 내다본다 , 새로운 것을 찾는다 , 자기일에 으뜸이 된다 , 팀웍을 이룬다 , 근검절약한다 , 고객을 잘안다 입니다.">
-				<%					
-				    } else {
-				%>							
-					<img src="../static/images/contents/img_cmpny_info_01en.png" alt="한숲인상 한숲인의 7가지 덕목은 약속을 지킨다 , 멀리 내다본다 , 새로운 것을 찾는다 , 자기일에 으뜸이 된다 , 팀웍을 이룬다 , 근검절약한다 , 고객을 잘안다 입니다.">
-				<%
-				    }
-				%>
-
 				</div>
 			</div>
 			<div class="banner-bg company">
 				<div class="inner-area">
 					<h4><s:text name="com01_10"/></h4>
 					<div class="cmpny-info-img-box-02">
-						<%					
-						    if(name.equals("ko_KR")){
-						%>				
-								<img src="../static/images/contents/img_cmpny_info_02.png" alt="설립일 : 1995, 총자산 : 880억, 매출액 : 1000억">
-						<%					
-						    } else {
-						%>								
-								<img src="../static/images/contents/img_cmpny_info_02en.png" alt="설립일 : 1995, 총자산 : 880억, 매출액 : 1000억">						
-						<%
-						    }
-						%>
-
+						<img src="../static/images/contents/img_cmpny_info_02.png" alt="설립일 : 1995, 총자산 : 880억, 매출액 : 1000억">
 					</div>
 				</div>
 			</div>
@@ -111,25 +89,11 @@
 				</p>
 				<%} %>
 				<div class="cmpny-info-img-box-03">
-						<%					
-						    if(name.equals("ko_KR")){
-						%>					
 					<img src="../static/images/contents/img_cmpny_info_03.png" alt="
 						미래창조(멀리보는 경영), 
 						인간존중 (사람을 존중하고 성장하게 하는 경영),
 						고객신뢰 (안락과 믿음을 주는 경영)
 					">
-						<%					
-						    } else {
-						%>	
-					<img src="../static/images/contents/img_cmpny_info_03en.png" alt="
-						미래창조(멀리보는 경영), 
-						인간존중 (사람을 존중하고 성장하게 하는 경영),
-						고객신뢰 (안락과 믿음을 주는 경영)
-					">						
-						<%
-						    }
-						%>					
 				</div>
 			</div>
 

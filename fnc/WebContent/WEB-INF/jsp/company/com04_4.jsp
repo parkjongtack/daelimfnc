@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>건설 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
+<title>석유화학 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 			<div class="lnb">
 				<ul>
@@ -11,24 +11,24 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do" class="active">회사소개</a></li>
-							<li><a href="/biz01.do">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do" class="active"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">그룹사 현황<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1_3"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">기업정보</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
 							<!-- <li><a href="/com02.do">CEO인사말</a></li> -->
-							<li><a href="/com03.do">기업연혁</a></li>
-							<li><a href="/com04_1.do" class="active">그룹사 현황</a></li>
-							<li><a href="/com05.do">오시는길</a></li>
+							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+							<li><a href="/com04_1.do" class="active"><s:text name="header_sub_1_3"/></a></li>
+							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -43,26 +43,26 @@
 	<div id="container">
 
 		<div class="sub-visual Company">
-			<h2>회사소개</h2>
+			<h2><s:text name="com01_1"/></h2>
 		</div>
 		<div id="content">
 
-			<h3>그룹사 현황</h3>
+			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li><a href="/com04_1.do">개요</a></li>
-				<li><a href="/com04_2.do">석유화학</a></li>
-				<li><a href="/com04_3.do">건설</a></li>
-				<li class="active"><a href="/com04_4.do">제조/상사</a></li>
-				<li><a href="/com04_5.do">IT</a></li>
-				<li><a href="/com04_6.do">레저</a></li>
-				<li><a href="/com04_7.do">교육/문화</a></li>
-				<li><a href="/com04_8.do">에너지</a></li>
+				<li class="active"><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
+				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
+				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
+				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
+				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
+				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
+				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
 			<div class="cmpny-tabcon">
 				<strong class="blind">제조/상사</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_4_1">
-						<h4>㈜대림코퍼레이션 상사부문</h4>
+						<h4><s:text name="com04_"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
@@ -100,14 +100,14 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
 									<span>서울특별시 중구 세종대로 39, 대한상공회의소빌딩</span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
 										<span>02.3708.3000 </span>
-										<strong class="s-tit">팩스</strong>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
 										<span>02.771.8921</span>
 									</div>
 								</div>
@@ -115,13 +115,13 @@
 						</div>
 					</li>
 					<li id="come4_4_2">
-						<h4>㈜대림피앤피</h4>
+						<h4><s:text name="com04_"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_07.png" alt="㈜대림피앤피 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>2019년 7월 1일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span>2019년 7월 1일</span></p>
 								<p class="info-txt">
 									㈜대림피앤피는 축적된 경험과 네트워크에 기반한 석유화학제품 전문
 									트레이딩 회사로서,폴리에틸렌 및 폴리부텐을 전 세계 다양한 고객들에게 공급하며 지속 가능한 성장에 기여하고 있습니다.
@@ -148,12 +148,12 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
 									<span>서울특별시 중구 세종대로 39 대한상공회의소 13층</span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
 										<span>02.6945.0500</span>
 									</div>
 								</div>
@@ -161,7 +161,7 @@
 						</div>
 					</li>
 					<li id="come4_4_3">
-						<h4>대림 C&S㈜</h4>
+						<h4><s:text name="com04_"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
@@ -198,14 +198,14 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
 									<span>서울특별시 중구 을지로 5길 16 삼화타워</span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
 										<span>02.311.3300 </span>
-										<strong class="s-tit">팩스</strong>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
 										<span>02.311.3399, 3377</span>
 									</div>
 								</div>
@@ -213,7 +213,7 @@
 						</div>
 					</li>
 					<li id="come4_4_4">
-						<h4>대림 자동차공업㈜</h4>
+						<h4><s:text name="com04_"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
@@ -248,14 +248,14 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
 									<span>경상남도 창원시 성산구 공단로 602 (성산동)</span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
 										<span>055.239.7000</span>
-										<strong class="s-tit">팩스</strong>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
 										<span>055.282.3621</span>
 									</div>
 								</div>
@@ -263,7 +263,7 @@
 						</div>
 					</li>
 					<li id="come4_4_5">
-						<h4>대림오토바이㈜</h4>
+						<h4><s:text name="com04_"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
@@ -299,14 +299,14 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
 									<span>경상남도 창원시 성산구 공단로 602 (성산동)</span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
 										<span>055.239.7000</span>
-										<strong class="s-tit">팩스</strong>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
 										<span>055.282.3621</span>
 									</div>
 								</div>
