@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>건설 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
+<title>석유화학 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 			<div class="lnb">
 				<ul>
@@ -11,24 +11,24 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do" class="active">회사소개</a></li>
-							<li><a href="/biz01.do">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do" class="active"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">그룹사 현황<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1_3"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">기업정보</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
 							<!-- <li><a href="/com02.do">CEO인사말</a></li> -->
-							<li><a href="/com03.do">기업연혁</a></li>
-							<li><a href="/com04_1.do" class="active">그룹사 현황</a></li>
-							<li><a href="/com05.do">오시는길</a></li>
+							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+							<li><a href="/com04_1.do" class="active"><s:text name="header_sub_1_3"/></a></li>
+							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -43,38 +43,34 @@
 	<div id="container">
 
 		<div class="sub-visual Company">
-			<h2>회사소개</h2>
+			<h2><s:text name="com01_1"/></h2>
 		</div>
 		<div id="content">
 
-			<h3>그룹사 현황</h3>
+			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li><a href="/com04_1.do">개요</a></li>
-				<li><a href="/com04_2.do">석유화학</a></li>
-				<li><a href="/com04_3.do">건설</a></li>
-				<li><a href="/com04_4.do">제조/상사</a></li>
-				<li><a href="/com04_5.do">IT</a></li>
-				<li class="active"><a href="/com04_6.do">레저</a></li>
-				<li><a href="/com04_7.do">교육/문화</a></li>
-				<li><a href="/com04_8.do">에너지</a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
+				<li><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
+				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
+				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
+				<li class="active"><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
+				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
+				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
 			<div class="cmpny-tabcon">
 				<strong class="blind">레저</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_6_1">
-						<h4>글래드 호텔앤리조트㈜</h4>
+						<h4><s:text name="com04_197"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_10.png" alt="글래드 호텔앤리조트㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1977년 6월 24일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_199"/></span></p>
 								<p class="info-txt">
-									글래드 호텔앤리조트는 40년 이상의 호텔 운영 노하우를 바탕으로 전국에
-									9개의 호텔 및 콘도 총 3,000여 객실을 운영하고 있습니다.
-									글래드는 실용적이면서도 고객 중심적인 서비스를 제공하며
-									머무는 모든 시간과 공간이 기쁘고 만족스러운 호텔'이 되기 위해
-									노력하고 있습니다.
+									<s:text name="com04_200"/>
 								</p>
 								<a href="http://glad-hotels.com" target="_blank" class="cmpny-link">http://glad-hotels.com</a>
 							</div>
@@ -104,15 +100,15 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>제주특별자치도 제주시 노연로 80(연동)</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_203"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>064.747.5000</span>
-										<strong class="s-tit">팩스</strong>
-										<span>064.742.3150</span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_205"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_207"/></span>
 									</div>
 								</div>
 							</div>

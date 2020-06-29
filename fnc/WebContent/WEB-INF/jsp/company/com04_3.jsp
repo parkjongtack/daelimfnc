@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<title>건설 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
+<title>석유화학 &lt; 그룹사 현황 &lt; 회사소개 &lt; DAELIMFnC</title>
 <%@ include file="/WEB-INF/jsp/header.jsp" %>
 			<div class="lnb">
 				<ul>
@@ -11,24 +11,24 @@
 						<a href="/main.do" class="home"><i class="icon-home"></i><span class="blind">홈</span></a>
 					</li>
 					<li>
-						<a href="javascript:void(0)">회사소개<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do" class="active">회사소개</a></li>
-							<li><a href="/biz01.do">사업소개</a></li>
-							<li><a href="/rnd01.do">기술개발</a></li>
-							<li><a href="/sus01_1.do">지속가능경영</a></li>
-							<li><a href="/pr01.do">홍보센터</a></li>
-							<li><a href="/car01.do">인재채용</a></li>
+							<li><a href="/com01.do" class="active"><s:text name="header_sub_1"/></a></li>
+							<li><a href="/biz01.do"><s:text name="header_sub_2"/></a></li>
+							<li><a href="/rnd01.do"><s:text name="header_sub_3"/></a></li>
+							<li><a href="/sus01_1.do"><s:text name="header_sub_4"/></a></li>
+							<li><a href="/pr01.do"><s:text name="header_sub_5"/></a></li>
+							<li><a href="/car01.do"><s:text name="header_sub_6"/></a></li>
 						</ul>
 					</li>
 					<li>
-						<a href="javascript:void(0)">그룹사 현황<i class="icon-arr"></i></a>
+						<a href="javascript:void(0)"><s:text name="header_sub_1_3"/><i class="icon-arr"></i></a>
 						<ul class="submenus">
-							<li><a href="/com01.do">기업정보</a></li>
+							<li><a href="/com01.do"><s:text name="header_sub_1_1"/></a></li>
 							<!-- <li><a href="/com02.do">CEO인사말</a></li> -->
-							<li><a href="/com03.do">기업연혁</a></li>
-							<li><a href="/com04_1.do" class="active">그룹사 현황</a></li>
-							<li><a href="/com05.do">오시는길</a></li>
+							<li><a href="/com03.do"><s:text name="header_sub_1_2"/></a></li>
+							<li><a href="/com04_1.do" class="active"><s:text name="header_sub_1_3"/></a></li>
+							<li><a href="/com05.do"><s:text name="header_sub_1_4"/></a></li>
 						</ul>
 					</li>
 				</ul>
@@ -43,38 +43,34 @@
 	<div id="container">
 
 		<div class="sub-visual Company">
-			<h2>회사소개</h2>
+			<h2><s:text name="com01_1"/></h2>
 		</div>
 		<div id="content">
 
-			<h3>그룹사 현황</h3>
+			<h3><s:text name="com04_1"/></h3>
 			<ul class="tab-ul-02">
-				<li><a href="/com04_1.do">개요</a></li>
-				<li><a href="/com04_2.do">석유화학</a></li>
-				<li class="active"><a href="/com04_3.do">건설</a></li>
-				<li><a href="/com04_4.do">제조/상사</a></li>
-				<li><a href="/com04_5.do">IT</a></li>
-				<li><a href="/com04_6.do">레저</a></li>
-				<li><a href="/com04_7.do">교육/문화</a></li>
-				<li><a href="/com04_8.do">에너지</a></li>
+				<li><a href="/com04_1.do"><s:text name="com04_nav1"/></a></li>
+				<li><a href="/com04_2.do"><s:text name="com04_nav2"/></a></li>
+				<li class="active"><a href="/com04_3.do"><s:text name="com04_nav3"/></a></li>
+				<li><a href="/com04_4.do"><s:text name="com04_nav4"/></a></li>
+				<li><a href="/com04_5.do"><s:text name="com04_nav5"/></a></li>
+				<li><a href="/com04_6.do"><s:text name="com04_nav6"/></a></li>
+				<li><a href="/com04_7.do"><s:text name="com04_nav7"/></a></li>
+				<li><a href="/com04_8.do"><s:text name="com04_nav8"/></a></li>
 			</ul>
 			<div class="cmpny-tabcon">
 				<strong class="blind">건설</strong>
 				<ul class="cmpny-info-list">
 					<li id="come4_3_1">
-						<h4>대림산업㈜ 건설사업부</h4>
+						<h4><s:text name="com04_85"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_03.png" alt="대림산업㈜ 건설사업부 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1939년 10월 10일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_87"/></span></p>
 								<p class="info-txt">
-									1939년 건설사업 시작 이래 국내 최초 해외 건설 외화 획득(1966), 국내 최초
-									플랜트 수출 1호 기업(1973) 등 한국의 건설사업 발전과 함께 해 온 기업으로
-									각종 건설 분야의 기술력을 바탕으로 프로젝트 발굴부터 투자, 시공, 운영,
-									관리 전 과정의 토탈 솔루션을 제공하는 글로벌 디벨로퍼로 거듭나고 있는
-									한국의 대표 건설회사 입니다.
+									<s:text name="com04_88"/>
 								</p>
 								<a href="http://www.daelim.co.kr/" target="_blank" class="cmpny-link">http://www.daelim.co.kr/ </a>
 							</div>
@@ -101,46 +97,43 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">수송동 사옥</strong>
+								<strong class="tit"><s:text name="com04_90"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>서울특별시 종로구 수송동 146-12 대림빌딩</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_92"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>031.420.9000</span>
-										<strong class="s-tit">팩스</strong>
-										<span>031.420.9010~1</span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_94"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_96"/></span>
 									</div>
 								</div>
 							</div>
 							<div class="address-item-list">
-								<strong class="tit">D타워</strong>
+								<strong class="tit"><s:text name="com04_97"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>서울 종로구 종로3길 17 D타워 (청진동)</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_99"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>02.2011.7114</span>
-										<strong class="s-tit">팩스</strong>
-										<span>02.2011.8000</span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_101"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_103"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_3_2">
-						<h4>㈜삼호</h4>
+						<h4><s:text name="com04_104"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_04.png" alt="㈜삼호 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1956년 10월 17일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_106"/></span></p>
 								<p class="info-txt">
-									빌딩, 주택, 호텔, 병원, 교육 및 문화시설 등 건축부문과 고속도로, 교량,
-									지하철, 공항 및 항만 등 토목부문, 전기 통신과 각종 산업 플랜트, 도시개발
-									및 지역개발 사업, 환경사업에 이르기까지 모든 건설분야에서 많은 업적을
-									남기며 전통을 이어온 종합 건설 업체입니다.
+									<s:text name="com04_107"/>
 								</p>
 								<a href="http://www.samho.co.kr" target="_blank" class="cmpny-link">http://www.samho.co.kr</a>
 							</div>
@@ -167,47 +160,43 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>	인천광역시 남동구 미래로 14(구월동)</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_110"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>032.518.3535</span>
-										<strong class="s-tit">팩스</strong>
-										<span>032.518.4343</span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_112"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_114"/></span>
 									</div>
 								</div>
 							</div>
 							<div class="address-item-list">
-								<strong class="tit">서울 사무소</strong>
+								<strong class="tit"><s:text name="com04_115"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>서울특별시 영등포구 여의대로 24 여의도 전경련회관 25~26층</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_117"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>02.2170.5000 </span>
-										<strong class="s-tit">팩스</strong>
-										<span>02.2170.5199 </span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_119"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_121"/></span>
 									</div>
 								</div>
 							</div>
 						</div>
 					</li>
 					<li id="come4_3_3">
-						<h4>고려개발㈜</h4>
+						<h4><s:text name="com04_122"/></h4>
 						<div class="half-info-box">
 							<div class="l-box">
 								<div class="logo-box">
 									<img src="../static/images/contents/img_cmpny_logo_05.png" alt="고려개발㈜ 로고">
 								</div>
-								<p class="info-txt top"><strong>설립</strong><span>1965년 3월 31일</span></p>
+								<p class="info-txt top"><strong><s:text name="com04_sl"/></strong><span><s:text name="com04_124"/></span></p>
 								<p class="info-txt">
-									우리나라 해외건설면허 제1호를 기록한 종합 건설업체로서, 국내 최초로
-									오피스텔을 선보여 홈 오피스 시대를 열었으며 투스콘을 개발하여 도로의
-									패션화를 이룩하는 등 1965년 설립 이후 줄곧 도급순위 상위권을 마크해 온
-									종합 건설 업체 입니다. 최근에는 친환경 미래 교통수단으로 각광받고 있는
-									경전철을 비롯한 신교통 분야의 리더로서 두드러진 역할을 하고 있습니다.
+									<s:text name="com04_125"/>
 								</p>
 								<a href="http://www.kdc.co.kr" target="_blank" class="cmpny-link">http://www.kdc.co.kr</a>
 							</div>
@@ -234,15 +223,15 @@
 						</div>
 						<div class="address-item-wrap">
 							<div class="address-item-list">
-								<strong class="tit">본사</strong>
+								<strong class="tit"><s:text name="com04_bs"/></strong>
 								<div class="address-item">
-									<strong class="s-tit">주소</strong>
-									<span>경기도 안양시 동안구 시민대로 180 G. Square Tower 17층</span>
+									<strong class="s-tit"><s:text name="com04_ad"/></strong>
+									<span><s:text name="com04_128"/></span>
 									<div class="fr">
-										<strong class="s-tit">전화</strong>
-										<span>032.420.9000</span>
-										<strong class="s-tit">팩스</strong>
-										<span>032.420.9010~1</span>
+										<strong class="s-tit"><s:text name="com04_tel"/></strong>
+										<span><s:text name="com04_130"/></span>
+										<strong class="s-tit"><s:text name="com04_fax"/></strong>
+										<span><s:text name="com04_132"/></span>
 									</div>
 								</div>
 							</div>
