@@ -13,6 +13,9 @@
             , SBJT_NTC_PLTE AS sbjtNtcPlte
             , CNTS_SMRY AS cntsSmry
             , DT_RGST AS dtRgst
+            , SBJT_NTC_PLTE_EN as sbjtNtcPlteEn
+            , CNTS_SMRY_EN as cntsSmryEn
+            , CNTS_NTC_PLTE_EN as cntsNtcPlteEn
 			, CNTS_NTC_PLTE AS cntsNtcPlte
             , CASE
             	WHEN CL_GBN = '01' THEN '공지사항'

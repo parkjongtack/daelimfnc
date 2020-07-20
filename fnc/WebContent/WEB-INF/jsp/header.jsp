@@ -2,6 +2,9 @@
     pageEncoding="UTF-8"%>
 <%
  request.setCharacterEncoding("utf-8");
+ response.setHeader("Pragma","no-cache"); 
+ response.setDateHeader("Expires",0); 
+ response.setHeader("Cache-Control", "no-cache");
  %>    
 <%@ page import="java.io.*,java.util.Locale" %>  
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>

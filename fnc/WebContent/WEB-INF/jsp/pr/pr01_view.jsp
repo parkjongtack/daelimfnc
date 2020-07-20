@@ -63,8 +63,19 @@ function goView(idx){
 			<section>
 				<div class="newsView">
 					<div class="newsHead">
+					 <%
+				     	if(name.equals("ko_KR")){
+				 	 %>						
 						<h4><span>[${result.clGbnNm}]</span> ${result.sbjtNtcPlte}</h4>
 						<p>${fn:substring(result.dtRgst,0,4)}.${fn:substring(result.dtRgst,4,6)}.${fn:substring(result.dtRgst,6,8)}</p>
+					<%
+				     	} else {
+					%>
+						<h4><span>[${result.clGbnNm}]</span> ${result.sbjtNtcPlteEn}</h4>
+						<p>${fn:substring(result.dtRgst,0,4)}.${fn:substring(result.dtRgst,4,6)}.${fn:substring(result.dtRgst,6,8)}</p>					
+					<%
+				     	}
+					%>
 					</div>
 				<c:choose>	
 					<c:when test="${fileVoList.size() > 0}">					
@@ -81,7 +92,17 @@ function goView(idx){
 					</c:otherwise>
 				</c:choose>						
 				<div class="newsContent">
+					 <%
+				     	if(name.equals("ko_KR")){
+				 	 %>					
 					<article><c:out value="${result.cntsNtcPlte}" escapeXml="false"/></article>
+					<%
+				     	} else {
+					%>
+					<article><c:out value="${result.cntsNtcPlteEn}" escapeXml="false"/></article>					
+					<%
+				     	}
+					%>
 				</div>
 				</div>
 				

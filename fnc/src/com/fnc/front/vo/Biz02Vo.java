@@ -15,14 +15,23 @@ public class Biz02Vo {
 	private String atrb_2_en;
 	private String atrb_3_en;
 	private String atrb_4_en;	
-	private String cdPdCtUseEn;
+	//private String cdPdCtUseEn;
+	private String cd_pdct_use_en;	
 	
+	public String getCd_pdct_use_en() {
+		return cd_pdct_use_en;
+	}
+	public void setCd_pdct_use_en(String cd_pdct_use_en) {
+		this.cd_pdct_use_en = cd_pdct_use_en;
+	}
+	/*
 	public String getCdPdCtUseEn() {
 		return cdPdCtUseEn;
 	}
 	public void setCdPdCtUseEn(String cdPdCtUseEn) {
 		this.cdPdCtUseEn = cdPdCtUseEn;
 	}
+	*/
 	public String getAtrb_2_en() {
 		return atrb_2_en;
 	}
