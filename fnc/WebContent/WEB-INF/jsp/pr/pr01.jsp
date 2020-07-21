@@ -62,7 +62,7 @@ function fn_getList(sNum,eNum) {
 							html += '<li>';
 							html += '<a href="javascript:goView(' + result.noNtcPlteSral + ');" class="thumbnail"><img src="' + thumbPath + result.nmPhysFile + '" alt="' + result.cntsFileDtil + '"></a>';
 							html += '<div class="highlight">';
-							html += '<a href="javascript:goView(' + result.noNtcPlteSral +');"><span>[' + result.clGbnNm + ']</span> ' + result.sbjtNtcPlteEn + '</a>';
+							html += '<a href="javascript:goView(' + result.noNtcPlteSral +');"><span>[' + result.clGbnNm2 + ']</span> ' + result.sbjtNtcPlteEn + '</a>';
 							html += '<p>' + cntsSmryEn.replace(/\n/g, "<br />") + '</p>';
 							html += '<span>' + dtRgst + '</span>';
 							html += '</div>';
@@ -133,6 +133,8 @@ function goSearch() {
 function goView(idx){
 
 	$("#idx").val(idx);
+	document.form_lang.idx_set.value = idx;
+	document.searchForm.idx_set.value = idx;
 	$("#searchForm").prop("action", "/pr01view.do");
 	$("#searchForm").submit();
 }
@@ -182,6 +184,7 @@ function goView(idx){
 			<section>
 				<form id="searchForm" name="searchForm" method="post">
 					<input type="hidden" id="idx" name="idx" value="" />
+					<input type="hidden" id="idx_set" name="idx_set" value="" />
 					
 					<fieldset>
 						<div class="srchArea">

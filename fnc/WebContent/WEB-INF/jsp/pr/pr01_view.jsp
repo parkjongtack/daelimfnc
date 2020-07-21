@@ -71,7 +71,7 @@ function goView(idx){
 					<%
 				     	} else {
 					%>
-						<h4><span>[${result.clGbnNm}]</span> ${result.sbjtNtcPlteEn}</h4>
+						<h4><span>[${result.clGbnNm2}]</span> ${result.sbjtNtcPlteEn}</h4>
 						<p>${fn:substring(result.dtRgst,0,4)}.${fn:substring(result.dtRgst,4,6)}.${fn:substring(result.dtRgst,6,8)}</p>					
 					<%
 				     	}

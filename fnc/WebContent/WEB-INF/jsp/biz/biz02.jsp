@@ -224,6 +224,7 @@ $(document).ready(function() {
 	    }
 	});
 });
+
 //목록
 function fn_getList(){
 	var chkVal = "";

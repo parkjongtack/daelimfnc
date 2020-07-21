@@ -160,7 +160,7 @@
 				<tr>
 					<th>두께</th>
 					<td>
-						<input type="text" id="atrb3" name="atrb3" class="iptful" placeholder="" value="${resultVo.atrb3}">
+						<input type="text" id="atrb3" name="atrb_3_en" class="iptful" placeholder="" value="${resultVo.atrb_3_en}">
 					</td>
 				</tr>
 				<tr>

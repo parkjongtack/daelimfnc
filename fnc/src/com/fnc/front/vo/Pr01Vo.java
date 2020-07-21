@@ -4,6 +4,13 @@ public class Pr01Vo {
 	
 	private String rnum;
 	private String noNtcPlteSral;
+	private String noNtcPlteSral1;
+	public String getNoNtcPlteSral1() {
+		return noNtcPlteSral1;
+	}
+	public void setNoNtcPlteSral1(String noNtcPlteSral1) {
+		this.noNtcPlteSral1 = noNtcPlteSral1;
+	}
 	private String clNtcPlte;
 	private String noAtchFileThumSral;
 	private String noAtchFileSral;
@@ -21,6 +28,14 @@ public class Pr01Vo {
 	private String cntsSmryEn;
 	private String cntsNtcPlteEn;		
 	
+	private String clGbnNm2;
+	
+	public String getClGbnNm2() {
+		return clGbnNm2;
+	}
+	public void setClGbnNm2(String clGbnNm2) {
+		this.clGbnNm2 = clGbnNm2;
+	}
 	public String getSbjtNtcPlteEn() {
 		return sbjtNtcPlteEn;
 	}

@@ -12,6 +12,11 @@ public class Pr01Dao {
 		//데이터베이스 연결 테스트
 		return (Pr01Vo) SqlReaderXml.getInstance().queryForObject("selectPr01", noNtcPlteSral);
 	}
+	
+	public Pr01Vo selectPr01_2(String noNtcPlteSral1) throws SQLException {      
+		//데이터베이스 연결 테스트
+		return (Pr01Vo) SqlReaderXml.getInstance().queryForObject("selectPr01_2", noNtcPlteSral1);
+	}	
 
 	
 	// 리스트 객체

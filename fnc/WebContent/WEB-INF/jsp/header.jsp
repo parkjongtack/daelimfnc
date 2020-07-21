@@ -15,6 +15,7 @@
 <meta charset="utf-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
 <meta http-equiv="expires" content="0" />
 <meta http-equiv="cache-control" content="no-cache" />
 <meta http-equiv="pragma" content="no-cache" />
@@ -176,6 +177,7 @@ function downloadFileAll(){
                 </li>
                 </ul>
                 <form action="<% request.getRequestURI(); %>" method="post" name="form_lang">
+				<input type="hidden" id="idx_set" name="idx_set" value="<%=request.getParameter("idx_set") %>" />
                 <select name="request_locale" class="lang_select">
                    		<%
                             if(name.equals("en_US")){
@@ -230,6 +232,10 @@ function downloadFileAll(){
         });
         */
         $(function () {
+        	
+        	console.log('111111');
+        	//location.reload();
+        	
 	        $('select[name=request_locale]').change(function(){
 	            var lang_ = $(this).val();
 	            var form = document.form_lang;

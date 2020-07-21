@@ -334,7 +334,7 @@ function fn_getList(){
 		        	html += "	<td>" + data.resultList[i].cdPdCtUseEn + "</td>";
 		        	html += "	<td>" + data.resultList[i].nmPdct + "</td>";		        	
 		        	html += "	<td class='align-l'>" + data.resultList[i].atrb_2_en + "</td>";
-		        	html += "	<td>" + data.resultList[i].atrb3 + "</td>";
+		        	html += "	<td>" + data.resultList[i].atrb_3_en + "</td>";
 		        	html += "	<td>" + data.resultList[i].atrb_4_en + "</td>";
 		        	<%
 				    	}

@@ -347,7 +347,7 @@
 			 , ATRB_1 = #atrb1#
 			 , ATRB_3 = #atrb3#         
 			 , ATRB_2_EN = #atrb_2_en#                
-			 <!-- , ATRB_3_EN = #atrb_3_en# -->
+			 , ATRB_3_EN = #atrb_3_en#
 			 , ATRB_4_EN = #atrb_4_en#			 
 			 , NO_ATCH_FILE_SRAL = #noAtchFileSral#
 			 , YN_NTC = #ynNtc#

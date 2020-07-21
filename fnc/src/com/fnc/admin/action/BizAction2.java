@@ -155,6 +155,7 @@ public class BizAction2 extends BaseAction {
 		int noPrdtSral = this.noPrdtSral; 
 		resultVo = dao.selectBizInfo(noPrdtSral);
 		this.fileVoList= fileDao.selectFileList(resultVo.getNoAtchFileSral());
+		logger.debug("### resultVo.getNmPdCt(); ###" + resultVo.getAtrb_3_en());
 		logger.debug("### resultVo.getNmPdCt(); ###" + resultVo.getNmPdCt());
 
 		return SUCCESS;
@@ -165,7 +166,7 @@ public class BizAction2 extends BaseAction {
 	 */
 	public String modiExcute() throws Exception {
 		HashMap<String, Object> paramMap = getMap();
-		System.out.println("들어왔음");
+		System.out.println(request.getParameter("atrb_3_en"));
 		HashMap<String, Object> fileMap = new HashMap<String, Object>();	// 이미지용 객체
 		
 		// 세션 값 세팅
@@ -176,10 +177,11 @@ public class BizAction2 extends BaseAction {
 		paramMap.put("ipAdmnPrsn", request.getRemoteAddr());
 		//paramMap.put("dtRgst", StringManager.chkNull(paramMap.get("dtRgst")).replaceAll("-", ""));	// 등록일
 		
-		System.out.println(request.getParameter("cdPdCtUseEn"));
+		System.out.println(request.getParameter("atrb_3_en"));
 		//System.exit(0);
 		
 		paramMap.put("atrb_2_en", request.getParameter("atrb_2_en"));
+		paramMap.put("atrb_3_en", request.getParameter("atrb_3_en"));
 		paramMap.put("atrb_4_en", request.getParameter("atrb_4_en"));
 		paramMap.put("noPrdtSral", request.getParameter("noPrdtSral"));
 		paramMap.put("cdPdCtUseEn", request.getParameter("cdPdCtUseEn"));	

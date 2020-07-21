@@ -35,9 +35,9 @@
 								<td>
 									<select class="srh-hpart" id="comGroup" name="clGbn">
 										<option value="">구분선택</option>
-										<option value="01" <c:if test="${resultVo.clGbn eq '01'}">selected="selected"</c:if>>공지사항</option>
-										<option value="02" <c:if test="${resultVo.clGbn eq '02'}">selected="selected"</c:if>>프로그램/행사</option>
-										<option value="03" <c:if test="${resultVo.clGbn eq '03'}">selected="selected"</c:if>>수상</option>
+										<option value="01" <c:if test="${resultVo.clGbn eq '01'}">selected="selected"</c:if>>Notice</option>
+										<option value="02" <c:if test="${resultVo.clGbn eq '02'}">selected="selected"</c:if>>Program/Event</option>
+										<option value="03" <c:if test="${resultVo.clGbn eq '03'}">selected="selected"</c:if>>Award</option>
 									</select>
 								</td>
 							</tr>

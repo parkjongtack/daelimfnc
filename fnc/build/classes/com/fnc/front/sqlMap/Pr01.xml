@@ -23,6 +23,12 @@
             	WHEN CL_GBN = '03' THEN '수상'
               ELSE CL_GBN
               END clGbnNm
+            , CASE
+            	WHEN CL_GBN = '01' THEN 'Notice'
+            	WHEN CL_GBN = '02' THEN 'Program/Event'
+            	WHEN CL_GBN = '03' THEN 'Award'
+              ELSE CL_GBN
+              END clGbnNm2              
         FROM
             HABT_NTC_PLTE
         WHERE 1=1
@@ -83,6 +89,12 @@
 	            	WHEN A.CL_GBN = '03' THEN '수상'
 	              ELSE A.CL_GBN
 	              END clGbnNm
+	            , CASE
+	            	WHEN A.CL_GBN = '01' THEN 'Notice'
+	            	WHEN A.CL_GBN = '02' THEN 'Program/Event'
+	            	WHEN A.CL_GBN = '03' THEN 'Award'
+	              ELSE A.CL_GBN
+	              END clGbnNm2              
 	            , B.NM_PHYS_FILE AS nmPhysFile
 	            , B.CNTS_FILE_DTIL AS cntsFileDtil
 	        FROM

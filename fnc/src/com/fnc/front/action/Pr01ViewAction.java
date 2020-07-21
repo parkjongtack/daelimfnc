@@ -27,7 +27,17 @@ public class Pr01ViewAction extends BaseAction{
 	private String searchCnts;
 	private List<FileVo> thumbVoList;
 	private List<FileVo> fileVoList;
+	private String idx;
+	private String idx_set;
 	
+	public String getIdx_set() {
+		return idx_set;
+	}
+
+	public void setIdx_set(String idx_set) {
+		this.idx_set = idx_set;
+	}
+
 	public List<FileVo> getFileVoList() {
 		return fileVoList;
 	}
@@ -54,14 +64,33 @@ public class Pr01ViewAction extends BaseAction{
 		
 		String noNtcPlteSral = StringManager.chkNull(paramMap.get("idx"));
 		
-		result = pr01Dao.selectPr01(noNtcPlteSral);
-		this.thumbVoList= fileDao.selectFileList(result.getNoAtchFileThumSral());
-		this.fileVoList= fileDao.selectFileList(result.getNoAtchFileSral());		
+		if(noNtcPlteSral == "" || noNtcPlteSral == null) {
+			String noNtcPlteSral1 = StringManager.chkNull(paramMap.get("idx_set"));			
+			result = pr01Dao.selectPr01(noNtcPlteSral1);
+			
+			pr01Vo.setNoNtcPlteSral(noNtcPlteSral1);
+
+			this.idx = noNtcPlteSral1;
+			this.idx_set = noNtcPlteSral1;
+			
+		} else {
+			result = pr01Dao.selectPr01(noNtcPlteSral);			
+			pr01Vo.setNoNtcPlteSral(noNtcPlteSral);
+		}
+		
+		try {
+			
+			this.thumbVoList= fileDao.selectFileList(result.getNoAtchFileThumSral());			
+			this.fileVoList= fileDao.selectFileList(result.getNoAtchFileSral());		
+			
+		}catch(NullPointerException e){
+
+			
+			
+		}
 		
 		this.searchCls = StringManager.chkNull(paramMap.get("searchCls"));
 		this.searchCnts = StringManager.chkNull(paramMap.get("searchCnts"));
-		
-		pr01Vo.setNoNtcPlteSral(noNtcPlteSral);
 		if (!"".equals(this.searchCls)) {
 			pr01Vo.setSearchCls(this.searchCls);
 		}
@@ -69,11 +98,20 @@ public class Pr01ViewAction extends BaseAction{
 		if (!"".equals(this.searchCnts)) {
 			pr01Vo.setSearchCnts(this.searchCnts);
 		}
-		logger.debug("fileVoList  ======================== " + fileVoList.size());
+		
+		//logger.debug("fileVoList  ======================== " + fileVoList.size());
 
 		prev = pr01Dao.selectPrev(pr01Vo);
 		next = pr01Dao.selectNext(pr01Vo);
 
 		return SUCCESS;
+	}
+
+	public String getIdx() {
+		return idx;
+	}
+
+	public void setIdx(String idx) {
+		this.idx = idx;
 	}
 }
