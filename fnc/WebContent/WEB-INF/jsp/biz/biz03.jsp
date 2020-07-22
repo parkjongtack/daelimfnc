@@ -80,6 +80,9 @@
 				</tr>
 				</thead>
 				<tbody id="tbody">
+<%					
+	if(name.equals("ko_KR")){
+%>
  				<tr>
 					<td>EVA Anti Scuff</td>
 					<td>ENS</td>
@@ -141,6 +144,70 @@
 					<td><a href="/static/bizfolder/6DVT/BOPP_FILM(DVT)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
 					<td><a href="/static/bizfolder/6DVT/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
 				</tr>
+<% } else { %>
+ 				<tr>
+					<td>EVA Anti Scuff</td>
+					<td>ENS</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>30</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/1ENS/EVA_ENS.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/1ENS/BOPP_FILM(ENS)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+<!-- 					<td><a href="javascript:downloadFileAll('0', '193', 'BOPP_DHT');" class="btn-download"><span class="blind">FDA 다운로드</span></a></td> -->
+					<td><a href="/static/bizfolder/1ENS/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+				<tr>
+					<td>EVA Soft Feel</td>
+					<td>EVT</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>34, 38</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/2EVT/EVA_EVT.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/2EVT/BOPP_FILM(EVT)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+					<td><a href="/static/bizfolder/2EVT/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+				<tr>
+					<td>Wet Anti Scuff</td>
+					<td>DAS</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>18</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/3DAS/BOPP_DAS.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/3DAS/BOPP_FILM(DAS)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+					<td><a href="/static/bizfolder/3DAS/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+				<tr>
+					<td>Thermal Anti Scuff</td>
+					<td>DNS</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>18</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/4DNS/BOPP_DNS.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/4DNS/BOPP_FILM(DNS)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+					<td><a href="/static/bizfolder/4DNS/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+				<tr>
+					<td>Wet Soft Feel</td>
+					<td>DVW</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>18</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/5DVW/BOPP_DVW.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/5DVW/BOPP_FILM(DVM)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+					<td><a href="/static/bizfolder/5DVW/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+				<tr>
+					<td>Thermal Soft Feel</td>
+					<td>DVT</td>
+					<td class="align-l">PREMIUM PAMPHLET, PAPER BAG, PAPER BOX</td>
+					<td>18</td>
+					<td>Both</td>
+					<td><a href="/static/bizfolder/6DVT/BOPP_DVT.zip" class="btn-download type-all"><span class="blind">전체다운로드</span></a></td>
+					<td><a href="/static/bizfolder/6DVT/BOPP_FILM(DVT)_MSDS.pdf" class="btn-download"><span class="blind">MSDS 다운로드</span></a></td>
+					<td><a href="/static/bizfolder/6DVT/film_FDA.pdf" class="btn-download"><span class="blind">FDA 다운로드</span></a></td>
+				</tr>
+<% } %>	
+
 				</tbody>
 			</table>
 <%					
