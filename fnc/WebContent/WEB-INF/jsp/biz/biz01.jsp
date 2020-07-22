@@ -203,42 +203,42 @@
 				</colgroup>
 				<thead>
 				<tr>
-					<th><s:text name="biz01_43"/></th>
-					<th><s:text name="biz01_45"/></th>
 					<th><s:text name="biz01_44"/></th>
+					<th><s:text name="biz01_45"/></th>
 					<th><s:text name="biz01_46"/></th>
+					<th><s:text name="biz01_47"/></th>
 				</tr>
 				</thead>
 				<tbody>
 				<tr>
-					<td><s:text name="biz01_47"/></td>
-					<td class="align-l"><s:text name="biz01_49"/></td>
 					<td><s:text name="biz01_48"/></td>
+					<td class="align-l"><s:text name="biz01_49"/></td>
 					<td><s:text name="biz01_50"/></td>
-				</tr>
-				<tr>
 					<td><s:text name="biz01_51"/></td>
-					<td class="align-l"><s:text name="biz01_53"/></td>
+				</tr>
+				<tr>
 					<td><s:text name="biz01_52"/></td>
+					<td class="align-l"><s:text name="biz01_53"/></td>
 					<td><s:text name="biz01_54"/></td>
-				</tr>
-				<tr>
 					<td><s:text name="biz01_55"/></td>
-					<td class="align-l"><s:text name="biz01_57"/></td>
+				</tr>
+				<tr>
 					<td><s:text name="biz01_56"/></td>
+					<td class="align-l"><s:text name="biz01_57"/></td>
 					<td><s:text name="biz01_58"/></td>
-				</tr>
-				<tr>
 					<td><s:text name="biz01_59"/></td>
-					<td class="align-l"><s:text name="biz01_61"/></td>
-					<td><s:text name="biz01_60"/></td>
-					<td><s:text name="biz01_62"/></td>
 				</tr>
 				<tr>
+					<td><s:text name="biz01_60"/></td>
+					<td class="align-l"><s:text name="biz01_61"/></td>
+					<td><s:text name="biz01_62"/></td>
 					<td><s:text name="biz01_63"/></td>
-					<td class="align-l"><s:text name="biz01_65"/></td>
+				</tr>
+				<tr>
 					<td><s:text name="biz01_64"/></td>
+					<td class="align-l"><s:text name="biz01_65"/></td>
 					<td><s:text name="biz01_66"/></td>
+					<td><s:text name="biz01_67"/></td>
 				</tr>
 				</tbody>
 			</table>
@@ -334,7 +334,7 @@ function fn_getList(){
 		        	html += "	<td>" + data.resultList[i].cdPdCtUseEn + "</td>";
 		        	html += "	<td>" + data.resultList[i].nmPdct + "</td>";		        	
 		        	html += "	<td class='align-l'>" + data.resultList[i].atrb_2_en + "</td>";
-		        	html += "	<td>" + data.resultList[i].atrb3 + "</td>";
+		        	html += "	<td>" + data.resultList[i].atrb_3_en + "</td>";
 		        	html += "	<td>" + data.resultList[i].atrb_4_en + "</td>";
 		        	<%
 				    	}

@@ -139,6 +139,7 @@
 				</tr>
 				</thead>
 				<tbody id="tbody">
+				
 				</tbody>
 			</table>
 			<span class="tbl-info-txt">※ MIE 2.16kg, MIP 5kg, MIF 21.6kg</span>
@@ -223,6 +224,7 @@ $(document).ready(function() {
 	    }
 	});
 });
+
 //목록
 function fn_getList(){
 	var chkVal = "";
@@ -238,7 +240,7 @@ function fn_getList(){
 	}
 	
 	$.ajax({
-		url : "/biz02List.do",
+		url : "./biz02List.do",
         type: 'POST',
         data: {
         	searchVal: chkVal
@@ -255,9 +257,22 @@ function fn_getList(){
 		        	html += "	<td>" + data.resultList[i].gubun1 + "</td>";
 		        	html += "	<td>" + data.resultList[i].gubun2 + "</td>";
 		        	html += "	<td>" + data.resultList[i].nmPdct + "</td>";
+					<%					
+				    	if(name.equals("ko_KR")){
+					%>			        	
 		        	html += "	<td>" + data.resultList[i].atrb2 + "</td>";
 		        	html += "	<td class='align-l'>" + data.resultList[i].atrb3 + "</td>";
 		        	html += "	<td>" + data.resultList[i].atrb4 + "</td>";
+		        	<%
+				    	} else {
+		        	%>
+		        	html += "	<td>" + data.resultList[i].atrb_2_en + "</td>";
+		        	html += "	<td class='align-l'>" + data.resultList[i].atrb_3_en + "</td>";
+		        	html += "	<td>" + data.resultList[i].atrb_4_en + "</td>";
+
+		        	<%
+				    	}
+		        	%>
 		        	html += "<td>";
 		        	if ($.trim(data.resultList[i].file1) != "") {
 		        	html += "<a href='/fileDownload.do?idx=" + data.resultList[i].file1 + "&dir=product' class='btn-download type-all'><span class='blind'>전체다운로드</span></a>";
@@ -278,7 +293,7 @@ function fn_getList(){
         	} else {
         		html += "<tr><td style='text-align: center;' colspan='9'>검색 데이터가 없습니다.</td></tr>";
         	}
-        	
+        	console.log(html);
         	$("#tbody").html(html);
         }
 	});
