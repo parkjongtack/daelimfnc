@@ -168,12 +168,12 @@
 				</tr>
 				</thead>
 				<tbody>
-				<tr>
+				<!-- <tr>
 					<td><s:text name="biz01_33"/></td>
 					<td><s:text name="biz01_34"/></td>
 					<td><s:text name="biz01_35"/></td>
 					<td><a href="<s:text name="biz_mail_1"/>" class="btn-mail"><s:text name="biz01_36"/></a></td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td><s:text name="biz01_33"/></td>
 					<td><s:text name="biz01_38"/></td>
